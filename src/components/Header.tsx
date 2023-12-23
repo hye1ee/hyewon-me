@@ -7,10 +7,13 @@ export default Header;
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 110px;
+  height: 100px;
 
-  position: absolute;
-  top: 0;
+  padding-top: 10px;
+
+  flex: 0 0 auto;
+  position: sticky;
+  top: -10px;
 
   background-color: blue;
   opacity: 50%;

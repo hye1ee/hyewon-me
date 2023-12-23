@@ -1,6 +1,6 @@
 import PageLayout from "../components/PageLayout";
 
 const Main = () => {
-  return <PageLayout>Main</PageLayout>;
+  return <PageLayout main={true}>Main</PageLayout>;
 };
 export default Main;
