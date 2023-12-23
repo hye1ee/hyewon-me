@@ -9,18 +9,20 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <HeaderElWrapper onClick={onScrollById("main-page")}>
-        Hyewon Lee
+      <HeaderElWrapper bold={true} onClick={onScrollById("main-page")}>
+        HYEWON LEE
       </HeaderElWrapper>
-      <HeaderElWrapper onClick={onScrollById("about-page")}>
-        About
-      </HeaderElWrapper>
-      <HeaderElWrapper onClick={onScrollById("experience-page")}>
-        Experience
-      </HeaderElWrapper>
-      <HeaderElWrapper onClick={onScrollById("projects-page")}>
-        Projects
-      </HeaderElWrapper>
+      <HeaderRowWrapper>
+        <HeaderElWrapper onClick={onScrollById("about-page")}>
+          ABOUT
+        </HeaderElWrapper>
+        <HeaderElWrapper onClick={onScrollById("experience-page")}>
+          EXPERIENCE
+        </HeaderElWrapper>
+        <HeaderElWrapper onClick={onScrollById("projects-page")}>
+          PROJECTS
+        </HeaderElWrapper>
+      </HeaderRowWrapper>
     </HeaderContainer>
   );
 };
@@ -28,9 +30,10 @@ export default Header;
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 105px;
 
-  padding-top: 10px;
+  box-sizing: border-box;
+  padding: 10px 35px 0 35px;
 
   flex: 0 0 auto;
   position: sticky;
@@ -41,10 +44,23 @@ const HeaderContainer = styled.div`
 
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;
 
-const HeaderElWrapper = styled.div`
+const HeaderRowWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+`;
+
+const HeaderElWrapper = styled.div<{ bold?: boolean }>`
   padding: 10px 15px;
   color: black;
   cursor: pointer;
+
+  font-size: ${(props) => (props.bold ? "22px" : "18px")};
+  font-family: ${(props) =>
+    props.bold ? "Gilroy-Medium, sans-serif" : "Gilroy-Regular, sans-serif"};
 `;
