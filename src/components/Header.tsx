@@ -33,7 +33,7 @@ const HeaderContainer = styled.div`
   height: 105px;
 
   box-sizing: border-box;
-  padding: 10px 35px 0 35px;
+  padding: 10px 25px 0 25px;
 
   flex: 0 0 auto;
   position: sticky;
@@ -46,6 +46,8 @@ const HeaderContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  z-index: 100;
 `;
 
 const HeaderRowWrapper = styled.div`
