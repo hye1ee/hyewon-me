@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <About />
       <Experience />
       <Projects />
+      <Footer />
     </PageWrapper>
   );
 };
@@ -32,4 +34,5 @@ const PageWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   overflow-y: scroll;
+  overflow-x: hidden;
 `;
