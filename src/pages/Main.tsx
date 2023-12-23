@@ -24,10 +24,18 @@ const Main = () => {
   const [animateText, setAnimateText] = useState<number>(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setAnimateText((prev) => (prev + 1) % 5);
-    }, 2000);
-    setTimeout(() => clearInterval(timer), 8500);
+    const handleAnimation = () => {
+      setAnimateText(0);
+      const timer = setInterval(() => {
+        setAnimateText((prev) => (prev + 1) % 5);
+      }, 2000);
+      setTimeout(() => clearInterval(timer), 8500);
+    };
+    handleAnimation();
+    document.addEventListener("animateMain", handleAnimation);
+    return () => {
+      document.removeEventListener("animateMain", handleAnimation);
+    };
   }, []);
 
   return (

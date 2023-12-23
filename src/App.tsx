@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./components/Header";
 import styled from "styled-components";
-import Main from "./pages/Main";
-import About from "./pages/About";
-import Experience from "./pages/Experience";
-import Projects from "./pages/Projects";
-import Footer from "./components/Footer";
+
+import Header from "@components/Header";
+import Main from "@pages/Main";
+import About from "@pages/About";
+import Experience from "@pages/Experience";
+import Projects from "@pages/Projects";
+import Footer from "@components/Footer";
 
 const App = () => {
   return (

@@ -5,6 +5,10 @@ const Header = () => {
     document
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    if (id === "main-page") {
+      const animateMain = new Event("animateMain");
+      document.dispatchEvent(animateMain);
+    }
   };
 
   return (
