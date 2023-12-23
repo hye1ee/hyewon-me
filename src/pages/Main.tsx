@@ -20,23 +20,31 @@ const animation = {
   },
 };
 
-const Main = () => {
+const Main = ({
+  animateEvent,
+  setAnimateEvent,
+}: {
+  animateEvent: boolean;
+  setAnimateEvent: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [animateText, setAnimateText] = useState<number>(0);
 
   useEffect(() => {
-    const handleAnimation = () => {
+    setAnimateEvent(true);
+  }, []);
+
+  useEffect(() => {
+    if (animateEvent) {
       setAnimateText(0);
       const timer = setInterval(() => {
         setAnimateText((prev) => (prev + 1) % 5);
       }, 2000);
-      setTimeout(() => clearInterval(timer), 8500);
-    };
-    handleAnimation();
-    document.addEventListener("animateMain", handleAnimation);
-    return () => {
-      document.removeEventListener("animateMain", handleAnimation);
-    };
-  }, []);
+      setTimeout(() => {
+        setAnimateEvent(false);
+        clearInterval(timer);
+      }, 8500);
+    }
+  }, [animateEvent]);
 
   return (
     <PageLayout main={true} id="main-page" style={{ paddingBottom: "90px" }}>

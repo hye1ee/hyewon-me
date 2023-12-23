@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
-const Header = () => {
+const Header = (props: { onAnimate: () => void }) => {
   const onScrollById = (id: string) => () => {
     document
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-    if (id === "main-page") {
-      const animateMain = new Event("animateMain");
-      document.dispatchEvent(animateMain);
-    }
+    if (id === "main-page") props.onAnimate();
   };
 
   return (

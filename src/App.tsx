@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Header from "@components/Header";
@@ -9,10 +9,15 @@ import Projects from "@pages/Projects";
 import Footer from "@components/Footer";
 
 const App = () => {
+  const [animateEvent, setAnimateEvent] = useState<boolean>(false);
+  const onAnimate = () => {
+    if (!animateEvent) setAnimateEvent(true);
+  };
+
   return (
     <PageWrapper>
-      <Header />
-      <Main />
+      <Header onAnimate={onAnimate} />
+      <Main animateEvent={animateEvent} setAnimateEvent={setAnimateEvent} />
       <About />
       <Experience />
       <Projects />
