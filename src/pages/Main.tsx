@@ -97,10 +97,10 @@ const Main = ({
         <Lottie
           lottieRef={lottieDevelopRef}
           style={{
-            width: "23%",
+            width: "21%",
             position: "absolute",
-            left: "20%",
-            top: "12%",
+            left: "22%",
+            top: "14%",
           }}
           autoplay={false}
           loop={false}
@@ -110,7 +110,7 @@ const Main = ({
           <div style={{ fontFamily: "Hello-Ketta", fontSize: "70px" }}>
             {"Hello, My name is"}
           </div>
-          <div style={{ fontSize: "96px" }}>{"HYEWON\nLEE"}</div>
+          <MainTitle>{"HYEWON\nLEE"}</MainTitle>
           <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
             <MainIcon
               onClick={() => window.open("https://www.linkedin.com/in/hye1ee/")}
@@ -151,7 +151,7 @@ const Main = ({
               alignItems: "flex-end",
             }}
           >
-            {"I  "}
+            <MainTitle>{"I  "}</MainTitle>
             <MainMotionContainer
               key={animateText}
               variants={animation}
@@ -162,7 +162,7 @@ const Main = ({
               {AnimateText[animateText]}
             </MainMotionContainer>
           </div>
-          {"CREATIVE\nINTERACTIONS"}
+          <MainTitle> {"CREATIVE\nINTERACTIONS"}</MainTitle>
         </MainContentLeftBottom>
       </MainWrapper>
     </PageLayout>
@@ -190,6 +190,7 @@ const MainContentRight = styled.div`
 `;
 
 const MainContentRightBottom = styled.div`
+  max-width: 50%;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -203,6 +204,7 @@ const MainContentRightBottom = styled.div`
 `;
 
 const MainContentLeftBottom = styled.div`
+  max-width: 50%;
   position: absolute;
   left: 0;
   bottom: -20px;
@@ -224,6 +226,16 @@ const MainIcon = styled.img`
     opacity: 50%;
   }
   transition: all 0.3s;
+`;
+
+const MainTitle = styled.div`
+  font-size: 96px;
+  @media screen and (max-width: 1440px) {
+    font-size: 80px;
+  }
+  @media screen and (max-width: 960px) {
+    font-size: 68px;
+  }
 `;
 
 const MainMotionContainer = styled(motion.div)`
