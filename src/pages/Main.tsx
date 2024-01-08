@@ -6,6 +6,7 @@ import PageLayout from "@components/PageLayout";
 
 import LinkedinIcon from "@assets/linkedinIcon.png";
 import GithubIcon from "@assets/githubIcon.png";
+import TestImg from "@assets/test.png";
 
 const AnimateText = ["", "Research", "Design", "Develop", "Build"];
 
@@ -49,6 +50,10 @@ const Main = ({
   return (
     <PageLayout main={true} id="main-page" style={{ paddingBottom: "90px" }}>
       <MainWrapper>
+        <img
+          style={{ width: "60%", position: "relative", top: "-25px" }}
+          src={TestImg}
+        />
         <MainContentRight>
           <div style={{ fontFamily: "Hello-Ketta", fontSize: "70px" }}>
             {"Hello, My name is"}
@@ -121,6 +126,7 @@ const MainWrapper = styled.div`
 
 const MainContentRight = styled.div`
   position: absolute;
+  top: 0;
   right: 0;
 
   display: flex;
