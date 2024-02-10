@@ -11,7 +11,7 @@ import PageLayout from "@components/PageLayout";
 
 import LinkedinIcon from "@assets/linkedinIcon.png";
 import GithubIcon from "@assets/githubIcon.png";
-import TestImg from "@assets/test.png";
+import CvIcon from "@assets/cvIcon.png";
 
 const AnimateText = ["", "Research", "Design", "Develop", "Build"];
 
@@ -119,6 +119,11 @@ const Main = ({
             <MainIcon
               onClick={() => window.open("https://github.com/hye1ee")}
               src={GithubIcon}
+            />
+
+            <MainIcon
+              onClick={() => window.open("http://localhost:3000/CV.pdf")}
+              src={CvIcon}
             />
           </div>
         </MainContentRight>
