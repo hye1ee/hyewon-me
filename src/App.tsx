@@ -18,10 +18,10 @@ const App = () => {
     <PageWrapper>
       <Header onAnimate={onAnimate} />
       <Main animateEvent={animateEvent} setAnimateEvent={setAnimateEvent} />
-      <About />
+      {/* <About />
       <Experience />
       <Projects />
-      <Footer />
+      <Footer /> */}
     </PageWrapper>
   );
 };
@@ -39,6 +39,6 @@ const PageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 `;

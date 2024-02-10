@@ -13,7 +13,7 @@ const Header = (props: { onAnimate: () => void }) => {
       <HeaderElWrapper bold={true} onClick={onScrollById("main-page")}>
         HYEWON LEE
       </HeaderElWrapper>
-      <HeaderRowWrapper>
+      {/* <HeaderRowWrapper>
         <HeaderElWrapper onClick={onScrollById("about-page")}>
           ABOUT
         </HeaderElWrapper>
@@ -23,7 +23,7 @@ const Header = (props: { onAnimate: () => void }) => {
         <HeaderElWrapper onClick={onScrollById("projects-page")}>
           PROJECTS
         </HeaderElWrapper>
-      </HeaderRowWrapper>
+      </HeaderRowWrapper> */}
     </HeaderContainer>
   );
 };
