@@ -122,7 +122,7 @@ const Main = ({
             />
 
             <MainIcon
-              onClick={() => window.open("http://localhost:3000/CV.pdf")}
+              onClick={() => window.open("http://hyewon.me/CV.pdf")}
               src={CvIcon}
             />
           </div>
