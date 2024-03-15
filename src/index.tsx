@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/CV.pdf",
+    path: "/resume",
     element: <PdfContainer link="Hyewon_Lee_CV.pdf" />,
   },
 ]);

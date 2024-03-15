@@ -18,10 +18,10 @@ const App = () => {
     <PageWrapper>
       <Header onAnimate={onAnimate} />
       <Main animateEvent={animateEvent} setAnimateEvent={setAnimateEvent} />
-      {/* <About />
-      <Experience />
+      <About />
+      {/* <Experience /> */}
       <Projects />
-      <Footer /> */}
+      <Footer />
     </PageWrapper>
   );
 };

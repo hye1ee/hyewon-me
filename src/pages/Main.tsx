@@ -122,19 +122,19 @@ const Main = ({
             />
 
             <MainIcon
-              onClick={() => window.open("http://hyewon.me/CV.pdf")}
+              onClick={() => window.open(window.location.origin + "/resume")}
               src={CvIcon}
             />
           </div>
         </MainContentRight>
         <MainContentRightBottom>
-          <div style={{ fontSize: "23px" }}>
+          <div style={{ fontSize: "18px", lineHeight: 1.5 }}>
             {"I'm a "}
             <span style={{ fontFamily: "Gilroy-Medium" }}>
-              {"Frontend Developer "}
+              {"Software Engineer & Interaction Designer"}
             </span>
             {
-              "& Designer\nwho loves human computer interactions. \n\nMajoring computer science, industrial design at "
+              "\nwho loves human computer interactions. \nMajoring computer science and industrial design at "
             }
             <span
               onClick={() =>
@@ -147,7 +147,7 @@ const Main = ({
             {"\nCurrently based in NYC 🗽, studying at New York University."}
           </div>
         </MainContentRightBottom>
-        <MainContentLeftBottom style={{ fontSize: "96px" }}>
+        <MainContentLeftBottom style={{ fontSize: "94px" }}>
           <div
             style={{
               display: "flex",
@@ -176,7 +176,8 @@ const Main = ({
 export default Main;
 
 const MainWrapper = styled.div`
-  width: 100%;
+  width: 1280px;
+  max-width: 90%;
   height: 100%;
   position: relative;
 `;
@@ -234,7 +235,7 @@ const MainIcon = styled.img`
 `;
 
 const MainTitle = styled.div`
-  font-size: 96px;
+  font-size: 94px;
   @media screen and (max-width: 1440px) {
     font-size: 80px;
   }
