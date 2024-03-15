@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
-import RadioImg from "@assets/projects/radio.png";
+import MinionizeImg from "@assets/projects/minionize.png";
+import MultiDreamerImg from "@assets/projects/multidreamer.png";
+import VividImg from "@assets/projects/vivid.png";
+import MySelfieRoomImg from "@assets/projects/myselfieroom.png";
+import RadioneImg from "@assets/projects/radione.png";
+
+import ArtVentureImg from "@assets/projects/artventure.png";
+import RunThroughGravityImg from "@assets/projects/runthroughgravity.png";
+import HelloWorldImg from "@assets/projects/helloworld.png";
+import ReliefCubeImg from "@assets/projects/reliefcube.png";
+
 import ContentLayout from "@components/ContentLayout";
 
 const Projects = () => {
@@ -9,7 +19,7 @@ const Projects = () => {
       <ProjectsContainer>
         <ProjectItem
           title="Minionize"
-          src={RadioImg}
+          src={MinionizeImg}
           year={2024}
           type="Web"
           tags={["AR", "Mirror Room"]}
@@ -17,7 +27,7 @@ const Projects = () => {
         />
         <ProjectItem
           title="MultiDreamer"
-          src={RadioImg}
+          src={MultiDreamerImg}
           year={2023}
           type="ML"
           tags={["3D"]}
@@ -25,7 +35,7 @@ const Projects = () => {
         />
         <ProjectItem
           title="VIVID"
-          src={RadioImg}
+          src={VividImg}
           year={2023}
           type="Web"
           tags={["HCI", "LLM"]}
@@ -33,7 +43,7 @@ const Projects = () => {
         />
         <ProjectItem
           title="MySelfieRoom"
-          src={RadioImg}
+          src={MySelfieRoomImg}
           year={2023}
           type="Web"
           tags={["ML", "Social"]}
@@ -41,23 +51,23 @@ const Projects = () => {
         />
         <ProjectItem
           title="Radione"
-          src={RadioImg}
+          src={RadioneImg}
           year={2023}
           type="Product"
-          tags={["UX"]}
+          tags={["UX", "Circuit"]}
           description=""
         />
         <ProjectItem
           title="Artventure"
-          src={RadioImg}
+          src={ArtVentureImg}
           year={2023}
           type="Arduino"
-          tags={["ML", "Social"]}
+          tags={["UX", "Visual Thinking"]}
           description=""
         />
         <ProjectItem
           title="RunThroughGravity"
-          src={RadioImg}
+          src={RunThroughGravityImg}
           year={2022}
           type="Web"
           tags={["P5js", "Firebase"]}
@@ -65,7 +75,7 @@ const Projects = () => {
         />
         <ProjectItem
           title="HelloWorld"
-          src={RadioImg}
+          src={HelloWorldImg}
           year={2021}
           type="Web"
           tags={["3D", "Threejs"]}
@@ -73,7 +83,7 @@ const Projects = () => {
         />
         <ProjectItem
           title="ReliefCube"
-          src={RadioImg}
+          src={ReliefCubeImg}
           year={2021}
           type="Product"
           tags={["UX"]}
@@ -147,11 +157,11 @@ const ProjectItemWrapper = styled.div`
   height: fit-content;
 
   box-sizing: border-box;
-  margin: 0 0 50px 0;
+  margin: 0 0 60px 0;
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 `;
 
 const ProjectTag = styled.div<{ type: boolean }>`
@@ -197,6 +207,7 @@ const ProjectItemImgWrapper = styled.div`
   height: 450px;
 
   border-radius: 10px;
+  border: 1px solid lightgray;
   overflow: hidden;
   position: relative;
   cursor: pointer;
