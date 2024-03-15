@@ -124,6 +124,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             flexDirection: "row",
             gap: "10px",
             alignItems: "center",
+            flexWrap: "wrap",
           }}
         >
           <div style={{ fontSize: "26px", fontWeight: "bold" }}>
@@ -150,6 +151,7 @@ const ProjectTitleWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const ProjectItemWrapper = styled.div`

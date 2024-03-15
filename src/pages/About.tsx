@@ -21,7 +21,10 @@ const About = () => {
           </AboutImg>
         </AboutContentCol>
         <AboutContentCol style={{ flex: 1, marginBottom: "40px" }}>
-          <AboutSection title="INTERESTS" tags={["SaaS", "HCI", "CG"]} />
+          <AboutSection
+            title="INTERESTS"
+            tags={["SaaS", "Human Computer Interaction", "Computer Graphics"]}
+          />
           <AboutSection
             title="EDUCATION"
             contents={[
