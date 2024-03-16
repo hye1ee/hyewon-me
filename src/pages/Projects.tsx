@@ -26,6 +26,7 @@ const Projects = () => {
           type="Web"
           tags={["AR", "Mirror Room"]}
           description="Minionize is a web-based mirror room space where user can generate their minion mask and try it on in the mirror room via AR experience. It conveys a message that 'What is the matter even if we are different look like minions?'"
+          link="https://github.com/hye1ee/minionize"
         />
         <ProjectItem
           title="MultiDreamer"
