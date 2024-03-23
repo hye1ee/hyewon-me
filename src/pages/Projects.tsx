@@ -62,6 +62,7 @@ const Projects = () => {
           type="Product"
           tags={["UX", "Circuit"]}
           description="Radione is a brand new type of radio that improved the usability of finding channels. It simplifies the process at one touch by providing a channel chip that contains channel information as resistors."
+          link={window.location.origin + "/projects/radione"}
         />
         <ProjectItem
           title="Artventure"
