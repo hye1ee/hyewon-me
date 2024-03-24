@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     path: "/projects/radione",
     element: <PdfContainer link="/projects/radione.pdf" />,
   },
+  {
+    path: "/projects/artventure",
+    element: <PdfContainer link="/projects/artventure.pdf" />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(

@@ -70,7 +70,8 @@ const Projects = () => {
           year={2023}
           type="Arduino"
           tags={["UX", "Visual Thinking"]}
-          description="Artventure is an interactive art toy inspired by a pictionary game. It provides an opportunity to enjoy the visual thinking process through art, away from digital stimulations."
+          description="Artventure is an interactive game toy inspired by a pictionary game. It provides an opportunity to enjoy the visual thinking process through art, away from digital stimulations."
+          link={window.location.origin + "/projects/artventure"}
         />
         <ProjectItem
           title="RunThroughGravity"
