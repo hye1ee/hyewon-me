@@ -1,17 +1,23 @@
 import styled from "styled-components";
+import { colors } from "utils/styles";
 
-const PageLayout = styled.div<{ main?: boolean }>`
+const PageLayout = styled.div`
   width: 100%;
-  height: ${(props) =>
-    props.main === true ? "calc(100% - 105px)" : "fit-content"};
+  height: fit-content;
+  min-height: 100%;
 
   position: relative;
   box-sizing: border-box;
   /* padding: 0px 200px; */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 
   flex: 0 0 auto;
+  overflow: hidden;
+
+  background-color: ${colors.white};
+  color: ${colors.black};
 `;
 export default PageLayout;

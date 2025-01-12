@@ -13,102 +13,87 @@ import BlackGhostImg from "@assets/projects/blackghost.png";
 // import HelloWorldImg from "@assets/projects/helloworld.png";
 // import ReliefCubeImg from "@assets/projects/reliefcube.png";
 
-import ContentLayout from "@components/ContentLayout";
+import PageLayout from "@components/PageLayout";
+import { colors } from "utils/styles";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import projects from "@assets/strings/projects";
+import Tag from "@components/Tag";
 
 const Projects = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   return (
-    <ContentLayout id="projects-page" title="PROJECTS">
+    <PageLayout style={{ padding: "32px", gap: "28px" }}>
+      <div
+        style={{ fontWeight: 450, fontSize: "20px", textAlign: "center" }}
+      >{`Projects`}</div>
+      <div style={{ display: "flex", gap: "8px", fontWeight: 350 }}>
+        <div
+          style={{
+            textDecoration: location.hash === "" ? "underline" : "",
+            cursor: "pointer",
+          }}
+          onClick={() => navigate("/projects")}
+        >
+          Selected
+        </div>
+        {"/"}
+        <div
+          style={{
+            textDecoration: location.hash === "#research" ? "underline" : "",
+            cursor: "pointer",
+          }}
+          onClick={() => navigate("/projects/#research")}
+        >
+          Research
+        </div>
+        {"/"}
+        <div
+          style={{
+            textDecoration: location.hash === "#web" ? "underline" : "",
+            cursor: "pointer",
+          }}
+          onClick={() => navigate("/projects/#web")}
+        >
+          Web
+        </div>
+        {"/"}
+        <div
+          style={{
+            textDecoration: location.hash === "#design" ? "underline" : "",
+            cursor: "pointer",
+          }}
+          onClick={() => navigate("/projects/#design")}
+        >
+          Design
+        </div>
+      </div>
+      <div
+        style={{ width: "100%", borderBottom: `1px solid ${colors.gray}` }}
+      ></div>
       <ProjectsContainer>
-        <ProjectItem
-          title="Minionize"
-          src={MinionizeImg}
-          year={2024}
-          type="Web"
-          tags={["AR", "Mirror Room"]}
-          description="Minionize is a web-based mirror room space where user can generate their minion mask and try it on in the mirror room via AR experience. It conveys a message that 'What is the matter even if we are different look like minions?'"
-          link="https://github.com/hye1ee/minionize"
-        />
-        <ProjectItem
-          title="MultiDreamer"
-          src={MultiDreamerImg}
-          year={2023}
-          type="ML"
-          tags={["3D"]}
-          description="MultiDreamer is an end-to-end machine learning pipeline based on SyncDreamer. It enables to generate of 3D meshes from a single-view multi-objects image. The chamfer distance between the inferred model and the ground truth model has decreased by 60% compared with the baseline."
-          link="https://github.com/hye1ee/MultiDreamer"
-        />
-        <ProjectItem
-          title="VIVID"
-          src={VividImg}
-          year={2023}
-          type="Web"
-          tags={["HCI", "LLM"]}
-          description="VIVID is an LLM(Large Language Model) collaborative authoring tool to design, evaluate, and modify pedagogical dialogues. It is built on React with Typescript and Redux, utilizing OpenAI APIs."
-          link="https://github.com/hye1ee/VIVID-demo"
-        />
-        <ProjectItem
-          title="MySelfieRoom"
-          src={MySelfieRoomImg}
-          year={2023}
-          type="Web"
-          tags={["ML", "Social"]}
-          description="MySelfieRoom is a web-based online photobooth service that can take, edit, and share photos. Developed with Typescript and React. To handle the image processing procedure, states are managed by Recoil."
-          link="https://github.com/hye1ee/My-SelfieRoom"
-        />
-        <ProjectItem
-          title="Radione"
-          src={RadioneImg}
-          year={2023}
-          type="Product"
-          tags={["UX", "Circuit"]}
-          description="Radione is a brand new type of radio that improved the usability of finding channels. It simplifies the process at one touch by providing a channel chip that contains channel information as resistors."
-          link={window.location.origin + "/projects/radione"}
-        />
-        <ProjectItem
-          title="Artventure"
-          src={ArtVentureImg}
-          year={2023}
-          type="Arduino"
-          tags={["UX", "Visual Thinking"]}
-          description="Artventure is an interactive game toy inspired by a pictionary game. It provides an opportunity to enjoy the visual thinking process through art, away from digital stimulations."
-          link={window.location.origin + "/projects/artventure"}
-        />
-        <ProjectItem
-          title="RunThroughGravity"
-          src={RunThroughGravityImg}
-          year={2022}
-          type="Web"
-          tags={["P5js", "Firebase"]}
-          description="RunThroughGravity is a mini arcade game implemented with p5.js based on pure Javascript. It developed by adapting an observer pattern to organize game objects and utilized Firebase to manage users."
-          link="https://github.com/hye1ee/run-through-gravity"
-        />
-        <ProjectItem
-          title="BlackGhost"
-          src={BlackGhostImg}
-          year={2022}
-          type="Web"
-          tags={["Electron", "Automator"]}
-          description="BlackGhost is a web-based puzzle game built for Korean reality game show, Treasure Hunt. It is implemented based on React, packed as an app by Electron. To be utilized in a game, its auto-play and termination logic have been developed with a shell script using Automator to run in the background process."
-          link="https://github.com/hye1ee/blackghost"
-        />
-        {/* <ProjectItem
-          title="HelloWorld"
-          src={HelloWorldImg}
-          year={2021}
-          type="Web"
-          tags={["3D", "Threejs"]}
-          description=""
-        />
-        <ProjectItem
-          title="ReliefCube"
-          src={ReliefCubeImg}
-          year={2021}
-          type="Product"
-          tags={["UX"]}
-          description=""
-        /> */}
+        {projects.map((el) => {
+          if (location.hash === "" && !el.selected) return;
+          if (location.hash === "#web" && el.type !== "Web") return;
+          if (location.hash === "#research" && el.type !== "Research") return;
+          if (location.hash === "#design" && el.type !== "Design") return;
+
+          return (
+            <ProjectItem
+              title={el.title}
+              src={el.img}
+              year={el.year}
+              type={el.type}
+              tags={el.tags}
+              link={el.link}
+              description={el.description}
+            />
+          );
+        })}
       </ProjectsContainer>
-    </ContentLayout>
+    </PageLayout>
   );
 };
 export default Projects;
@@ -128,7 +113,7 @@ interface ProjectItemProps {
   title: string;
   src: string;
   year: number;
-  type: "Web" | "Arduino" | "ML" | "Product";
+  type: "Web" | "Research" | "Design";
   tags?: string[];
   link?: string;
   description: string;
@@ -146,16 +131,19 @@ const ProjectItem = (props: ProjectItemProps) => {
             flexWrap: "wrap",
           }}
         >
-          <div style={{ fontSize: "26px", fontWeight: "bold" }}>
-            {props.title}
-          </div>
-          <ProjectTag type={true}>{props.type}</ProjectTag>
+          <div style={{ fontSize: "20px", fontWeight: 450 }}>{props.title}</div>
+          {/* <ProjectTag type={true}>{props.type}</ProjectTag>
           {props.tags?.map((tag) => (
             <ProjectTag type={false}>{tag}</ProjectTag>
-          ))}
+          ))} */}
+          <Tag>{"# " + props.type}</Tag>
         </div>
 
-        <div style={{ fontSize: "15px", color: "darkgray" }}>{props.year}</div>
+        <div
+          style={{ fontSize: "12px", color: colors.darkgray, fontWeight: 350 }}
+        >
+          {props.year}
+        </div>
       </ProjectTitleWrapper>
       <ProjectItemImgWrapper
         onClick={() => {
@@ -178,7 +166,10 @@ const ProjectTitleWrapper = styled.div`
 `;
 
 const ProjectItemWrapper = styled.div`
-  width: 48%;
+  width: 32%;
+  @media (width <= 1440px) {
+    width: 48%;
+  }
   height: fit-content;
 
   box-sizing: border-box;
@@ -211,12 +202,14 @@ const ProjectOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   transition: all 0.5s;
   box-sizing: border-box;
-  padding: 35px;
-  font-size: 16px;
+  padding: 24px;
+
+  font-size: 14px;
   line-height: 1.8;
+  font-weight: 350;
   color: white;
 
   opacity: 0;
@@ -233,8 +226,7 @@ const ProjectItemImgWrapper = styled.div`
   width: 100%;
   height: 450px;
 
-  border-radius: 10px;
-  border: 1px solid lightgray;
+  border: 1px solid ${colors.gray};
   overflow: hidden;
   position: relative;
 `;

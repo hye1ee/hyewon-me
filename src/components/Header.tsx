@@ -1,81 +1,130 @@
+import urls from "@assets/strings/urls";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { colors } from "utils/styles";
 
 const Header = (props: { onAnimate: () => void }) => {
-  const onScrollById = (id: string) => () => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    if (id === "main-page") props.onAnimate();
-  };
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <HeaderContainer>
-      <HeaderContentWrapper>
-        <HeaderElWrapper bold={true} onClick={onScrollById("main-page")}>
-          HYEWON LEE
+      <HeaderElWrapper
+        style={{ fontSize: "20px" }}
+        bold={true}
+        onClick={() => navigate("/")}
+      >
+        Hyewon Lee
+      </HeaderElWrapper>
+      <HeaderColWrapper>
+        <HeaderElWrapper
+          bold={location.pathname === "/about"}
+          onClick={() => navigate("/about")}
+        >
+          About
         </HeaderElWrapper>
-        <HeaderRowWrapper>
-          <HeaderElWrapper onClick={onScrollById("about-page")}>
-            ABOUT
-          </HeaderElWrapper>
-          {/* <HeaderElWrapper onClick={onScrollById("experience-page")}>
-          EXPERIENCE
-        </HeaderElWrapper> */}
-          <HeaderElWrapper onClick={onScrollById("projects-page")}>
-            PROJECTS
-          </HeaderElWrapper>
-        </HeaderRowWrapper>
-      </HeaderContentWrapper>
+        <HeaderElWrapper
+          bold={location.pathname === "/projects"}
+          onClick={() => navigate("/projects")}
+        >
+          Projects
+        </HeaderElWrapper>
+        <HeaderElWrapper
+          style={{ cursor: "none" }}
+          bold={location.pathname === "/publications"}
+          // onClick={() => navigate("/publications")}
+        >
+          Publications
+        </HeaderElWrapper>
+      </HeaderColWrapper>
+      <HeaderColWrapper>
+        <HeaderElWrapper
+          onClick={() => {
+            window.open(urls.cv);
+          }}
+        >
+          CV ↗
+        </HeaderElWrapper>
+        <HeaderElWrapper
+          onClick={() => {
+            window.open(urls.linkedin);
+          }}
+        >
+          Linkedin ↗
+        </HeaderElWrapper>
+        <HeaderElWrapper
+          onClick={() => {
+            window.open(urls.github);
+          }}
+        >
+          Github ↗
+        </HeaderElWrapper>
+        <HeaderElWrapper
+          onClick={() => {
+            window.open(urls.googlescholar);
+          }}
+        >
+          Google Scholar ↗
+        </HeaderElWrapper>
+      </HeaderColWrapper>
+      <div
+        style={{ fontSize: "11px", color: colors.gray }}
+      >{`© 2025 Hyewon Lee\nLast Updated at Jan 2025`}</div>
     </HeaderContainer>
   );
 };
 export default Header;
 
 const HeaderContainer = styled.div`
-  width: 100%;
-  height: 105px;
+  width: 260px;
+  @media (width <= 1280px) {
+    width: 200px;
+  }
+  @media (width >= 1440px) {
+    width: 300px;
+  }
+  height: 100%;
 
   box-sizing: border-box;
-  /* padding: 0px 200px; */
-  /* padding: 10px 25px 0 25px; */
+  padding: 32px;
 
   flex: 0 0 auto;
-  position: sticky;
-  top: -10px;
 
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: ${colors.lightgray}; */
+  border-right: 1px solid ${colors.gray};
   backdrop-filter: blur(5px);
 
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 
   z-index: 100;
 `;
 
-const HeaderContentWrapper = styled.div`
-  width: 1310px;
-  max-width: 95%;
-  height: 100%;
+const HeaderColWrapper = styled.div`
+  width: fit-content;
+  height: 300px;
 
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const HeaderRowWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
 `;
 
 const HeaderElWrapper = styled.div<{ bold?: boolean }>`
-  padding: 10px 15px;
-  color: black;
-  cursor: pointer;
+  align-self: flex-start;
+  color: ${(props) => (props.bold ? colors.primary : colors.black)};
 
-  font-size: ${(props) => (props.bold ? "18px" : "16px")};
-  font-family: ${(props) =>
-    props.bold ? "Gilroy-Medium, sans-serif" : "Gilroy-Regular, sans-serif"};
+  font-size: ${(props) => (props.bold ? "16px" : "14px")};
+  font-weight: ${(props) => (props.bold ? 450 : 400)};
+
+  transition: all 0.2s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  cursor: pointer;
 `;

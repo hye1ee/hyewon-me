@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const PdfContainer = ({ link }: { link: string }) => {
-  console.log(link);
   return (
     <PdfContainerWrapper>
       <embed src={link} width="100%" height="100%" />

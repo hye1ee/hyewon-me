@@ -4,11 +4,32 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import PdfContainer from "@components/PdfContainer";
+import Main from "@pages/Main";
+import About from "@pages/About";
+import Projects from "@pages/Projects";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "",
+        element: <Main />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "projects",
+        element: <Projects />,
+      },
+      {
+        path: "publications",
+        element: <>hello</>,
+      },
+    ],
   },
   {
     path: "/resume",

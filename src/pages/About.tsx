@@ -1,26 +1,84 @@
-import ContentLayout from "@components/ContentLayout";
-import ProfileImg from "@assets/profile.png";
+import PageLayout from "@components/PageLayout";
 import styled from "styled-components";
-
-const description = `I research, design, and develop creative interactions, with a particular focus on computer graphics.
-My passion lies in product building for users, leveraging emerging computer technologies to enhance usability and creativity.
-My projects aim at introducing novel interactions and experiences.`;
+import { colors } from "utils/styles";
 
 const About = () => {
   return (
-    <ContentLayout id="about-page" title="ABOUT" gap={40}>
-      <AboutDescription>{description}</AboutDescription>
+    <PageLayout style={{ padding: "32px", gap: "28px" }}>
+      <div
+        style={{ fontWeight: 450, fontSize: "20px", textAlign: "center" }}
+      >{`Hello, I'm Hyewon Lee`}</div>
+      <img
+        style={{ width: "400px", objectFit: "cover" }}
+        alt="profile"
+        src="/img/profile.png"
+      />
+      <AboutDescription>
+        {`I'm an undergraduate student at the `}
+        <div
+          style={{
+            color: colors.primary_highlight,
+            fontWeight: 450,
+            display: "inline-block",
+          }}
+        >{`Korea Advanced Institute of Science and Technology, `}</div>
+        <div
+          style={{
+            textDecoration: "underline",
+            cursor: "pointer",
+            display: "inline-block",
+          }}
+          onClick={() => window.open("https://kaist.ac.kr/en/")}
+        >{`KAIST,`}</div>
+        {`\ndouble majoring in the School of Computing and Industrial Design.\n`}
+        {`\nMy research interests lie in\n`}
+
+        <div
+          style={{
+            color: colors.primary_highlight,
+            fontWeight: 450,
+          }}
+        >{`crafting novel interactions to expand the boundaries of creativity across multimodal mediums.\n`}</div>
+
+        {`\nOutside of HCI research, I'm also passionate about\n`}
+        {`frontend development, computer graphics, and 3D design/animation.\n`}
+        {/* <div style={{ display: "flex", gap: "6px" }}>
+          <Tag># Frontend Development</Tag>
+          <Tag># Computer Graphics</Tag>
+          <Tag># 3D Design / Animation</Tag>
+        </div> */}
+
+        {`\nI'm currently advised by `}
+        <div
+          style={{
+            textDecoration: "underline",
+            cursor: "pointer",
+            display: "inline-block",
+          }}
+          onClick={() => window.open("https://make.kaist.ac.kr/andrea")}
+        >{`Prof. Andrea Bianchi at Makelab`}</div>
+        {`\nand previously worked with `}
+        <div
+          style={{
+            textDecoration: "underline",
+            cursor: "pointer",
+            display: "inline-block",
+          }}
+          onClick={() => window.open("https://juhokim.com/")}
+        >{`Prof. Juho Kim at KIXLAB.\n`}</div>
+        <div>
+          {`\nI enjoy sharing insights and thoughts about my interests!\n`}
+          {`Feel free to reach out if you'd like to connect.\n`}
+        </div>
+        <div
+          style={{ color: colors.darkgray }}
+        >{`\n*I'm a PhD applicant this year for 2026 entry.\n`}</div>
+      </AboutDescription>
       <AboutContentWrapper>
         <AboutContentCol>
-          <AboutImg>
-            <img
-              style={{ width: "100%", objectFit: "cover" }}
-              alt="profile"
-              src={ProfileImg}
-            />
-          </AboutImg>
+          <AboutImg></AboutImg>
         </AboutContentCol>
-        <AboutContentCol style={{ flex: 1, marginBottom: "40px" }}>
+        {/* <AboutContentCol style={{ flex: 1, marginBottom: "40px" }}>
           <AboutSection
             title="INTERESTS"
             tags={["Human Computer Interaction", "Computer Graphics", "Art"]}
@@ -52,14 +110,9 @@ const About = () => {
               ],
             ]}
           />
-          <AboutButton
-            onClick={() => window.open(window.location.origin + "/resume")}
-          >
-            🖱️ Click here to see more information
-          </AboutButton>
-        </AboutContentCol>
+        </AboutContentCol> */}
       </AboutContentWrapper>
-    </ContentLayout>
+    </PageLayout>
   );
 };
 export default About;
@@ -71,12 +124,14 @@ const AboutImg = styled.div`
 `;
 
 const AboutDescription = styled.div`
-  font-size: 18px;
-  line-height: 1.5;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 350;
 `;
 const AboutContentWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
 const AboutContentCol = styled.div`
@@ -85,23 +140,6 @@ const AboutContentCol = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   gap: 40px;
-`;
-
-const AboutButton = styled.div`
-  width: fit-content;
-  height: fit-content;
-  box-sizing: border-box;
-  padding: 5px 10px;
-  border-radius: 10px;
-  border: 1px solid darkgray;
-  color: darkgray;
-  font-weight: bold;
-
-  cursor: pointer;
-  transition: all 0.3s;
-  &:hover {
-    opacity: 0.4;
-  }
 `;
 
 interface AboutSectionProps {
