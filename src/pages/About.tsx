@@ -9,7 +9,7 @@ const About = () => {
         style={{ fontWeight: 450, fontSize: "20px", textAlign: "center" }}
       >{`Hello, I'm Hyewon Lee`}</div>
       <img
-        style={{ width: "400px", objectFit: "cover" }}
+        style={{ width: "400px", objectFit: "cover", maxWidth: "100%" }}
         alt="profile"
         src="/img/profile.png"
       />
@@ -22,15 +22,19 @@ const About = () => {
             display: "inline-block",
           }}
         >{`Korea Advanced Institute of Science and Technology, `}</div>
-        <div
+        <Text
           style={{
             textDecoration: "underline",
             cursor: "pointer",
-            display: "inline-block",
           }}
           onClick={() => window.open("https://kaist.ac.kr/en/")}
-        >{`KAIST,`}</div>
-        {`\ndouble majoring in the School of Computing and Industrial Design.\n`}
+        >
+          {"KAIST,"}
+        </Text>
+        <Text>
+          {`double majoring in the School of Computing and Industrial Design.\n`}
+        </Text>
+
         {`\nMy research interests lie in\n`}
 
         <div
@@ -40,8 +44,11 @@ const About = () => {
           }}
         >{`crafting novel interactions to expand the boundaries of creativity across multimodal mediums.\n`}</div>
 
-        {`\nOutside of HCI research, I'm also passionate about\n`}
-        {`frontend development, computer graphics, and 3D design/animation.\n`}
+        <Text>
+          {`\nOutside of HCI research, I'm also passionate about\n`}
+          {`frontend development, computer graphics, and 3D design/animation.\n`}
+        </Text>
+
         {/* <div style={{ display: "flex", gap: "6px" }}>
           <Tag># Frontend Development</Tag>
           <Tag># Computer Graphics</Tag>
@@ -66,13 +73,15 @@ const About = () => {
           }}
           onClick={() => window.open("https://juhokim.com/")}
         >{`Prof. Juho Kim at KIXLAB.\n`}</div>
-        <div>
-          {`\nI enjoy sharing insights and thoughts about my interests!\n`}
+        <div>{"\n"}</div>
+        <Text>
+          {`I enjoy sharing insights and thoughts about my interests!\n`}
           {`Feel free to reach out if you'd like to connect.\n`}
-        </div>
-        <div
+        </Text>
+        <div>{"\n"}</div>
+        <Text
           style={{ color: colors.darkgray }}
-        >{`\n*I'm a PhD applicant this year for 2026 entry.\n`}</div>
+        >{`*I'm a PhD applicant this year for 2026 entry.\n`}</Text>
       </AboutDescription>
       <AboutContentWrapper>
         <AboutContentCol>
@@ -117,6 +126,12 @@ const About = () => {
 };
 export default About;
 
+const Text = styled.div`
+  @media (width <= 1024px) {
+    white-space: normal;
+  }
+`;
+
 const AboutImg = styled.div`
   width: 28vw;
   box-sizing: border-box;
@@ -142,80 +157,80 @@ const AboutContentCol = styled.div`
   gap: 40px;
 `;
 
-interface AboutSectionProps {
-  title: string;
-  tags?: string[];
-  contents?: string[][];
-}
+// interface AboutSectionProps {
+//   title: string;
+//   tags?: string[];
+//   contents?: string[][];
+// }
 
-const AboutSection = (props: AboutSectionProps) => {
-  return (
-    <AboutSectionWrapper>
-      <div style={{ fontSize: "18px", fontWeight: "bold" }}>{props.title}</div>
-      <AboutSectionDivider />
-      {props.tags && (
-        <AboutSectionTagWrapper>
-          {props.tags.map((tag) => (
-            <AboutSectionTag>{tag}</AboutSectionTag>
-          ))}
-        </AboutSectionTagWrapper>
-      )}
-      {props.contents && (
-        <AboutSectionContentWrapper>
-          {props.contents.map((content) => (
-            <AboutSectionContent>
-              <div style={{ fontSize: "20px" }}>{content[0]}</div>
-              <div style={{ fontSize: "15px", color: "darkgray" }}>
-                {content[1]}
-              </div>
-            </AboutSectionContent>
-          ))}
-        </AboutSectionContentWrapper>
-      )}
-    </AboutSectionWrapper>
-  );
-};
-const AboutSectionWrapper = styled.div`
-  width: 100%;
-  height: fit-content;
+// const AboutSection = (props: AboutSectionProps) => {
+//   return (
+//     <AboutSectionWrapper>
+//       <div style={{ fontSize: "18px", fontWeight: "bold" }}>{props.title}</div>
+//       <AboutSectionDivider />
+//       {props.tags && (
+//         <AboutSectionTagWrapper>
+//           {props.tags.map((tag) => (
+//             <AboutSectionTag>{tag}</AboutSectionTag>
+//           ))}
+//         </AboutSectionTagWrapper>
+//       )}
+//       {props.contents && (
+//         <AboutSectionContentWrapper>
+//           {props.contents.map((content) => (
+//             <AboutSectionContent>
+//               <div style={{ fontSize: "20px" }}>{content[0]}</div>
+//               <div style={{ fontSize: "15px", color: "darkgray" }}>
+//                 {content[1]}
+//               </div>
+//             </AboutSectionContent>
+//           ))}
+//         </AboutSectionContentWrapper>
+//       )}
+//     </AboutSectionWrapper>
+//   );
+// };
+// const AboutSectionWrapper = styled.div`
+//   width: 100%;
+//   height: fit-content;
 
-  display: flex;
-  flex-direction: column;
-`;
+//   display: flex;
+//   flex-direction: column;
+// `;
 
-const AboutSectionDivider = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin: 5px 0px 10px 0px;
-`;
+// const AboutSectionDivider = styled.div`
+//   width: 100%;
+//   height: 1px;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   margin: 5px 0px 10px 0px;
+// `;
 
-const AboutSectionTagWrapper = styled.div`
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-`;
+// const AboutSectionTagWrapper = styled.div`
+//   width: fit-content;
+//   display: flex;
+//   flex-direction: row;
+//   gap: 10px;
+// `;
 
-const AboutSectionContentWrapper = styled.div`
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
+// const AboutSectionContentWrapper = styled.div`
+//   width: fit-content;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+// `;
 
-const AboutSectionTag = styled.div`
-  width: fit-content;
-  height: fit-content;
-  box-sizing: border-box;
-  padding: 5px 10px;
-  border-radius: 10px;
-  border: 1px solid black;
-  font-weight: bold;
-`;
+// const AboutSectionTag = styled.div`
+//   width: fit-content;
+//   height: fit-content;
+//   box-sizing: border-box;
+//   padding: 5px 10px;
+//   border-radius: 10px;
+//   border: 1px solid black;
+//   font-weight: bold;
+// `;
 
-const AboutSectionContent = styled.div`
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-`;
+// const AboutSectionContent = styled.div`
+//   width: fit-content;
+//   display: flex;
+//   flex-direction: column;
+// `;

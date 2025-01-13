@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "utils/styles";
 
-const Header = (props: { onAnimate: () => void }) => {
+const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -43,28 +43,28 @@ const Header = (props: { onAnimate: () => void }) => {
             window.open(urls.cv);
           }}
         >
-          CV ↗
+          CV ⬈
         </HeaderElWrapper>
         <HeaderElWrapper
           onClick={() => {
             window.open(urls.linkedin);
           }}
         >
-          Linkedin ↗
+          Linkedin ⬈
         </HeaderElWrapper>
         <HeaderElWrapper
           onClick={() => {
             window.open(urls.github);
           }}
         >
-          Github ↗
+          Github ⬈
         </HeaderElWrapper>
         <HeaderElWrapper
           onClick={() => {
             window.open(urls.googlescholar);
           }}
         >
-          Google Scholar ↗
+          Google Scholar ⬈
         </HeaderElWrapper>
       </HeaderColWrapper>
       <div
@@ -77,6 +77,7 @@ export default Header;
 
 const HeaderContainer = styled.div`
   width: 260px;
+
   @media (width <= 1280px) {
     width: 200px;
   }
@@ -100,6 +101,10 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
 
   z-index: 100;
+
+  @media (width <= 1024px) {
+    display: none;
+  }
 `;
 
 const HeaderColWrapper = styled.div`

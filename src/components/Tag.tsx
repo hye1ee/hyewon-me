@@ -5,6 +5,8 @@ const Tag = styled.div`
   width: fit-content;
   height: fit-content;
 
+  flex: 0 0 auto;
+
   font-size: 13px;
   font-weight: 450;
 

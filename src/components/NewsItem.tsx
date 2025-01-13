@@ -39,6 +39,11 @@ export default NewsItem;
 
 const NewsItemWrapper = styled.div<{ pinned: boolean }>`
   width: 280px;
+  @media (width <= 1024px) {
+    border-bottom: 0px;
+    border-right: 1px solid ${colors.gray};
+  }
+
   @media (width <= 1280px) {
     width: 240px;
   }

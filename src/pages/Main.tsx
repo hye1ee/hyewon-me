@@ -69,11 +69,12 @@ const Main = () => {
               flexDirection: "row",
               gap: "8px",
               marginTop: "12px",
+              flexWrap: "wrap",
             }}
           >
             <Tag># Creativity Support</Tag>
-            <Tag># Multimodal Interaction</Tag>
             <Tag># AI</Tag>
+            <Tag># Multimodal Interaction</Tag>
             <Tag># XR</Tag>
           </div>
         </ContentWrapper>
@@ -96,31 +97,8 @@ const Main = () => {
           }}
         >{`Imagine, Build, and Play!`}</div>
       </div>
-      <div
-        style={{
-          width: "fit-content",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          position: "absolute",
-          right: "0px",
-          bottom: "0px",
-
-          boxSizing: "border-box",
-          padding: "",
-          borderLeft: `1px solid ${colors.gray}`,
-        }}
-      >
-        <div
-          style={{
-            fontSize: "14px",
-            boxSizing: "border-box",
-            padding: "30px 0px 30px 20px",
-            borderBottom: `1px solid ${colors.gray}`,
-          }}
-        >
-          Updates
-        </div>
+      <NewsWrapper>
+        <NewsTitle>Updates</NewsTitle>
         <NewsSection>
           {newsFixed.map((el) => (
             <NewsItem icon={newsIcons[el.icon]} line={el.line} pinned={true} />
@@ -134,22 +112,11 @@ const Main = () => {
             />
           ))}
         </NewsSection>
-      </div>
+      </NewsWrapper>
     </PageLayout>
   );
 };
 export default Main;
-
-const MainImg = styled.img`
-  width: 400px;
-
-  cursor: pointer;
-
-  &:hover {
-    width: 300px;
-  }
-  transition: all 0.5s;
-`;
 
 const ContentWrapper = styled.div`
   width: fit-content;
@@ -164,6 +131,40 @@ const ContentWrapper = styled.div`
   justify-content: center;
 `;
 
+const NewsWrapper = styled.div`
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+
+  box-sizing: border-box;
+  border-left: 1px solid ${colors.gray};
+
+  @media (width <= 1024px) {
+    width: 100%;
+    height: fit-content;
+
+    border-left: 0px;
+    border-top: 1px solid ${colors.gray};
+
+    position: relative;
+  }
+`;
+
+const NewsTitle = styled.div`
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 30px 0px 30px 20px;
+  border-bottom: 1px solid ${colors.gray};
+
+  @media (width <= 1024px) {
+    padding: 30px 0px 30px 32px;
+  }
+`;
+
 const NewsSection = styled.div`
   width: fit-content;
   flex: 1;
@@ -176,4 +177,13 @@ const NewsSection = styled.div`
   box-sizing: border-box;
 
   overflow-y: scroll;
+
+  @media (width <= 1024px) {
+    width: 100%;
+    height: fit-content;
+
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 `;

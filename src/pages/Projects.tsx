@@ -1,22 +1,11 @@
 import styled from "styled-components";
 
-import MinionizeImg from "@assets/projects/minionize.png";
-import MultiDreamerImg from "@assets/projects/multidreamer.png";
-import VividImg from "@assets/projects/vivid.png";
-import MySelfieRoomImg from "@assets/projects/myselfieroom.png";
-import RadioneImg from "@assets/projects/radione.png";
-
-import ArtVentureImg from "@assets/projects/artventure.png";
-import RunThroughGravityImg from "@assets/projects/runthroughgravity.png";
-import BlackGhostImg from "@assets/projects/blackghost.png";
-
 // import HelloWorldImg from "@assets/projects/helloworld.png";
 // import ReliefCubeImg from "@assets/projects/reliefcube.png";
 
 import PageLayout from "@components/PageLayout";
 import { colors } from "utils/styles";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import projects from "@assets/strings/projects";
 import Tag from "@components/Tag";
 
@@ -75,10 +64,11 @@ const Projects = () => {
       ></div>
       <ProjectsContainer>
         {projects.map((el) => {
-          if (location.hash === "" && !el.selected) return;
-          if (location.hash === "#web" && el.type !== "Web") return;
-          if (location.hash === "#research" && el.type !== "Research") return;
-          if (location.hash === "#design" && el.type !== "Design") return;
+          if (location.hash === "" && !el.selected) return <></>;
+          if (location.hash === "#web" && el.type !== "Web") return <></>;
+          if (location.hash === "#research" && el.type !== "Research")
+            return <></>;
+          if (location.hash === "#design" && el.type !== "Design") return <></>;
 
           return (
             <ProjectItem
@@ -170,6 +160,9 @@ const ProjectItemWrapper = styled.div`
   @media (width <= 1440px) {
     width: 48%;
   }
+  @media (width <= 1024px) {
+    width: 100%;
+  }
   height: fit-content;
 
   box-sizing: border-box;
@@ -180,20 +173,20 @@ const ProjectItemWrapper = styled.div`
   gap: 18px;
 `;
 
-const ProjectTag = styled.div<{ type: boolean }>`
-  width: fit-content;
-  height: fit-content;
+// const ProjectTag = styled.div<{ type: boolean }>`
+//   width: fit-content;
+//   height: fit-content;
 
-  box-sizing: border-box;
-  padding: 5px 10px;
-  border-radius: 10px;
+//   box-sizing: border-box;
+//   padding: 5px 10px;
+//   border-radius: 10px;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 1px ${(props) => (props.type ? "solid #000000" : "dashed #444444")};
-`;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   border: 1px ${(props) => (props.type ? "solid #000000" : "dashed #444444")};
+// `;
 
 const ProjectOverlay = styled.div`
   width: 100%;
@@ -225,6 +218,14 @@ const ProjectOverlay = styled.div`
 const ProjectItemImgWrapper = styled.div`
   width: 100%;
   height: 450px;
+
+  @media (width <= 1440px) {
+    height: 350px;
+  }
+
+  @media (width <= 1024px) {
+    height: 250px;
+  }
 
   border: 1px solid ${colors.gray};
   overflow: hidden;

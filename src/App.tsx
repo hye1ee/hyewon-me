@@ -1,18 +1,14 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 
 import Header from "@components/Header";
 import { Outlet } from "react-router-dom";
+import HeaderMobile from "@components/HeaderMobile";
 
 const App = () => {
-  const [animateEvent, setAnimateEvent] = useState<boolean>(false);
-  const onAnimate = () => {
-    if (!animateEvent) setAnimateEvent(true);
-  };
-
   return (
     <PageWrapper>
-      <Header onAnimate={onAnimate} />
+      <Header />
+      <HeaderMobile />
       <ContentsWrapper>
         <Outlet />
       </ContentsWrapper>
@@ -33,6 +29,10 @@ const PageWrapper = styled.div`
   justify-content: flex-start;
 
   overflow: hidden;
+
+  @media (width <= 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const ContentsWrapper = styled.div`
@@ -44,5 +44,10 @@ const ContentsWrapper = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 
-  overflow-y: scroll;
+  overflow-y: auto;
+
+  @media (width <= 1024px) {
+    flex: 1;
+    width: 100%;
+  }
 `;
