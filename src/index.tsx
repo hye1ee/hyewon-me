@@ -7,6 +7,7 @@ import PdfContainer from "@components/PdfContainer";
 import Main from "@pages/Main";
 import About from "@pages/About";
 import Projects from "@pages/Projects";
+import Pub from "@pages/Pub";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,18 @@ const router = createBrowserRouter([
         element: <Projects />,
       },
       {
-        path: "publications",
-        element: <>hello</>,
+        path: "pub/",
+        element: <Pub />,
+        children: [
+          {
+            path: "vivid",
+            element: <>hihi vivid</>,
+          },
+          {
+            path: "camara",
+            element: <>hihi camara</>,
+          },
+        ],
       },
     ],
   },

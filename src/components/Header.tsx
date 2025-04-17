@@ -30,9 +30,8 @@ const Header = () => {
           Projects
         </HeaderElWrapper>
         <HeaderElWrapper
-          style={{ cursor: "none" }}
-          bold={location.pathname === "/publications"}
-          // onClick={() => navigate("/publications")}
+          bold={location.pathname === "/pub"}
+          onClick={() => navigate("/pub")}
         >
           Publications
         </HeaderElWrapper>
