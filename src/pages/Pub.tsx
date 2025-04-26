@@ -6,6 +6,9 @@ import { colors } from "utils/styles";
 const Pub = () => {
   return (
     <PageLayout style={{ padding: "32px", gap: "28px" }}>
+      <div
+        style={{ fontWeight: 450, fontSize: "20px", textAlign: "center" }}
+      >{`Publications`}</div>
       <div>publication 1</div>
       <div>publication 2</div>
       <div>publication 3</div>

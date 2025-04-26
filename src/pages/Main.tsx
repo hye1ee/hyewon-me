@@ -9,6 +9,7 @@ import NewsItem from "@components/NewsItem";
 import { news, newsFixed, newsIcons } from "@assets/strings/news";
 import { colors } from "utils/styles";
 import Tag from "@components/Tag";
+import Underline from "@components/Underline";
 
 const Main = () => {
   return (
@@ -33,14 +34,11 @@ const Main = () => {
 
         <div
           style={{ fontWeight: 450, fontSize: "20px", textAlign: "center" }}
-        >{`Imagine, Build, and Play!`}</div>
+        >{`Hi, I'm Hyewon Lee, 이혜원`}</div>
 
         <ContentWrapper>
           <div>
-            <div style={{ display: "inline-block", fontWeight: 500 }}>
-              Hyewon Lee
-            </div>
-            {" is an "}
+            {"I'm an "}
             <div
               style={{
                 display: "inline-block",
@@ -48,7 +46,7 @@ const Main = () => {
                 color: colors.primary,
               }}
             >
-              HCI Researcher
+              HCI researcher
             </div>
             {" and "}
             <div
@@ -58,9 +56,9 @@ const Main = () => {
                 color: colors.primary,
               }}
             >
-              Creative Technologist
+              creative technologist
             </div>
-            {`\nwho is passionate about crafting creative interactions\nthrough cutting-edge computer technologies.`}
+            {`\npassionate about crafting creative interactions for designers\nthrough cutting-edge computer technologies.`}
           </div>
 
           <div
@@ -73,29 +71,66 @@ const Main = () => {
             }}
           >
             <Tag># Creativity Support</Tag>
+            <Tag># Design Tool</Tag>
             <Tag># AI</Tag>
-            <Tag># Multimodal Interaction</Tag>
             <Tag># XR</Tag>
           </div>
         </ContentWrapper>
 
         <ContentWrapper>
-          {`hyewon0809@kaist.ac.kr\nDaejeon, South Korea\n`}
+          <div>
+            {"I am currently an "}
+            <div
+              style={{
+                display: "inline-block",
+                fontWeight: 500,
+                color: colors.primary,
+              }}
+            >
+              undergraduate student
+            </div>
+          </div>
+
+          <div>
+            {"studying "}
+            <Underline text="Computer Science" link="https://cs.kaist.ac.kr/" />
+            {" and "}
+            <Underline
+              text="Industrial Design"
+              link="https://id.kaist.ac.kr/"
+            />
+            {" @ "}
+            <Underline text="KAIST" link="https://kaist.ac.kr/en/" />
+          </div>
           <div
-            style={{ textDecoration: "underline", cursor: "pointer" }}
-            onClick={() => window.open("https://kaist.ac.kr/en/")}
+            style={{
+              textDecoration: "underline",
+              textDecorationStyle: "dotted",
+              marginTop: "15px",
+            }}
           >
-            Korea Advanced Institute of Science and Technology
+            {"I'm seeking a "}
+            <div
+              style={{
+                display: "inline-block",
+                fontWeight: 500,
+                textDecoration: "underline",
+                textDecorationStyle: "dotted",
+              }}
+            >
+              Phd position
+            </div>
+            {" this year!"}
           </div>
         </ContentWrapper>
-        <div
+        <div // for alignment
           style={{
             fontWeight: 450,
             fontSize: "20px",
             textAlign: "center",
             opacity: 0,
           }}
-        >{`Imagine, Build, and Play!`}</div>
+        >{`Hi, I'm Hyewon Lee, 이혜원`}</div>
       </div>
       <NewsWrapper>
         <NewsTitle>Updates</NewsTitle>

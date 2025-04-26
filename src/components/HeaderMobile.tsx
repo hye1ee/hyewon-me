@@ -110,7 +110,7 @@ const HeaderMobile = () => {
             fontSize: "11px",
             color: colors.gray,
           }}
-        >{`© 2025 Hyewon Lee\nLast Updated at Jan 2025`}</div>
+        >{`© 2025 Hyewon Lee\nLast Updated at Apr 2025`}</div>
       )}
     </HeaderContainer>
   );
