@@ -31,3 +31,9 @@ body {
   border-radius: 10px;
   border: 2px solid #ffffff;
 }
+
+@media (width <= 1024px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}

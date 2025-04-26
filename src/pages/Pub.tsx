@@ -1,4 +1,7 @@
 import PageLayout from "@components/PageLayout";
+import SmallTag from "@components/SmallTag";
+import Tag from "@components/Tag";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "utils/styles";
@@ -9,121 +12,151 @@ const Pub = () => {
       <div
         style={{ fontWeight: 450, fontSize: "20px", textAlign: "center" }}
       >{`Publications`}</div>
-      <div>publication 1</div>
-      <div>publication 2</div>
-      <div>publication 3</div>
-      <div>publication 4</div>
+      <PubItem
+        image="/publications/thumb-camara.jpg"
+        title="CamARa: Exploring and Creating Camera Movements with Spatial Reference in Augmented Reality"
+        titleLink="https://hyewon.me/pub/camara/"
+        authors={["Hyewon Lee", "Christopher Bannon", "Andrea Bianchi"]}
+        description=""
+        links={{
+          Webpage: "https://hyewon.me/pub/camara",
+          Paper: "https://dl.acm.org/doi/10.1145/3706599.3721180",
+        }}
+        conference="CHI EA 2025"
+      />
+      <PubItem
+        image="/publications/thumb-vivid.jpg"
+        title="VIVID: Human-AI Collaborative Authoring of Vicarious Dialogues from Lecture Videos"
+        titleLink="https://vivid.kixlab.org/"
+        authors={["Seulgi Choi", "Hyewon Lee", "Yoonjoo Lee", "Juho Kim"]}
+        description=""
+        links={{
+          Webpage: "https://vivid.kixlab.org/",
+          Paper: "https://dl.acm.org/doi/10.1145/3613904.3642867",
+        }}
+        conference="CHI 2024"
+      />
+
       <Outlet />
     </PageLayout>
   );
 };
 export default Pub;
 
-const Text = styled.div`
-  @media (width <= 1024px) {
-    white-space: normal;
+interface PubItemProps {
+  image: string;
+  title: string;
+  titleLink?: string;
+  authors: string[];
+  description: string;
+  links: { Webpage?: string; Paper?: string; Github?: string };
+  conference?: string;
+}
+
+const PubItem = ({
+  image,
+  title,
+  titleLink,
+  authors,
+  description,
+  links,
+  conference,
+}: PubItemProps) => {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <div style={{ display: "flex" }}>
+      <ThumbnailImage>
+        <img
+          src={image}
+          alt={image}
+          style={{ width: "100%", height: "auto", borderRadius: "8px" }}
+        />
+      </ThumbnailImage>
+      <div
+        style={{
+          display: "flex",
+          flex: "1",
+          flexDirection: "column",
+          gap: "6px",
+        }}
+      >
+        <Tag>{conference}</Tag>
+
+        <div
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          style={{
+            fontWeight: hover ? 500 : 450,
+            fontSize: "20px",
+            cursor: "pointer",
+            textDecoration: hover ? "underline" : "none",
+            textDecorationStyle: hover ? "dotted" : "solid",
+            transition: "all 0.3s",
+            color: "black",
+            marginLeft: "8px",
+          }}
+          onClick={() => window.open(titleLink, "_blank")}
+        >
+          {title}
+        </div>
+
+        <div style={{ marginLeft: "8px", color: colors.darkgray }}>
+          {authors.map((author, index) => (
+            <span key={index}>
+              {author === "Hyewon Lee" ? (
+                <div
+                  style={{
+                    fontWeight: 500,
+                    color: colors.black,
+                    display: "inline-block",
+                  }}
+                >
+                  {author}
+                </div>
+              ) : (
+                author
+              )}
+              {index < authors.length - 1 && ", "}
+            </span>
+          ))}
+        </div>
+
+        <div
+          className="hide-on-mobile"
+          style={{ fontSize: "14px", marginLeft: "8px" }}
+        >
+          {description}
+        </div>
+
+        {/* 링크 버튼들 */}
+        <div
+          style={{
+            gap: "8px",
+            flex: 1,
+            display: "flex",
+            alignItems: "flex-end",
+            marginTop: "8px",
+          }}
+        >
+          {Object.entries(links).map((link, idx) => (
+            <SmallTag key={idx} onClick={() => window.open(link[1], "_blank")}>
+              {link[0]}
+            </SmallTag>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ThumbnailImage = styled.div`
+  width: 200px;
+  margin-right: 20px;
+  border-radius: 8px;
+  border: 0.5px solid ${colors.gray};
+
+  @media (width <= 768px) {
+    display: none;
   }
 `;
-
-const PubImg = styled.div`
-  width: 28vw;
-  box-sizing: border-box;
-  padding: 0 50px 0 0;
-`;
-
-const PubDescription = styled.div`
-  display: inline-block;
-  font-size: 15px;
-  line-height: 1.4;
-  font-weight: 350;
-`;
-const PubContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const PubContentCol = styled.div`
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 40px;
-`;
-
-// interface PubSectionProps {
-//   title: string;
-//   tags?: string[];
-//   contents?: string[][];
-// }
-
-// const PubSection = (props: PubSectionProps) => {
-//   return (
-//     <PubSectionWrapper>
-//       <div style={{ fontSize: "18px", fontWeight: "bold" }}>{props.title}</div>
-//       <PubSectionDivider />
-//       {props.tags && (
-//         <PubSectionTagWrapper>
-//           {props.tags.map((tag) => (
-//             <PubSectionTag>{tag}</PubSectionTag>
-//           ))}
-//         </PubSectionTagWrapper>
-//       )}
-//       {props.contents && (
-//         <PubSectionContentWrapper>
-//           {props.contents.map((content) => (
-//             <PubSectionContent>
-//               <div style={{ fontSize: "20px" }}>{content[0]}</div>
-//               <div style={{ fontSize: "15px", color: "darkgray" }}>
-//                 {content[1]}
-//               </div>
-//             </PubSectionContent>
-//           ))}
-//         </PubSectionContentWrapper>
-//       )}
-//     </PubSectionWrapper>
-//   );
-// };
-// const PubSectionWrapper = styled.div`
-//   width: 100%;
-//   height: fit-content;
-
-//   display: flex;
-//   flex-direction: column;
-// `;
-
-// const PubSectionDivider = styled.div`
-//   width: 100%;
-//   height: 1px;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   margin: 5px 0px 10px 0px;
-// `;
-
-// const PubSectionTagWrapper = styled.div`
-//   width: fit-content;
-//   display: flex;
-//   flex-direction: row;
-//   gap: 10px;
-// `;
-
-// const PubSectionContentWrapper = styled.div`
-//   width: fit-content;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 10px;
-// `;
-
-// const PubSectionTag = styled.div`
-//   width: fit-content;
-//   height: fit-content;
-//   box-sizing: border-box;
-//   padding: 5px 10px;
-//   border-radius: 10px;
-//   border: 1px solid black;
-//   font-weight: bold;
-// `;
-
-// const PubSectionContent = styled.div`
-//   width: fit-content;
-//   display: flex;
-//   flex-direction: column;
-// `;

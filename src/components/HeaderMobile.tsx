@@ -53,6 +53,15 @@ const HeaderMobile = () => {
             About
           </HeaderElWrapper>
           <HeaderElWrapper
+            bold={location.pathname === "/pub"}
+            onClick={() => {
+              setMenu(false);
+              navigate("/pub");
+            }}
+          >
+            Publications
+          </HeaderElWrapper>
+          <HeaderElWrapper
             bold={location.pathname === "/projects"}
             onClick={() => {
               setMenu(false);
@@ -60,13 +69,6 @@ const HeaderMobile = () => {
             }}
           >
             Projects
-          </HeaderElWrapper>
-          <HeaderElWrapper
-            style={{ cursor: "none" }}
-            bold={location.pathname === "/publications"}
-            // onClick={() => navigate("/publications")}
-          >
-            Publications
           </HeaderElWrapper>
         </HeaderColWrapper>
       )}

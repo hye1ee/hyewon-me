@@ -24,16 +24,16 @@ const Header = () => {
           About
         </HeaderElWrapper>
         <HeaderElWrapper
-          bold={location.pathname === "/projects"}
-          onClick={() => navigate("/projects")}
-        >
-          Projects
-        </HeaderElWrapper>
-        <HeaderElWrapper
           bold={location.pathname === "/pub"}
           onClick={() => navigate("/pub")}
         >
           Publications
+        </HeaderElWrapper>
+        <HeaderElWrapper
+          bold={location.pathname === "/projects"}
+          onClick={() => navigate("/projects")}
+        >
+          Projects
         </HeaderElWrapper>
       </HeaderColWrapper>
       <HeaderColWrapper>

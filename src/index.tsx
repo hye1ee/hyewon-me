@@ -8,6 +8,7 @@ import Main from "@pages/Main";
 import About from "@pages/About";
 import Projects from "@pages/Projects";
 import Pub from "@pages/Pub";
+import Camara from "@pages/publications/Camara";
 
 const router = createBrowserRouter([
   {
@@ -29,16 +30,10 @@ const router = createBrowserRouter([
       {
         path: "pub/",
         element: <Pub />,
-        children: [
-          {
-            path: "vivid",
-            element: <>hihi vivid</>,
-          },
-          {
-            path: "camara",
-            element: <>hihi camara</>,
-          },
-        ],
+      },
+      {
+        path: "pub/camara",
+        element: <Camara />,
       },
     ],
   },
