@@ -49,5 +49,9 @@
   "devDependencies": {
     "craco": "^0.0.3",
     "tsconfig-paths-webpack-plugin": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
   }
 }
