@@ -3,12 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import MainPage from "./pages/MainPage";
+import ProjectsPage from "./pages/ProjectsPage";
 import PdfContainer from "@components/PdfContainer";
-import Main from "@pages/Main";
-import About from "@pages/About";
-import Projects from "@pages/Projects";
-import Pub from "@pages/Pub";
-import Camara from "@pages/publications/Camara";
 
 const router = createBrowserRouter([
   {
@@ -17,23 +14,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Main />,
-      },
-      {
-        path: "about",
-        element: <About />,
+        element: <MainPage />,
       },
       {
         path: "projects",
-        element: <Projects />,
-      },
-      {
-        path: "pub/",
-        element: <Pub />,
-      },
-      {
-        path: "pub/camara",
-        element: <Camara />,
+        element: <ProjectsPage />,
       },
     ],
   },

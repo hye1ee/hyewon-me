@@ -14,22 +14,39 @@ const NewsItem = (props: NewsItemProps) => {
       <div
         style={{
           width: "100%",
-          height: "fit-content",
+          height: "100%",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: "8px",
         }}
       >
-        <div style={{ fontSize: "20px" }}>{props.icon}</div>
+        <div style={{ fontSize: "17px", flexShrink: 0 }}>{props.icon}</div>
+        <div
+          style={{
+            flex: 1,
+            fontSize: "13px",
+            lineHeight: "1.3",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {props.line}
+        </div>
         {props.date && (
-          <div style={{ fontSize: "12px", color: colors.darkgray }}>
+          <div
+            style={{
+              fontSize: "12px",
+              color: colors.darkgray,
+              flexShrink: 0,
+              marginLeft: "8px",
+            }}
+          >
             {props.date}
           </div>
         )}
-      </div>
-      <div style={{ width: "100%", whiteSpace: "pre-wrap", fontSize: "14px" }}>
-        {props.line}
       </div>
     </NewsItemWrapper>
   );
@@ -38,24 +55,14 @@ const NewsItem = (props: NewsItemProps) => {
 export default NewsItem;
 
 const NewsItemWrapper = styled.div<{ pinned: boolean }>`
-  width: 280px;
-  @media (width <= 1024px) {
-    border-bottom: 0px;
-    border-right: 1px solid ${colors.gray};
-  }
-
-  @media (width <= 1280px) {
-    width: 240px;
-  }
-  @media (width >= 1440px) {
-    width: 300px;
-  }
-  height: 140px;
+  width: fit-content;
+  min-width: 200px;
+  height: 45px;
 
   flex: 0 0 auto;
 
   box-sizing: border-box;
-  padding: 20px;
+  padding: 12px 16px;
 
   display: flex;
   flex-direction: column;
@@ -63,14 +70,14 @@ const NewsItemWrapper = styled.div<{ pinned: boolean }>`
   justify-content: space-between;
 
   color: ${colors.black};
-  border-bottom: 1px solid ${colors.gray};
-
-  background-color: ${(props) =>
-    props.pinned ? colors.lightgray_highlight : colors.lightgray};
+  border: 1px solid black;
+  background-color: white;
 
   &:hover {
     background-color: ${colors.secondary};
+    /* transform: translateY(-2px); */
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
   }
   cursor: pointer;
-  transition: all 0.5s;
+  transition: all 0.3s ease;
 `;

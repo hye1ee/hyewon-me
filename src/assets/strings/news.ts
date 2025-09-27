@@ -7,6 +7,8 @@ export const newsIcons: { [key: string]: string } = {
 }
 
 export const news = [
+  { icon: "conference", line: "Heading to UIST 2025 in Korea 🇰🇷", date: "Sep 2025" },
+  { icon: "work", line: "Joined KIXLAB (again!) as an undergrad intern researcher", date: "Jul 2025" },
   { icon: "conference", line: "Heading to CHI 2025 in Japan 🇯🇵", date: "Apr 2025" },
   { icon: "paper", line: "My second paper (extended abstract) has been accepted at CHI 2025", date: "Feb 2025" },
   { icon: "school", line: "Selected for 2025 Undergrad Research Program", date: "Dec 2024" },
@@ -18,6 +20,6 @@ export const news = [
 ]
 
 export const newsFixed = [
-  { icon: "pin", line: "PhD applicant for 2026, with a interest in HCI", },
+  // { icon: "pin", line: "PhD applicant for 2026, with a interest in HCI", },
 ]
 

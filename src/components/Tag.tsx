@@ -11,8 +11,7 @@ const Tag = styled.div`
   font-weight: 450;
 
   box-sizing: border-box;
-  padding: 7px 14px;
-  border-radius: 20px;
+  padding: 10px 14px;
 
   background-color: ${colors.lightgray};
   color: ${colors.darkgray};

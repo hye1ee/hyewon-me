@@ -7,9 +7,26 @@ import { colors } from "utils/styles";
 
 const HeaderMobile = () => {
   const [menu, setMenu] = useState<boolean>(false);
-
   const navigate = useNavigate();
   const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/");
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <HeaderContainer menu={menu}>
@@ -24,16 +41,18 @@ const HeaderMobile = () => {
           justifyContent: "space-between",
         }}
       >
-        <HeaderElWrapper
-          style={{ fontSize: "20px" }}
-          bold={true}
+        <HeaderNameWrapper
           onClick={() => {
             if (menu) setMenu(false);
-            navigate("/");
+            scrollToSection("main");
           }}
         >
-          Hyewon Lee
-        </HeaderElWrapper>
+          <HeaderElWrapper style={{ fontSize: "20px" }} bold={true}>
+            Hyewon Lee, 이혜원
+          </HeaderElWrapper>
+          {/* <ProfileImage src="/img/profile.png" alt="Hyewon Lee" /> */}
+          {/* <EmailText>hyewon0809[at]kaist.ac.kr</EmailText> */}
+        </HeaderNameWrapper>
         {menu ? (
           <X onClick={() => setMenu(false)} size={20} color={colors.darkgray} />
         ) : (
@@ -44,19 +63,12 @@ const HeaderMobile = () => {
       {menu && (
         <HeaderColWrapper>
           <HeaderElWrapper
-            bold={location.pathname === "/about"}
+            bold={
+              location.pathname === "/" && location.hash === "#publications"
+            }
             onClick={() => {
               setMenu(false);
-              navigate("/about");
-            }}
-          >
-            About
-          </HeaderElWrapper>
-          <HeaderElWrapper
-            bold={location.pathname === "/pub"}
-            onClick={() => {
-              setMenu(false);
-              navigate("/pub");
+              scrollToSection("publications");
             }}
           >
             Publications
@@ -157,6 +169,14 @@ const HeaderColWrapper = styled.div`
   gap: 10px;
 
   margin-bottom: 20px;
+`;
+
+const HeaderNameWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
 `;
 
 const HeaderElWrapper = styled.div<{ bold?: boolean }>`
