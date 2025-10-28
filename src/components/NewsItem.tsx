@@ -1,4 +1,3 @@
-import { newsIcons } from "@assets/strings/news";
 import styled from "styled-components";
 import { colors } from "utils/styles";
 
@@ -10,13 +9,13 @@ interface NewsItemProps {
 
 const NewsItem = (props: NewsItemProps) => {
   // Extract emoji from the line - works with es5
-  const emojiRegex =
-    /([\uD83C][\uDDE6-\uDDFF])|([\uD83C][\uDF00-\uDFFF])|([\uD83D][\uDC00-\uDE4F\uDE80-\uDEFF])|([\u2600-\u27BF])/g;
-  const matches = props.line.match(emojiRegex);
-  const flag = matches && matches.length > 0 ? matches[matches.length - 1] : "";
+  // const emojiRegex =
+  //   /([\uD83C][\uDDE6-\uDDFF])|([\uD83C][\uDF00-\uDFFF])|([\uD83D][\uDC00-\uDE4F\uDE80-\uDEFF])|([\u2600-\u27BF])/g;
+  // const matches = props.line.match(emojiRegex);
+  // const flag = matches && matches.length > 0 ? matches[matches.length - 1] : "";
 
-  // Remove emoji from the line for display
-  const lineWithoutFlag = props.line.replace(emojiRegex, "").trim();
+  // // Remove emoji from the line for display
+  // const lineWithoutFlag = props.line.replace(emojiRegex, "").trim();
 
   return (
     <NewsItemWrapper>
@@ -54,8 +53,8 @@ const EventColumn = styled.div`
   color: ${colors.black};
 `;
 
-const FlagColumn = styled.div`
-  font-size: 16px;
-  flex-shrink: 0;
-  margin-left: auto;
-`;
+// const FlagColumn = styled.div`
+//   font-size: 16px;
+//   flex-shrink: 0;
+//   margin-left: auto;
+// `;

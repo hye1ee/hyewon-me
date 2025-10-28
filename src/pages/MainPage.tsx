@@ -116,8 +116,7 @@ const MainPage = () => {
               ]}
               description=""
               links={{
-                Paper:
-                  "https://camps.aptaracorp.com/ACM_PMS/PMS/ACM/UISTADJUNCT25/58/34d31128-6f50-11f0-957d-16ffd757ba29/OUT/uistadjunct25-58.html#",
+                Paper: "https://dl.acm.org/doi/10.1145/3746058.3758404",
                 Archive: "",
               }}
               conference="UIST Adjunct 2025"

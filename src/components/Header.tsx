@@ -1,4 +1,4 @@
-import urls from "@assets/strings/urls";
+import updates from "@assets/strings/updates";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "utils/styles";
@@ -32,7 +32,7 @@ const Header = () => {
           Hyewon Lee
         </HeaderElWrapper>
         <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
-        <SpeechBubble>Seeking a PhD position for 2026 🎓</SpeechBubble>
+        <SpeechBubble>{updates.updates}</SpeechBubble>
       </HeaderNameWrapper>
       <HeaderColWrapper>
         <HeaderElWrapper
@@ -58,28 +58,28 @@ const Header = () => {
         <HeaderRowWrapper>
           <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.linkedin);
+              window.open(updates.linkedin);
             }}
           >
             Linkedin
           </HeaderFooterElWrapper>
           <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.github);
+              window.open(updates.github);
             }}
           >
             Github
           </HeaderFooterElWrapper>
           <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.googlescholar);
+              window.open(updates.googlescholar);
             }}
           >
             Google Scholar
           </HeaderFooterElWrapper>
           <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.email);
+              window.open(updates.email);
             }}
           >
             Email
@@ -91,7 +91,7 @@ const Header = () => {
             color: colors.darkgray,
             textAlign: "center",
           }}
-        >{`© 2025 Hyewon Lee\nLast Updated at Sep 2025`}</div>
+        >{`${updates.copyright}\nLast Updated at ${updates.lastUpdated}`}</div>
       </HeaderFooterWrapper>
     </HeaderContainer>
   );

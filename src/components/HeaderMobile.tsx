@@ -1,4 +1,4 @@
-import urls from "@assets/strings/urls";
+import updates from "@assets/strings/updates";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -48,7 +48,7 @@ const HeaderMobile = () => {
           }}
         >
           <HeaderElWrapper style={{ fontSize: "20px" }} bold={true}>
-            Hyewon Lee, 이혜원
+            Hyewon Lee
           </HeaderElWrapper>
           {/* <ProfileImage src="/img/profile.png" alt="Hyewon Lee" /> */}
           {/* <EmailText>hyewon0809[at]kaist.ac.kr</EmailText> */}
@@ -86,45 +86,47 @@ const HeaderMobile = () => {
       )}
       {menu && (
         <HeaderColWrapper>
-          <HeaderElWrapper
+          <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.cv);
+              window.open(updates.linkedin);
             }}
           >
-            CV ⬈
-          </HeaderElWrapper>
-          <HeaderElWrapper
+            Linkedin
+          </HeaderFooterElWrapper>
+          <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.linkedin);
+              window.open(updates.github);
             }}
           >
-            Linkedin ⬈
-          </HeaderElWrapper>
-          <HeaderElWrapper
+            Github
+          </HeaderFooterElWrapper>
+          <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.github);
+              window.open(updates.googlescholar);
             }}
           >
-            Github ⬈
-          </HeaderElWrapper>
-          <HeaderElWrapper
+            Google Scholar
+          </HeaderFooterElWrapper>
+          <HeaderFooterElWrapper
             onClick={() => {
-              window.open(urls.googlescholar);
+              window.open(updates.email);
             }}
           >
-            Google Scholar ⬈
-          </HeaderElWrapper>
+            Email
+          </HeaderFooterElWrapper>
         </HeaderColWrapper>
       )}
       {menu && (
-        <div
-          style={{
-            boxSizing: "border-box",
-            padding: "32px",
-            fontSize: "11px",
-            color: colors.gray,
-          }}
-        >{`© 2025 Hyewon Lee\nLast Updated at Apr 2025`}</div>
+        <HeaderColWrapper>
+          {" "}
+          <div
+            style={{
+              fontSize: "10px",
+              color: colors.darkgray,
+              textAlign: "left",
+            }}
+          >{`${updates.copyright}\nLast Updated at ${updates.lastUpdated}`}</div>
+        </HeaderColWrapper>
       )}
     </HeaderContainer>
   );
@@ -192,4 +194,17 @@ const HeaderElWrapper = styled.div<{ bold?: boolean }>`
   }
 
   cursor: pointer;
+`;
+
+const HeaderFooterElWrapper = styled.div<{ bold?: boolean }>`
+  flex: 0 0 auto;
+  align-self: flex-start;
+  color: ${colors.black};
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.darkgray};
+  }
 `;
