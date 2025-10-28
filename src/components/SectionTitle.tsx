@@ -22,8 +22,8 @@ export default SectionTitle;
 
 const TitleWrapper = styled.div<{ align: string; marginBottom: string }>`
   align-self: flex-start;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 550;
+  font-size: 16px;
   text-align: ${(props) => props.align};
   margin-bottom: ${(props) => props.marginBottom};
   color: black;

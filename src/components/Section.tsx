@@ -16,7 +16,7 @@ const Section = ({
   id,
   gap = 12,
   align = "center",
-  marginBottom = "16px",
+  marginBottom = "24px",
 }: SectionProps) => {
   return (
     <SectionWrapper id={id} gap={gap}>

@@ -3,53 +3,56 @@ import { colors } from "utils/styles";
 import projects from "@assets/strings/projects";
 import Tag from "@components/Tag";
 import Section from "@components/Section";
+import { useState } from "react";
 
 const ProjectsPage = () => {
+  const [activeFilter, setActiveFilter] = useState<
+    "Selected" | "Research" | "Web" | "Design"
+  >("Selected");
   return (
     <PageContainer>
       <Section sectionTitle="Projects" id="projects">
         <div style={{ display: "flex", gap: "8px", fontWeight: 350 }}>
-          <div
-            style={{
-              textDecoration: "underline",
-              cursor: "pointer",
-            }}
+          <FilterButton
+            active={activeFilter === "Selected"}
+            onClick={() => setActiveFilter("Selected")}
           >
             Selected
-          </div>
+          </FilterButton>
           {"/"}
-          <div
-            style={{
-              cursor: "pointer",
-            }}
+          <FilterButton
+            active={activeFilter === "Research"}
+            onClick={() => setActiveFilter("Research")}
           >
             Research
-          </div>
+          </FilterButton>
           {"/"}
-          <div
-            style={{
-              cursor: "pointer",
-            }}
+          <FilterButton
+            active={activeFilter === "Web"}
+            onClick={() => setActiveFilter("Web")}
           >
             Web
-          </div>
+          </FilterButton>
           {"/"}
-          <div
-            style={{
-              cursor: "pointer",
-            }}
+          <FilterButton
+            active={activeFilter === "Design"}
+            onClick={() => setActiveFilter("Design")}
           >
-            Design
-          </div>
+            Interactive Design
+          </FilterButton>
         </div>
         <div
           style={{ width: "100%", borderBottom: `1px solid ${colors.gray}` }}
         ></div>
         <ProjectsContainer>
-          {projects.map((el, index) => {
-            if (!el.selected) return <></>;
-
-            return (
+          {projects
+            .filter((el) => {
+              if (activeFilter === "Selected") {
+                return el.selected;
+              }
+              return el.type === activeFilter;
+            })
+            .map((el, index) => (
               <ProjectItem
                 key={index}
                 title={el.title}
@@ -60,8 +63,7 @@ const ProjectsPage = () => {
                 link={el.link}
                 description={el.description}
               />
-            );
-          })}
+            ))}
         </ProjectsContainer>
       </Section>
     </PageContainer>
@@ -200,4 +202,17 @@ const ProjectItemImg = styled.img`
   top: 0;
   left: 0;
   z-index: 5;
+`;
+
+const FilterButton = styled.div<{ active: boolean }>`
+  cursor: pointer;
+  text-decoration: ${(props) => (props.active ? "underline" : "none")};
+  color: ${(props) => (props.active ? colors.black : colors.darkgray)};
+  font-weight: ${(props) => (props.active ? 500 : 350)};
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: ${colors.black};
+    font-weight: 500;
+  }
 `;

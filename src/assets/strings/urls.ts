@@ -4,7 +4,7 @@ const urls = {
   x: "",
   googlescholar: "https://scholar.google.co.kr/citations?hl=en&user=xX0joEYAAAAJ",
   github: "https://github.com/hye1ee",
-
+  email: "mailto:hyewon0809@kaist.ac.kr",
 
 }
 

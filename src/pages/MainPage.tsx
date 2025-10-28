@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import { colors } from "utils/styles";
 import NewsItem from "@components/NewsItem";
-import { news, newsIcons } from "@assets/strings/news";
+import { news } from "@assets/strings/news";
 import Tag from "@components/Tag";
 import Underline from "@components/Underline";
 import Highlight from "@components/Highlight";
 import SmallTag from "@components/SmallTag";
 import Section from "@components/Section";
-import BodyContent from "@components/BodyContent";
-import { useState } from "react";
 
 const MainPage = () => {
   return (
@@ -32,7 +30,7 @@ const MainPage = () => {
           <ContentWrapper>
             <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
 
-            <BodyContent>
+            <ContentContainer>
               I am a senior undergraduate student and{" "}
               <Highlight>HCI researcher</Highlight> at{" "}
               <Underline text="KAIST" link="https://kaist.ac.kr/en/" />,
@@ -83,7 +81,7 @@ const MainPage = () => {
               taekwondo and badminton. I love sharing insights through teaching
               and networking, so please feel free to reach out at
               hyewon0809[at]kaist.ac.kr.
-            </BodyContent>
+            </ContentContainer>
 
             <div
               style={{
@@ -98,89 +96,73 @@ const MainPage = () => {
               <Tag># Human-AI Interaction</Tag>
               <Tag># Generative Interfaces</Tag>
             </div>
-            <div
-              style={{
-                color: colors.darkgray,
-                marginTop: "15px",
-                lineHeight: "1.6",
-              }}
-            >
-              {
-                "*I'm a PhD applicant this year for 2026 entry.\n*I'm updating my website, please visit again after a few days (09/27).  "
-              }
-            </div>
           </ContentWrapper>
         </div>
       </Section>
-      <Section sectionTitle="Updates" id="updates" gap={0}>
-        <NewsCarousel>
-          {/* {newsFixed.map((el, index) => (
-                <NewsItem
-                  key={`fixed-${index}`}
-                  icon={newsIcons[el.icon]}
-                  line={el.line}
-                  pinned={true}
-                />
-              ))} */}
-          {news.map((el, index) => (
-            <NewsItem
-              key={`news-${index}`}
-              icon={newsIcons[el.icon]}
-              line={el.line}
-              pinned={false}
-              date={el.date}
+      {/* Publications and Updates Side by Side */}
+      <SplitSectionContainer id="publications">
+        <Section sectionTitle="Publications" gap={0} align="left">
+          <PubContainer>
+            <PubItem
+              image="/publications/thumb-radi.jpg"
+              title="RADI: A Design Framework for Relational and Adaptive Disclosure Interfaces"
+              // titleLink="https://hyewon.me/pub/camara/"
+              authors={[
+                "Hyewon Lee*",
+                "Ihchae Ryu*",
+                "Yumin Cho*",
+                "Hyunseung Lim",
+                "Hwajung Hong",
+              ]}
+              description=""
+              links={{
+                Paper:
+                  "https://camps.aptaracorp.com/ACM_PMS/PMS/ACM/UISTADJUNCT25/58/34d31128-6f50-11f0-957d-16ffd757ba29/OUT/uistadjunct25-58.html#",
+                Archive: "",
+              }}
+              conference="UIST Adjunct 2025"
             />
-          ))}
-        </NewsCarousel>
-      </Section>
+            <PubItem
+              image="/publications/thumb-camara.jpg"
+              title="CamARa: Exploring and Creating Camera Movements with Spatial Reference in Augmented Reality"
+              titleLink="https://hyewon.me/pub/camara/"
+              authors={["Hyewon Lee", "Christopher Bannon", "Andrea Bianchi"]}
+              description=""
+              links={{
+                Webpage: "https://hyewon.me/pub/camara",
+                Paper: "https://dl.acm.org/doi/10.1145/3706599.3721180",
+                Archive: "",
+              }}
+              conference="CHI EA 2025"
+            />
+            <PubItem
+              image="/publications/thumb-vivid.jpg"
+              title="VIVID: Human-AI Collaborative Authoring of Vicarious Dialogues from Lecture Videos"
+              titleLink="https://vivid.kixlab.org/"
+              authors={["Seulgi Choi", "Hyewon Lee", "Yoonjoo Lee", "Juho Kim"]}
+              description=""
+              links={{
+                Webpage: "https://vivid.kixlab.org/",
+                Paper: "https://dl.acm.org/doi/10.1145/3613904.3642867",
+              }}
+              conference="CHI 2024"
+            />
+          </PubContainer>
+        </Section>
 
-      {/* Publications Section */}
-      <Section sectionTitle="Publications" id="publications">
-        <BodyContent flex={true} gap={20}>
-          <PubItem
-            image="/publications/thumb-radi.png"
-            title="RADI: A Design Framework for Relational and Adaptive Disclosure Interfaces"
-            // titleLink="https://hyewon.me/pub/camara/"
-            authors={[
-              "Hyewon Lee*",
-              "Ihchae Ryu*",
-              "Yumin Cho*",
-              "Hyunseung Lim",
-              "Hwajung Hong",
-            ]}
-            description=""
-            links={{
-              Paper:
-                "https://camps.aptaracorp.com/ACM_PMS/PMS/ACM/UISTADJUNCT25/58/34d31128-6f50-11f0-957d-16ffd757ba29/OUT/uistadjunct25-58.html#",
-            }}
-            conference="UIST Adjunct 2025"
-          />
-          <PubItem
-            image="/publications/thumb-camara.jpg"
-            title="CamARa: Exploring and Creating Camera Movements with Spatial Reference in Augmented Reality"
-            titleLink="https://hyewon.me/pub/camara/"
-            authors={["Hyewon Lee", "Christopher Bannon", "Andrea Bianchi"]}
-            description=""
-            links={{
-              Webpage: "https://hyewon.me/pub/camara",
-              Paper: "https://dl.acm.org/doi/10.1145/3706599.3721180",
-            }}
-            conference="CHI EA 2025"
-          />
-          <PubItem
-            image="/publications/thumb-vivid.jpg"
-            title="VIVID: Human-AI Collaborative Authoring of Vicarious Dialogues from Lecture Videos"
-            titleLink="https://vivid.kixlab.org/"
-            authors={["Seulgi Choi", "Hyewon Lee", "Yoonjoo Lee", "Juho Kim"]}
-            description=""
-            links={{
-              Webpage: "https://vivid.kixlab.org/",
-              Paper: "https://dl.acm.org/doi/10.1145/3613904.3642867",
-            }}
-            conference="CHI 2024"
-          />
-        </BodyContent>
-      </Section>
+        <Section sectionTitle="Updates" id="updates" gap={0} align="left">
+          <NewsContainer>
+            {news.map((el, index) => (
+              <NewsItem
+                key={`news-${index}`}
+                icon={el.icon}
+                line={el.line}
+                date={el.date}
+              />
+            ))}
+          </NewsContainer>
+        </Section>
+      </SplitSectionContainer>
       <div style={{ marginBottom: "50px" }} />
     </PageContainer>
   );
@@ -191,6 +173,14 @@ export default MainPage;
 // Styled Components
 const PageContainer = styled.div`
   width: 100%;
+
+  box-sizing: border-box;
+  padding-right: calc(100% - 900px);
+
+  @media (width <= 1280px) {
+    padding-right: calc(100% - 800px);
+  }
+
   height: 100vh;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -199,32 +189,50 @@ const PageContainer = styled.div`
 const ContentWrapper = styled.div`
   width: 100%;
   line-height: 0.8;
-  font-weight: 300;
+  font-weight: 350;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 `;
 
-const NewsCarousel = styled.div`
+const ContentContainer = styled.div`
+  line-height: 1.6;
+  width: 100%;
+
+  font-size: 14px;
+`;
+
+const NewsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+`;
+
+const SplitSectionContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 8px 0;
+  gap: 0;
+  align-items: flex-start;
 
-  /* Hide scrollbar but keep functionality */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
+  @media (width <= 1024px) {
+    flex-direction: column;
   }
 
-  /* Smooth scrolling */
-  scroll-behavior: smooth;
+  /* Nested Sections styling */
+  & > div {
+    flex: 1;
+
+    &:first-child {
+      padding-right: 16px !important;
+    }
+
+    &:last-child {
+      padding-left: 16px !important;
+    }
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -240,13 +248,25 @@ const ProfileImage = styled.img`
   }
 `;
 
+const PubContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+`;
+
 interface PubItemProps {
   image: string;
   title: string;
   titleLink?: string;
   authors: string[];
   description: string;
-  links: { Webpage?: string; Paper?: string; Github?: string };
+  links: {
+    Webpage?: string;
+    Paper?: string;
+    Github?: string;
+    Archive?: string;
+  };
   conference?: string;
 }
 
@@ -259,44 +279,31 @@ const PubItem = ({
   links,
   conference,
 }: PubItemProps) => {
-  const [hover, setHover] = useState(false);
-
   return (
-    <div style={{ display: "flex" }}>
-      <ThumbnailImage>
+    <PubItemContainer>
+      <HorizontalImage>
         <img
           src={image}
           alt={image}
-          style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-        />
-      </ThumbnailImage>
-      <div
-        style={{
-          display: "flex",
-          flex: "1",
-          flexDirection: "column",
-          gap: "6px",
-        }}
-      >
-        <Tag>{conference}</Tag>
-        <div
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
           style={{
-            fontWeight: hover ? 500 : 450,
-            fontSize: "20px",
-            cursor: "pointer",
-            textDecoration: hover ? "underline" : "none",
-            textDecorationStyle: hover ? "dotted" : "solid",
-            transition: "all 0.3s",
-            color: "black",
-            marginLeft: "8px",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
-          onClick={() => window.open(titleLink, "_blank")}
-        >
+        />
+        <ConferenceBadge>{conference}</ConferenceBadge>
+      </HorizontalImage>
+      <PubInfoContainer>
+        <PubTitle onClick={() => titleLink && window.open(titleLink, "_blank")}>
           {title}
-        </div>
-        <div style={{ marginLeft: "8px", color: colors.darkgray }}>
+        </PubTitle>
+        <div
+          style={{
+            color: colors.darkgray,
+            fontSize: "12px",
+            lineHeight: "1.4",
+          }}
+        >
           {authors.map((author, index) => (
             <span key={index}>
               {author.includes("Hyewon Lee") ? (
@@ -317,38 +324,101 @@ const PubItem = ({
           ))}
         </div>
         <div
-          className="hide-on-mobile"
-          style={{ fontSize: "14px", marginLeft: "8px" }}
-        >
-          {description}
-        </div>
-        <div
           style={{
-            gap: "8px",
-            flex: 1,
+            gap: "16px",
             display: "flex",
-            alignItems: "flex-end",
-            marginTop: "8px",
+            alignItems: "center",
+            marginTop: "0px",
           }}
         >
-          {Object.entries(links).map((link, idx) => (
-            <SmallTag key={idx} onClick={() => window.open(link[1], "_blank")}>
-              {link[0]}
-            </SmallTag>
-          ))}
+          {Object.entries(links).map((link, idx) => {
+            const linkType = link[0].toLowerCase();
+            let iconPath = "";
+
+            if (linkType.includes("paper")) {
+              iconPath = "/icon/paper.svg";
+            } else if (
+              linkType.includes("webpage") ||
+              linkType.includes("website")
+            ) {
+              iconPath = "/icon/home.svg";
+            } else if (linkType.includes("archive")) {
+              iconPath = "/icon/pdf.svg";
+            }
+
+            return (
+              <SmallTag
+                key={idx}
+                icon={iconPath}
+                onClick={() => window.open(link[1], "_blank")}
+              >
+                {link[0]}
+              </SmallTag>
+            );
+          })}
         </div>
-      </div>
-    </div>
+      </PubInfoContainer>
+    </PubItemContainer>
   );
 };
 
-const ThumbnailImage = styled.div`
-  width: 200px;
-  margin-right: 20px;
-  border-radius: 8px;
-  border: 0.5px solid ${colors.gray};
+const PubItemContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* padding: 12px; */
+  border-bottom: 1px solid ${colors.gray};
+  box-sizing: border-box;
+  margin-bottom: 16px;
 
-  @media (width <= 768px) {
-    display: none;
+  &:last-child {
+    margin-bottom: 0;
   }
+`;
+
+const PubInfoContainer = styled.div`
+  padding: 16px 4px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+`;
+
+const PubTitle = styled.div`
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  color: black;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+  display: inline-block;
+
+  &:hover {
+    font-weight: 500;
+    /* text-decoration: underline;
+    text-decoration-style: solid; */
+    text-shadow: 2px 2px 8px rgba(0, 169, 234, 0.3);
+  }
+`;
+
+const HorizontalImage = styled.div`
+  width: 100%;
+  height: 160px;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+`;
+
+const ConferenceBadge = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 6px 10px;
+  background-color: #fafcfe;
+  border: 1px solid ${colors.gray};
+  color: ${colors.darkgray};
+
+  z-index: 1;
 `;

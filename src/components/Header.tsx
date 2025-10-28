@@ -29,14 +29,10 @@ const Header = () => {
     <HeaderContainer>
       <HeaderNameWrapper onClick={() => scrollToSection("main")}>
         <HeaderElWrapper style={{ fontSize: "20px" }} bold={true}>
-          Hyewon Lee, 이혜원
+          Hyewon Lee
         </HeaderElWrapper>
         <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
-        <SpeechBubble>
-          Seeking a PhD position for 2026 🎓
-          <br />
-          Heading to Busan 🇰🇷 for UIST 2025
-        </SpeechBubble>
+        <SpeechBubble>Seeking a PhD position for 2026 🎓</SpeechBubble>
       </HeaderNameWrapper>
       <HeaderColWrapper>
         <HeaderElWrapper
@@ -58,54 +54,60 @@ const Header = () => {
           Projects
         </HeaderElWrapper>
       </HeaderColWrapper>
-      <HeaderColWrapper>
-        <HeaderElWrapper
-          onClick={() => {
-            window.open(urls.cv);
+      <HeaderFooterWrapper>
+        <HeaderRowWrapper>
+          <HeaderFooterElWrapper
+            onClick={() => {
+              window.open(urls.linkedin);
+            }}
+          >
+            Linkedin
+          </HeaderFooterElWrapper>
+          <HeaderFooterElWrapper
+            onClick={() => {
+              window.open(urls.github);
+            }}
+          >
+            Github
+          </HeaderFooterElWrapper>
+          <HeaderFooterElWrapper
+            onClick={() => {
+              window.open(urls.googlescholar);
+            }}
+          >
+            Google Scholar
+          </HeaderFooterElWrapper>
+          <HeaderFooterElWrapper
+            onClick={() => {
+              window.open(urls.email);
+            }}
+          >
+            Email
+          </HeaderFooterElWrapper>
+        </HeaderRowWrapper>
+        <div
+          style={{
+            fontSize: "10px",
+            color: colors.darkgray,
+            textAlign: "center",
           }}
-        >
-          CV ⬈
-        </HeaderElWrapper>
-        <HeaderElWrapper
-          onClick={() => {
-            window.open(urls.linkedin);
-          }}
-        >
-          Linkedin ⬈
-        </HeaderElWrapper>
-        <HeaderElWrapper
-          onClick={() => {
-            window.open(urls.github);
-          }}
-        >
-          Github ⬈
-        </HeaderElWrapper>
-        <HeaderElWrapper
-          onClick={() => {
-            window.open(urls.googlescholar);
-          }}
-        >
-          Google Scholar ⬈
-        </HeaderElWrapper>
-      </HeaderColWrapper>
-      <div
-        style={{ fontSize: "11px", color: colors.darkgray }}
-      >{`© 2025 Hyewon Lee\nLast Updated at Sep 2025`}</div>
+        >{`© 2025 Hyewon Lee\nLast Updated at Sep 2025`}</div>
+      </HeaderFooterWrapper>
     </HeaderContainer>
   );
 };
 export default Header;
 
 const HeaderContainer = styled.div`
-  width: 340px;
-  margin-right: 60px;
+  width: 320px;
+  margin-left: 60px;
 
   @media (width <= 1280px) {
-    width: 300px;
-    margin-right: 40px;
+    width: 280px;
+    margin-right: 30px;
   }
   @media (width >= 1440px) {
-    width: 380px;
+    width: 320px;
     margin-right: 80px;
   }
   height: 100%;
@@ -140,6 +142,30 @@ const HeaderColWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
+`;
+
+const HeaderRowWrapper = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+`;
+
+const HeaderFooterWrapper = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-bottom: 24px;
 `;
 
 const HeaderNameWrapper = styled.div`
@@ -199,6 +225,7 @@ const SpeechBubble = styled.div`
 `;
 
 const HeaderElWrapper = styled.div<{ bold?: boolean }>`
+  flex: 0 0 auto;
   align-self: flex-start;
   color: ${(props) => (props.bold ? colors.primary : colors.black)};
 
@@ -212,4 +239,17 @@ const HeaderElWrapper = styled.div<{ bold?: boolean }>`
   }
 
   cursor: pointer;
+`;
+
+const HeaderFooterElWrapper = styled.div<{ bold?: boolean }>`
+  flex: 0 0 auto;
+  align-self: flex-start;
+  color: ${colors.black};
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.darkgray};
+  }
 `;
