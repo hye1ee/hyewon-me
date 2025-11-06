@@ -17,7 +17,7 @@ const Section = ({
   id,
   gap = 12,
   align = "center",
-  marginBottom = "24px",
+  marginBottom = "16px",
   titleSize = "16px",
 }: SectionProps) => {
   return (
@@ -43,6 +43,8 @@ const SectionWrapper = styled.div<{ gap: number }>`
   flex-direction: column;
   justify-content: center;
   padding: 32px;
+  padding-top: 35px;
+  padding-bottom: 10px;
   gap: ${(props) => props.gap}px;
   box-sizing: border-box;
 `;
