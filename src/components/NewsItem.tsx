@@ -41,7 +41,7 @@ const NewsItemWrapper = styled.div`
 `;
 
 const DateColumn = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   flex-shrink: 0;
   width: 70px;
   color: ${colors.darkgray};
@@ -49,7 +49,7 @@ const DateColumn = styled.div`
 
 const EventColumn = styled.div`
   flex: 1;
-  font-size: 12px;
+  font-size: 14px;
   color: ${colors.black};
 `;
 

@@ -26,7 +26,7 @@ const StyledSmallTag = styled.div`
 
   flex: 0 0 auto;
 
-  font-size: 12px;
+  font-size: 14px;
 
   box-sizing: border-box;
   padding: 6px 0px;

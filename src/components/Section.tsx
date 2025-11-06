@@ -8,6 +8,7 @@ interface SectionProps {
   id?: string;
   align?: "left" | "center" | "right";
   marginBottom?: string;
+  titleSize?: string;
 }
 
 const Section = ({
@@ -17,10 +18,15 @@ const Section = ({
   gap = 12,
   align = "center",
   marginBottom = "24px",
+  titleSize = "16px",
 }: SectionProps) => {
   return (
     <SectionWrapper id={id} gap={gap}>
-      <SectionTitle align={align} marginBottom={marginBottom}>
+      <SectionTitle
+        align={align}
+        marginBottom={marginBottom}
+        titleSize={titleSize}
+      >
         {sectionTitle}
       </SectionTitle>
       {children}

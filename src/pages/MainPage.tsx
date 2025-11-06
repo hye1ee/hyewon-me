@@ -17,7 +17,7 @@ const MainPage = () => {
   return (
     <PageContainer>
       {/* Main Section */}
-      <Section sectionTitle="Hi, I'm Hyewon Lee, 이혜원" id="about">
+      <Section sectionTitle="Hi, I'm Hyewon! 혜원" id="about" titleSize="20px">
         <div
           style={{
             width: "100%",
@@ -39,22 +39,23 @@ const MainPage = () => {
               I am a senior undergraduate student and{" "}
               <Highlight>HCI researcher</Highlight> at{" "}
               <Underline text="KAIST" link="https://kaist.ac.kr/en/" />,
-              double-majoring in{" "}
-              <Underline
-                text="Computer Science"
-                link="https://cs.kaist.ac.kr/"
-              />{" "}
-              and{" "}
-              <Underline
-                text="Industrial Design"
-                link="https://id.kaist.ac.kr/"
+              double-majoring in computer science and industrial design. I work
+              with{" "}
+              <img
+                style={{ width: "12px", height: "12px", marginRight: "4px" }}
+                src="/icon/kixlab.png"
+                alt="KIXLAB"
               />
-              . I work with{" "}
               <Underline
                 text="Prof. Juho Kim at KIXLAB"
                 link="https://juhokim.com/"
               />{" "}
               and previously collaborated with{" "}
+              <img
+                style={{ width: "12px", height: "12px", marginRight: "4px" }}
+                src="/icon/makelab.png"
+                alt="Makelab"
+              />
               <Underline
                 text="Prof. Andrea Bianchi at Makelab"
                 link="https://make.kaist.ac.kr/andrea"
@@ -64,43 +65,32 @@ const MainPage = () => {
               <br />
               My research motivation lies in{" "}
               <Highlight variant="secondary">
-                making the creative process enjoyable
-              </Highlight>
-              . Humans are inherently creative—they constantly discover hidden
-              potentials of tools, while tools inspire creativity and expression
-              in return. I believe good creativity support tools should bring
-              joy both in the process of creation and in the sense of
-              accomplishment. With the rapid progress of generative AI, the
-              latter has become easier to achieve, but tools must evolve further
-              to naturally blend into the creative process itself. My work
-              focuses on{" "}
-              <Highlight variant="secondary">
-                developing creativity support tools by integrating cutting-edge
-                technologies{" "}
+                making the creative process fun!
               </Highlight>{" "}
-              like AI and XR to expand the design space of creation.
+              I build AI-augmented tools that make design workflows both
+              engaging and enjoyable, which I see as one of the most noble human
+              pursuits. I also explore new forms of human–AI interactions and
+              interfaces that support designer-centered collaborative
+              sensemaking.
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "8px",
+                  marginTop: "12px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <Tag>Human-AI Interaction</Tag>
+                <Tag>Creativity Support</Tag>
+                <Tag>Generative Interfaces</Tag>
+              </div>
               <br />
-              <br />
-              Outside research, I enjoy expressing myself through videos,
-              writing, and music. I also find huge energy in activities like
-              taekwondo and badminton. I love sharing insights through teaching
-              and networking, so please feel free to reach out at
-              hyewon0809[at]kaist.ac.kr.
+              Outside research, I enjoy expressing myself through design and
+              music. I also draw energy from activities like taekwondo and
+              badminton. I love sharing insights through teaching and connecting
+              with others, so please feel free to reach out 😇.
             </ContentContainer>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: "8px",
-                marginTop: "12px",
-                flexWrap: "wrap",
-              }}
-            >
-              <Tag># Creativity Support Tools</Tag>
-              <Tag># Human-AI Interaction</Tag>
-              <Tag># Generative Interfaces</Tag>
-            </div>
           </ContentWrapper>
         </div>
       </Section>
@@ -179,10 +169,10 @@ const PageContainer = styled.div`
   width: 100%;
 
   box-sizing: border-box;
-  padding-right: calc(100% - 900px);
+  padding-right: calc(100% - 960px);
 
   @media (width <= 1280px) {
-    padding-right: calc(100% - 800px);
+    padding-right: calc(100% - 840px);
   }
 
   @media (width <= 1024px) {
@@ -208,7 +198,7 @@ const ContentContainer = styled.div`
   line-height: 1.6;
   width: 100%;
 
-  font-size: 14px;
+  /* font-size: 14px; */
 `;
 
 const NewsContainer = styled.div`
@@ -312,7 +302,7 @@ const PubItem = ({
         <div
           style={{
             color: colors.darkgray,
-            fontSize: "12px",
+            fontSize: "14px",
             lineHeight: "1.4",
           }}
         >
@@ -398,7 +388,7 @@ const PubInfoContainer = styled.div`
 
 const PubTitle = styled.div`
   font-weight: 400;
-  font-size: 14px;
+  /* font-size: 14px; */
   cursor: pointer;
   color: black;
   line-height: 1.6;
@@ -425,12 +415,12 @@ const ConferenceBadge = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 10px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 500;
   padding: 6px 10px;
-  background-color: #fafcfe;
-  border: 1px solid ${colors.gray};
-  color: ${colors.darkgray};
+  color: ${colors.primary};
+  background-color: ${colors.lightgray};
+  /* border: 1px dotted ${colors.primary}; */
 
   z-index: 1;
 `;

@@ -141,7 +141,7 @@ const HeaderMobile = () => {
           {" "}
           <div
             style={{
-              fontSize: "10px",
+              fontSize: "12px",
               color: colors.darkgray,
               textAlign: "left",
             }}
@@ -226,7 +226,7 @@ const HeaderFooterElWrapper = styled.div<{ bold?: boolean }>`
   flex: 0 0 auto;
   align-self: flex-start;
   color: ${colors.black};
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   cursor: pointer;
 

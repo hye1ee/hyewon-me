@@ -116,7 +116,7 @@ const ProjectItem = (props: ProjectItemProps) => {
           <Tag>{"# " + props.type}</Tag>
         </div>
         <div
-          style={{ fontSize: "12px", color: colors.darkgray, fontWeight: 350 }}
+          style={{ fontSize: "14px", color: colors.darkgray, fontWeight: 350 }}
         >
           {props.year}
         </div>
@@ -168,7 +168,7 @@ const ProjectOverlay = styled.div`
   transition: all 0.5s;
   box-sizing: border-box;
   padding: 24px;
-  font-size: 14px;
+  /* font-size: 14px; */
   line-height: 1.8;
   font-weight: 350;
   color: white;

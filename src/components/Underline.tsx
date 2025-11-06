@@ -12,8 +12,9 @@ const Underline = ({ text, link }: { text: string; link: string }) => {
       style={{
         display: "inline-block",
         cursor: "pointer",
-        color: hover ? colors.black : colors.darkgray,
-        textDecoration: hover ? "underline wavy" : "none",
+        color: hover ? colors.black : colors.black,
+        textDecoration: hover ? "underline solid" : "none",
+        fontWeight: 600,
         // textDecoration: "underline dotted",
         transition: "color 0.2s, text-decoration 0.2s",
       }}

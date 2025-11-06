@@ -93,7 +93,7 @@ const Header = () => {
         </HeaderRowWrapper>
         <div
           style={{
-            fontSize: "10px",
+            fontSize: "12px",
             color: colors.darkgray,
             textAlign: "center",
           }}
@@ -236,12 +236,12 @@ const HeaderElWrapper = styled.div<{ bold?: boolean }>`
   color: ${(props) => (props.bold ? colors.primary : colors.black)};
 
   font-size: ${(props) => (props.bold ? "16px" : "14px")};
-  font-weight: ${(props) => (props.bold ? 450 : 400)};
+  font-weight: ${(props) => (props.bold ? 550 : 400)};
 
   transition: all 0.2s;
 
   &:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 
   cursor: pointer;
@@ -251,7 +251,7 @@ const HeaderFooterElWrapper = styled.div<{ bold?: boolean }>`
   flex: 0 0 auto;
   align-self: flex-start;
   color: ${colors.black};
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   cursor: pointer;
 
