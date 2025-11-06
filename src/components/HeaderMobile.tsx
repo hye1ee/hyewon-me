@@ -59,7 +59,6 @@ const HeaderMobile = () => {
           <Menu onClick={() => setMenu(true)} size={20} color={colors.gray} />
         )}
       </div>
-      `
       {menu && (
         <HeaderColWrapper>
           <HeaderElWrapper

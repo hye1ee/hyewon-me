@@ -8,6 +8,11 @@ import Highlight from "@components/Highlight";
 import SmallTag from "@components/SmallTag";
 import Section from "@components/Section";
 
+// Helper to construct local domain links
+const getLocalUrl = (path: string) => {
+  return `${window.location.origin}${path}`;
+};
+
 const MainPage = () => {
   return (
     <PageContainer>
@@ -117,20 +122,20 @@ const MainPage = () => {
               description=""
               links={{
                 Paper: "https://dl.acm.org/doi/10.1145/3746058.3758404",
-                Archive: "",
+                Archive: getLocalUrl("/pdf/radi_full.pdf"),
               }}
               conference="UIST Adjunct 2025"
             />
             <PubItem
               image="/publications/thumb-camara.jpg"
               title="CamARa: Exploring and Creating Camera Movements with Spatial Reference in Augmented Reality"
-              titleLink="https://hyewon.me/pub/camara/"
+              titleLink={getLocalUrl("/pub/camara")}
               authors={["Hyewon Lee", "Christopher Bannon", "Andrea Bianchi"]}
               description=""
               links={{
-                Webpage: "https://hyewon.me/pub/camara",
+                Webpage: getLocalUrl("/pub/camara"),
                 Paper: "https://dl.acm.org/doi/10.1145/3706599.3721180",
-                Archive: "",
+                Archive: getLocalUrl("/pdf/camara_full.pdf"),
               }}
               conference="CHI EA 2025"
             />
