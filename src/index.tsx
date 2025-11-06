@@ -13,7 +13,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import PdfContainer from "@components/PdfContainer";
 
 // List of allowed PDF files (without .pdf extension)
-const allowedPdfs = ["artventure", "radione", "camara_full", "radi_full"];
+const allowedPdfs = ["artventure", "radione", "camara-full", "radi-full"];
 
 // Dynamic PDF route component with validation
 const DynamicPdfRoute = () => {

@@ -122,7 +122,7 @@ const MainPage = () => {
               description=""
               links={{
                 Paper: "https://dl.acm.org/doi/10.1145/3746058.3758404",
-                Archive: getLocalUrl("/pdf/radi_full.pdf"),
+                Archive: getLocalUrl("/pdf/radi-full.pdf"),
               }}
               conference="UIST Adjunct 2025"
             />
@@ -135,7 +135,7 @@ const MainPage = () => {
               links={{
                 Webpage: getLocalUrl("/pub/camara"),
                 Paper: "https://dl.acm.org/doi/10.1145/3706599.3721180",
-                Archive: getLocalUrl("/pdf/camara_full.pdf"),
+                Archive: getLocalUrl("/pdf/camara-full.pdf"),
               }}
               conference="CHI EA 2025"
             />
