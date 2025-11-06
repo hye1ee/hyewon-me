@@ -53,6 +53,12 @@ const Header = () => {
         >
           Projects
         </HeaderElWrapper>
+        <HeaderElWrapper
+          bold={false}
+          onClick={() => navigate("/pdf/hyewonlee-cv")}
+        >
+          CV
+        </HeaderElWrapper>
       </HeaderColWrapper>
       <HeaderFooterWrapper>
         <HeaderRowWrapper>

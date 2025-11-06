@@ -185,6 +185,10 @@ const PageContainer = styled.div`
     padding-right: calc(100% - 800px);
   }
 
+  @media (width <= 1024px) {
+    padding-right: 0;
+  }
+
   height: 100vh;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -225,18 +229,21 @@ const SplitSectionContainer = styled.div`
     flex-direction: column;
   }
 
-  /* Nested Sections styling */
-  & > div {
-    flex: 1;
+  @media (width > 1024px) {
+    & > div {
+      flex: 1;
 
-    &:first-child {
-      padding-right: 16px !important;
-    }
+      &:first-child {
+        padding-right: 16px !important;
+      }
 
-    &:last-child {
-      padding-left: 16px !important;
+      &:last-child {
+        padding-left: 16px !important;
+      }
     }
   }
+
+  /* Nested Sections styling */
 `;
 
 const ProfileImage = styled.img`
@@ -249,6 +256,7 @@ const ProfileImage = styled.img`
     display: block;
     align-self: center;
     max-width: 350px;
+    margin-bottom: 24px;
   }
 `;
 

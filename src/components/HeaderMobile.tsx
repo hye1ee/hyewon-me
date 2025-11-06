@@ -33,12 +33,14 @@ const HeaderMobile = () => {
       <div
         style={{
           width: "100%",
-          height: "72px",
+          height: "60px",
           boxSizing: "border-box",
-          padding: "32px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          backgroundColor: "transparent",
+          background: "transparent",
+          padding: "0 32px",
         }}
       >
         <HeaderNameWrapper
@@ -47,9 +49,10 @@ const HeaderMobile = () => {
             scrollToSection("main");
           }}
         >
-          <HeaderElWrapper style={{ fontSize: "20px" }} bold={true}>
-            Hyewon Lee
-          </HeaderElWrapper>
+          <HeaderElWrapper
+            style={{ fontSize: "20px" }}
+            bold={true}
+          ></HeaderElWrapper>
           {/* <ProfileImage src="/img/profile.png" alt="Hyewon Lee" /> */}
           {/* <EmailText>hyewon0809[at]kaist.ac.kr</EmailText> */}
         </HeaderNameWrapper>
@@ -61,6 +64,15 @@ const HeaderMobile = () => {
       </div>
       {menu && (
         <HeaderColWrapper>
+          <HeaderElWrapper
+            bold={location.pathname === "/" && location.hash === "#about"}
+            onClick={() => {
+              setMenu(false);
+              scrollToSection("about");
+            }}
+          >
+            About
+          </HeaderElWrapper>
           <HeaderElWrapper
             bold={
               location.pathname === "/" && location.hash === "#publications"
@@ -80,6 +92,15 @@ const HeaderMobile = () => {
             }}
           >
             Projects
+          </HeaderElWrapper>
+          <HeaderElWrapper
+            bold={false}
+            onClick={() => {
+              setMenu(false);
+              navigate("/pdf/hyewonlee-cv");
+            }}
+          >
+            CV
           </HeaderElWrapper>
         </HeaderColWrapper>
       )}
@@ -134,18 +155,23 @@ export default HeaderMobile;
 
 const HeaderContainer = styled.div<{ menu: boolean }>`
   width: 100%;
-  height: ${(props) => (props.menu ? "100%" : "72px")};
+  height: ${(props) => (props.menu ? "100%" : "60px")};
 
   box-sizing: border-box;
 
   flex: 0 0 auto;
 
-  border-bottom: 1px solid ${colors.gray};
-  backdrop-filter: blur(5px);
+  /* position: sticky;
+  top: 0; */
+
+  /* border-bottom: 1px solid ${colors.gray}; */
+
+  background-color: transparent !important;
+  background: transparent !important;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 
   z-index: 100;
@@ -161,12 +187,13 @@ const HeaderColWrapper = styled.div`
   height: fit-content;
 
   box-sizing: border-box;
-  padding: 32px;
+  padding: 42px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  align-self: flex-start;
   gap: 10px;
 
   margin-bottom: 20px;
