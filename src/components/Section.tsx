@@ -9,6 +9,7 @@ interface SectionProps {
   align?: "left" | "center" | "right";
   marginBottom?: string;
   titleSize?: string;
+  style?: React.CSSProperties;
 }
 
 const Section = ({
@@ -19,9 +20,10 @@ const Section = ({
   align = "center",
   marginBottom = "16px",
   titleSize = "16px",
+  style,
 }: SectionProps) => {
   return (
-    <SectionWrapper id={id} gap={gap}>
+    <SectionWrapper id={id} gap={gap} style={style}>
       <SectionTitle
         align={align}
         marginBottom={marginBottom}

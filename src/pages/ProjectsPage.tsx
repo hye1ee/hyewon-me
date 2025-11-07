@@ -3,52 +3,51 @@ import { colors } from "utils/styles";
 import projects from "@assets/strings/projects";
 import Tag from "@components/Tag";
 import Section from "@components/Section";
+import PageContainer from "@components/PageContainer";
 import { useState } from "react";
 
 const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState<
-    "Selected" | "Research" | "Web" | "Design"
-  >("Selected");
+    "All" | "Research" | "Web" | "Design"
+  >("All");
   return (
     <PageContainer>
-      <Section sectionTitle="Projects" id="projects">
-        <div style={{ display: "flex", gap: "8px", fontWeight: 350 }}>
+      <Section sectionTitle="Projects" id="projects" titleSize="20px">
+        {/* <ContentContainer>
+          The projects here mainly focus on interaction design. They come from
+          my research, coursework, and personal explorations-for fun!
+        </ContentContainer> */}
+        <FilterContainer>
           <FilterButton
-            active={activeFilter === "Selected"}
-            onClick={() => setActiveFilter("Selected")}
+            active={activeFilter === "All"}
+            onClick={() => setActiveFilter("All")}
           >
-            Selected
+            All
           </FilterButton>
-          {"/"}
           <FilterButton
             active={activeFilter === "Research"}
             onClick={() => setActiveFilter("Research")}
           >
             Research
           </FilterButton>
-          {"/"}
           <FilterButton
             active={activeFilter === "Web"}
             onClick={() => setActiveFilter("Web")}
           >
             Web
           </FilterButton>
-          {"/"}
           <FilterButton
             active={activeFilter === "Design"}
             onClick={() => setActiveFilter("Design")}
           >
             Interactive Design
           </FilterButton>
-        </div>
-        <div
-          style={{ width: "100%", borderBottom: `1px solid ${colors.gray}` }}
-        ></div>
+        </FilterContainer>
         <ProjectsContainer>
           {projects
             .filter((el) => {
-              if (activeFilter === "Selected") {
-                return el.selected;
+              if (activeFilter === "All") {
+                return true;
               }
               return el.type === activeFilter;
             })
@@ -73,13 +72,6 @@ const ProjectsPage = () => {
 export default ProjectsPage;
 
 // Styled Components
-const PageContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-`;
-
 const ProjectsContainer = styled.div`
   width: 100%;
   height: fit-content;
@@ -87,6 +79,13 @@ const ProjectsContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+`;
+
+const ContentContainer = styled.div`
+  line-height: 1.6;
+  width: 100%;
+
+  /* font-size: 14px; */
 `;
 
 interface ProjectItemProps {
@@ -101,8 +100,14 @@ interface ProjectItemProps {
 
 const ProjectItem = (props: ProjectItemProps) => {
   return (
-    <ProjectItemWrapper>
+    <ProjectItemWrapper
+      onClick={() => {
+        if (props.link) window.open(props.link);
+      }}
+    >
       <ProjectTitleWrapper>
+        <div style={{ fontSize: "16px", fontWeight: 550 }}>{props.title}</div>
+
         <div
           style={{
             display: "flex",
@@ -112,23 +117,16 @@ const ProjectItem = (props: ProjectItemProps) => {
             flexWrap: "wrap",
           }}
         >
-          <div style={{ fontSize: "20px", fontWeight: 450 }}>{props.title}</div>
           <Tag>{"# " + props.type}</Tag>
-        </div>
-        <div
-          style={{ fontSize: "14px", color: colors.darkgray, fontWeight: 350 }}
-        >
-          {props.year}
+          <div style={{ fontSize: "14px", color: colors.darkgray }}>
+            {props.year}
+          </div>
         </div>
       </ProjectTitleWrapper>
-      <ProjectItemImgWrapper
-        onClick={() => {
-          if (props.link) window.open(props.link);
-        }}
-      >
-        <ProjectOverlay>{props.description}</ProjectOverlay>
+      <ProjectItemImgWrapper>
         <ProjectItemImg alt={props.title} src={props.src} />
       </ProjectItemImgWrapper>
+      <ProjectDescription>{props.description}</ProjectDescription>
     </ProjectItemWrapper>
   );
 };
@@ -143,10 +141,7 @@ const ProjectTitleWrapper = styled.div`
 `;
 
 const ProjectItemWrapper = styled.div`
-  width: 32%;
-  @media (width <= 1440px) {
-    width: 48%;
-  }
+  width: 48%;
   @media (width <= 1024px) {
     width: 100%;
   }
@@ -155,64 +150,59 @@ const ProjectItemWrapper = styled.div`
   margin: 0 0 60px 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-`;
+  gap: 12px;
 
-const ProjectOverlay = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: all 0.5s;
-  box-sizing: border-box;
-  padding: 24px;
-  /* font-size: 14px; */
-  line-height: 1.8;
-  font-weight: 350;
-  color: white;
-  opacity: 0;
   cursor: pointer;
+
   &:hover {
-    opacity: 1;
+    transform: translateY(-4px);
+    transition: all 1s ease;
   }
-  z-index: 10;
 `;
 
 const ProjectItemImgWrapper = styled.div`
   width: 100%;
-  height: 450px;
-  @media (width <= 1440px) {
-    height: 350px;
-  }
-  @media (width <= 1024px) {
-    height: 250px;
-  }
-  border: 1px solid ${colors.gray};
+  aspect-ratio: 16 / 9;
+  /* border: 1px solid ${colors.gray}; */
   overflow: hidden;
-  position: relative;
 `;
 
 const ProjectItemImg = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
+`;
+
+const ProjectDescription = styled.div`
+  /* line-height: 1.6; */
+  font-size: 14px;
+  color: ${colors.darkgray};
+`;
+
+const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  /* border: 1px solid ${colors.black}; */
+  box-sizing: border-box;
+  padding: 4px 0px;
 `;
 
 const FilterButton = styled.div<{ active: boolean }>`
   cursor: pointer;
-  text-decoration: ${(props) => (props.active ? "underline" : "none")};
-  color: ${(props) => (props.active ? colors.black : colors.darkgray)};
-  font-weight: ${(props) => (props.active ? 500 : 350)};
+  padding: 4px 0px;
+  border-radius: 4px;
+  color: ${(props) => (props.active ? colors.primary : colors.darkgray)};
+  font-weight: ${(props) => (props.active ? 550 : 350)};
+  font-size: 14px;
   transition: all 0.2s ease;
 
   &:hover {
-    color: ${colors.black};
-    font-weight: 500;
+    /* color: ${colors.black}; */
+    font-weight: 550;
   }
 `;

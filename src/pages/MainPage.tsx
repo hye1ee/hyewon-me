@@ -7,12 +7,11 @@ import Underline from "@components/Underline";
 import Highlight from "@components/Highlight";
 import SmallTag from "@components/SmallTag";
 import Section from "@components/Section";
+import PageContainer from "@components/PageContainer";
 import { useState } from "react";
+import { getLocalUrl } from "utils";
 
 // Helper to construct local domain links
-const getLocalUrl = (path: string) => {
-  return `${window.location.origin}${path}`;
-};
 
 const MainPage = () => {
   const [newsExpanded, setNewsExpanded] = useState(false);
@@ -144,11 +143,11 @@ const MainPage = () => {
           <PubItem
             image="/publications/thumb-camara.jpg"
             title="CamARa: Exploring and Creating Camera Movements with Spatial Reference in Augmented Reality"
-            titleLink={getLocalUrl("/pub/camara")}
+            titleLink={getLocalUrl("/pubs/camara")}
             authors={["Hyewon Lee", "Christopher Bannon", "Andrea Bianchi"]}
             description=""
             links={{
-              Webpage: getLocalUrl("/pub/camara"),
+              Webpage: getLocalUrl("/pubs/camara"),
               Paper: "https://dl.acm.org/doi/10.1145/3706599.3721180",
               Archive: getLocalUrl("/pdf/camara-full.pdf"),
             }}
@@ -177,25 +176,6 @@ const MainPage = () => {
 export default MainPage;
 
 // Styled Components
-const PageContainer = styled.div`
-  width: 100%;
-
-  box-sizing: border-box;
-  padding-right: calc(100% - 960px);
-
-  @media (width <= 1280px) {
-    padding-right: calc(100% - 840px);
-  }
-
-  @media (width <= 1024px) {
-    padding-right: 0;
-  }
-
-  height: 100vh;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-`;
-
 const ContentWrapper = styled.div`
   width: 100%;
   line-height: 0.8;
@@ -238,34 +218,6 @@ const ExpandButton = styled.div`
     font-weight: 500;
     /* text-decoration: underline; */
   }
-`;
-
-const SplitSectionContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  align-items: flex-start;
-
-  @media (width <= 1024px) {
-    flex-direction: column;
-  }
-
-  @media (width > 1024px) {
-    & > div {
-      flex: 1;
-
-      &:first-child {
-        padding-right: 16px !important;
-      }
-
-      &:last-child {
-        padding-left: 16px !important;
-      }
-    }
-  }
-
-  /* Nested Sections styling */
 `;
 
 const ProfileImage = styled.img`

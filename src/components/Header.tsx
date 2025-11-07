@@ -6,6 +6,7 @@ import { colors } from "utils/styles";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname === "/") {
@@ -31,8 +32,12 @@ const Header = () => {
         <HeaderElWrapper style={{ fontSize: "20px" }} bold={true}>
           Hyewon Lee
         </HeaderElWrapper>
-        <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
-        <SpeechBubble>{updates.updates}</SpeechBubble>
+        {isHome && (
+          <>
+            <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
+            <SpeechBubble>{updates.updates}</SpeechBubble>
+          </>
+        )}
       </HeaderNameWrapper>
       <HeaderColWrapper>
         <HeaderElWrapper
