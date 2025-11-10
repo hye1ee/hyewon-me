@@ -81,12 +81,12 @@ const ProjectsContainer = styled.div`
   justify-content: space-between;
 `;
 
-const ContentContainer = styled.div`
-  line-height: 1.6;
-  width: 100%;
+// const ContentContainer = styled.div`
+//   line-height: 1.6;
+//   width: 100%;
 
-  /* font-size: 14px; */
-`;
+//   /* font-size: 14px; */
+// `;
 
 interface ProjectItemProps {
   title: string;
