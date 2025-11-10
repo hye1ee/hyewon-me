@@ -66,7 +66,7 @@ const projects: ProjectData[] = [{
   year: 2023,
   type: "Design",
   selected: true,
-  link: window.location.origin + "/projects/radione",
+  link: window.location.origin + "/pdf/radione",
   tags: ["Physical Computing", "UX"]
 },
 {
@@ -76,19 +76,19 @@ const projects: ProjectData[] = [{
   year: 2023,
   type: "Design",
   selected: true,
-  link: window.location.origin + "/projects/artventure",
+  link: window.location.origin + "/pdf/artventure",
   tags: ["Physical Computing", "UX"]
 },
-{
-  title: "Bunny",
-  description: "Bunny is a playful tangible storytelling companion designed to engage young creators through tactile interactions and responsive feedback.",
-  img: "/img/helloworld.png",
-  year: 2023,
-  type: "Design",
-  selected: false,
-  link: window.location.origin + "/projects/bunny",
-  tags: ["Tangible UI", "Education"]
-},
+// {
+//   title: "Bunny",
+//   description: "Bunny is a playful tangible storytelling companion designed to engage young creators through tactile interactions and responsive feedback.",
+//   img: "/img/helloworld.png",
+//   year: 2023,
+//   type: "Design",
+//   selected: false,
+//   link: window.location.origin + "/projects/bunny",
+//   tags: ["Tangible UI", "Education"]
+// },
 {
   title: "RunThroughGravity",
   description: "RunThroughGravity is a mini arcade game implemented with p5.js based on pure Javascript. It developed by adapting an observer pattern to organize game objects and utilized Firebase to manage users.",

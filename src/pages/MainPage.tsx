@@ -143,11 +143,11 @@ const MainPage = () => {
           <PubItem
             image="/publications/thumb-camara.jpg"
             title="CamARa: Exploring and Creating Camera Movements with Spatial Reference in Augmented Reality"
-            titleLink={getLocalUrl("/pubs/camara")}
+            titleLink={getLocalUrl("/publication/camara")}
             authors={["Hyewon Lee", "Christopher Bannon", "Andrea Bianchi"]}
             description=""
             links={{
-              Webpage: getLocalUrl("/pubs/camara"),
+              Webpage: getLocalUrl("/publication/camara"),
               Paper: "https://dl.acm.org/doi/10.1145/3706599.3721180",
               Archive: getLocalUrl("/pdf/camara-full.pdf"),
             }}

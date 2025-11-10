@@ -29,7 +29,15 @@ const router = createBrowserRouter([
         element: <DynamicProjectPage />,
       },
       {
+        path: "project/:projectName",
+        element: <DynamicProjectPage />,
+      },
+      {
         path: "pubs/:publicationName",
+        element: <DynamicPublicationPage />,
+      },
+      {
+        path: "publication/:publicationName",
         element: <DynamicPublicationPage />,
       },
     ],
