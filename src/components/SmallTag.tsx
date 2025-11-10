@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "utils/styles";
+import { colors, tagTextStyle } from "utils/styles";
 
 interface SmallTagProps {
   children: React.ReactNode;
@@ -26,13 +26,12 @@ const StyledSmallTag = styled.div`
 
   flex: 0 0 auto;
 
-  font-size: 14px;
+  ${tagTextStyle}
 
   box-sizing: border-box;
   padding: 6px 0px;
 
   background-color: ${colors.white};
-  color: ${colors.darkgray};
   /* border: 1px solid ${colors.gray}; */
 
   display: flex;

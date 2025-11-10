@@ -3,7 +3,8 @@ import { Navigate, useParams } from "react-router-dom";
 
 import PdfContainer from "@components/PdfContainer";
 
-import CamaraPublication from "./publications/Camara";
+import Camara from "./publications/Camara";
+import Bunny from "./projects/Bunny";
 
 const allowedPdfs = [
   "artventure",
@@ -13,10 +14,14 @@ const allowedPdfs = [
   "hyewonlee-cv",
 ];
 
-const allowedProjectPdfs = ["artventure", "radione"];
+const projectPdfSlugs = ["artventure", "radione"];
+
+const projectComponents: Record<string, ComponentType> = {
+  bunny: Bunny,
+};
 
 const publicationComponents: Record<string, ComponentType> = {
-  camara: CamaraPublication,
+  camara: Camara,
 };
 
 export const DynamicPdfPage = () => {
@@ -32,11 +37,22 @@ export const DynamicPdfPage = () => {
 export const DynamicProjectPage = () => {
   const { projectName } = useParams<{ projectName: string }>();
 
-  if (!projectName || !allowedProjectPdfs.includes(projectName)) {
+  if (!projectName) {
     return <Navigate to="/" replace />;
   }
 
-  return <PdfContainer link={`/pdf/${projectName}.pdf`} />;
+  const normalized = projectName.toLowerCase();
+
+  const ProjectComponent = projectComponents[normalized];
+  if (ProjectComponent) {
+    return <ProjectComponent />;
+  }
+
+  if (projectPdfSlugs.includes(normalized)) {
+    return <PdfContainer link={`/pdf/${normalized}.pdf`} />;
+  }
+
+  return <Navigate to="/" replace />;
 };
 
 export const DynamicPublicationPage = () => {

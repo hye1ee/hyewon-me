@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { subtitleTextStyle } from "utils/styles";
 
 interface SectionTitleProps {
   children: React.ReactNode;
@@ -32,7 +33,7 @@ const TitleWrapper = styled.div<{
   titleSize: string;
 }>`
   align-self: flex-start;
-  font-weight: 550;
+  ${subtitleTextStyle}
   font-size: ${(props) => props.titleSize};
   text-align: ${(props) => props.align};
   margin-bottom: ${(props) => props.marginBottom};
