@@ -67,7 +67,7 @@ const projects: ProjectData[] = [
     year: 2024,
     type: "Research",
     selected: false,
-    // link: window.location.origin + "/project/tutosupport",
+    link: window.location.origin + "/project/tutosupport",
     tags: []
   },
   // {
