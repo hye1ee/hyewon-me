@@ -5,7 +5,11 @@ import PdfContainer from "@components/PdfContainer";
 
 import Camara from "./publications/Camara";
 import Radi from "./publications/Radi";
-import Bunny from "./projects/Bunny";
+import TacitAgent from "./projects/TacitAgent";
+import Hangulo from "./projects/Hangulo";
+import EyesClosed from "./projects/EyesClosed";
+import TutoSupport from "./projects/TutoSupport";
+// import DancingBunny from "./projects/DancingBunny";
 
 const allowedPdfs = [
   "artventure",
@@ -18,7 +22,12 @@ const allowedPdfs = [
 const projectPdfSlugs = ["artventure", "radione"];
 
 const projectComponents: Record<string, ComponentType> = {
-  bunny: Bunny,
+  // bunny: Bunny,
+  tacitagent: TacitAgent,
+  hangulo: Hangulo,
+  eyesclosed: EyesClosed,
+  tutosupport: TutoSupport,
+  // dancingbunny: DancingBunny,
 };
 
 const publicationComponents: Record<string, ComponentType> = {

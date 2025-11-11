@@ -34,13 +34,13 @@ const authors: PublicationAuthor[] = [
   {
     name: "Yumin Cho*",
     affiliation: "KAIST",
-    link: "linkedin.com/in/yumin-cho",
+    link: "https://linkedin.com/in/yumin-cho",
     img: "https://media.licdn.com/dms/image/v2/D4E03AQGZoAthSJvtjw/profile-displayphoto-crop_800_800/B4EZgyb702HoAM-/0/1753192842284?e=1764201600&v=beta&t=5HbvgoXzmJzwOc7E7zU7MJWaIlpRJaxqL5OToDHo3h4",
   },
   {
     name: "Hyunseung Lim",
     affiliation: "KAIST",
-    link: "linkedin.com/in/hyunseung-lim-135742282",
+    link: "https://linkedin.com/in/hyunseung-lim-135742282",
     img: "https://media.licdn.com/dms/image/v2/D4D03AQHyiPjXQi8h4w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1689212336900?e=1764201600&v=beta&t=KSwFDlZPHkX_Tm43Orwx2UZeVFZkO8QvZ2YgvcWi3mY",
   },
   {

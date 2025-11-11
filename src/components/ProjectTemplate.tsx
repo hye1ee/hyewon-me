@@ -27,10 +27,18 @@ type ProjectYoutubeBlock = {
   title?: string;
 };
 
+type ProjectEmbedBlock = {
+  type: "embed";
+  html: string;
+  title?: string;
+  ratio?: number;
+};
+
 export type ProjectContentBlock =
   | ProjectTextBlock
   | ProjectImageBlock
-  | ProjectYoutubeBlock;
+  | ProjectYoutubeBlock
+  | ProjectEmbedBlock;
 
 interface ProjectTemplateProps {
   sectionTitle?: string;
@@ -110,6 +118,17 @@ const ProjectTemplate = ({
                         style={{ position: "absolute", top: 0, left: 0 }}
                       />
                     </YoutubeContainer>
+                  </MediaBlock>
+                );
+              case "embed":
+                return (
+                  <MediaBlock key={`embed-${index}`}>
+                    {block.title && <MediaTitle>{block.title}</MediaTitle>}
+                    <EmbedContainer $ratio={block.ratio ?? 56.25}>
+                      <EmbedInner
+                        dangerouslySetInnerHTML={{ __html: block.html }}
+                      />
+                    </EmbedContainer>
                   </MediaBlock>
                 );
               default:
@@ -215,5 +234,28 @@ const YoutubeContainer = styled.div`
 
   @media (width <= 768px) {
     padding-top: 56.25%;
+  }
+`;
+
+const EmbedContainer = styled.div<{ $ratio: number }>`
+  position: relative;
+  width: 100%;
+  padding-top: ${(props) => props.$ratio}%;
+  border-radius: 12px;
+  overflow: hidden;
+`;
+
+const EmbedInner = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & iframe,
+  & embed,
+  & object {
+    width: 100%;
+    height: 100%;
   }
 `;
