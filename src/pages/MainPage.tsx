@@ -135,6 +135,7 @@ const MainPage = () => {
             ]}
             description=""
             links={{
+              Webpage: getLocalUrl("/publication/radi"),
               Paper: "https://dl.acm.org/doi/10.1145/3746058.3758404",
               Archive: getLocalUrl("/pdf/radi-full.pdf"),
             }}

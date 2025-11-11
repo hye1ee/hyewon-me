@@ -4,6 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import PdfContainer from "@components/PdfContainer";
 
 import Camara from "./publications/Camara";
+import Radi from "./publications/Radi";
 import Bunny from "./projects/Bunny";
 
 const allowedPdfs = [
@@ -22,6 +23,7 @@ const projectComponents: Record<string, ComponentType> = {
 
 const publicationComponents: Record<string, ComponentType> = {
   camara: Camara,
+  radi: Radi,
 };
 
 export const DynamicPdfPage = () => {
