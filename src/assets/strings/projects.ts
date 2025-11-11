@@ -32,7 +32,7 @@ const projects: ProjectData[] = [
   // },
   {
     title: "RADI",
-    description: "RADI is a design framework for relational and adaptive disclosure interfaces that guides practitioners in crafting socially-aware AI transparency.",
+    description: "RADI is a design space for AI disclosure in human–AI collaborative content, highlighting how context-aware and relational approaches shape appropriate transparency. Presented at UIST 2025 Adjunct.",
     img: "/projects/thumb-radi.png",
     year: 2025,
     type: "Research",
@@ -42,7 +42,7 @@ const projects: ProjectData[] = [
   },
   {
     title: "CamARa",
-    description: "CamARa explores spatially-referenced camera movement authoring through augmented reality interfaces that help creators plan cinematic shots.",
+    description: "CamARa is an AR-based camera layout system that supports intuitive, spatial interaction and creativity in 3D cinematographic design. Demonstrated at CHI 2025 EA.",
     img: "/projects/thumb-camara.png",
     year: 2025,
     type: "Research",
