@@ -47,13 +47,20 @@ const Header = () => {
           About
         </HeaderElWrapper>
         <HeaderElWrapper
-          bold={location.pathname === "/" && location.hash === "#publications"}
+          bold={
+            (location.pathname === "/" && location.hash === "#publications") ||
+            location.pathname.includes("/pubs/") ||
+            location.pathname.includes("/publication/")
+          }
           onClick={() => scrollToSection("publications")}
         >
           Publications
         </HeaderElWrapper>
         <HeaderElWrapper
-          bold={location.pathname === "/projects"}
+          bold={
+            location.pathname === "/projects" ||
+            location.pathname.includes("/project/")
+          }
           onClick={() => navigate("/projects")}
         >
           Projects
