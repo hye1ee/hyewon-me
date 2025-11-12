@@ -72,7 +72,24 @@ const ProjectTemplate = ({
             <MetaColumn>
               <MetaLabel>Members</MetaLabel>
               <MetaValue>
-                {members.length > 0 ? members.join(", ") : "—"}
+                {members.length > 0
+                  ? members.map((member, idx) => {
+                      const separator = idx < members.length - 1 ? ", " : "";
+                      if (member.toLowerCase().includes("hyewon lee")) {
+                        return (
+                          <strong key={member + idx}>
+                            Hyewon Lee{separator}
+                          </strong>
+                        );
+                      }
+                      return (
+                        <span key={member + idx}>
+                          {member}
+                          {separator}
+                        </span>
+                      );
+                    })
+                  : "—"}
               </MetaValue>
             </MetaColumn>
             <MetaColumn>
@@ -81,7 +98,18 @@ const ProjectTemplate = ({
             </MetaColumn>
             <MetaColumn>
               <MetaLabel>Project Period</MetaLabel>
-              <MetaValue>{projectPeriod}</MetaValue>
+              <MetaValue>
+                {projectPeriod
+                  .split(/(present)/i)
+                  .filter((segment) => segment.length > 0)
+                  .map((segment, idx) =>
+                    segment.toLowerCase() === "present" ? (
+                      <strong key={segment + idx}>Present</strong>
+                    ) : (
+                      <span key={segment + idx}>{segment}</span>
+                    )
+                  )}
+              </MetaValue>
             </MetaColumn>
           </ProjectMeta>
         </ProjectHeader>

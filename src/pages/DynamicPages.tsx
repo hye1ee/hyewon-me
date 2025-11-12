@@ -23,7 +23,7 @@ const projectPdfSlugs = ["artventure", "radione"];
 
 const projectComponents: Record<string, ComponentType> = {
   // bunny: Bunny,
-  tacitagent: TacitAgent,
+  "codesign-agent": TacitAgent,
   hangulo: Hangulo,
   eyesclosed: EyesClosed,
   tutosupport: TutoSupport,

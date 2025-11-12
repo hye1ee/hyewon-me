@@ -10,16 +10,16 @@ interface ProjectData {
 }
 
 const projects: ProjectData[] = [
-  // {
-  //   title: "Tacit Agent",
-  //   description: "Tacit Agent investigates tacit knowledge capture for creative teams, surfacing AI-driven nudges that support collaborative decision making.",
-  //   img: "/img/helloworld.png",
-  //   year: 2025,
-  //   type: "Research",
-  //   selected: false,
-  //   link: window.location.origin + "/project/tacitagent",
-  //   tags: ["Knowledge Work", "AI"]
-  // },
+  {
+    title: "From Commands to Collaboration",
+    description: "Tacit Agent investigates tacit knowledge capture for creative teams, surfacing AI-driven nudges that support collaborative decision making.",
+    img: "/projects/thumb-tacitagent.png",
+    year: 2025,
+    type: "Research",
+    selected: false,
+    link: window.location.origin + "/project/codesign-agent",
+    tags: []
+  },
   // {
   //   title: "Hangulo",
   //   description: "Hangulo explores language-learning interfaces that blend playful tangibles with adaptive AI feedback to support Korean script acquisition.",
