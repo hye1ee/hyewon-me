@@ -9,14 +9,29 @@ const blocks: ProjectContentBlock[] = [
       "Hangulo is an AI-assisted lettering system that helps designers create multiple Hangul characters starting from a single one. In traditional workflows, Korean lettering designers often begin on grid paper, layering sketches to iteratively refine letterforms before transferring them into Illustrator for vector editing. While this analog process enables careful control and nuanced expression, it is also labor-intensive, repetitive, and difficult to scale, especially in Hangul, where its compositional structure requires consistent replication of stylistic features across many characters.",
   },
   {
+    type: "image",
+    src: "/projects/hangulo-1.png",
+    caption: "Hangulo's interface",
+  },
+  {
     type: "text",
     content:
       "Through interviews and observations with professional lettering designers, I identified two major characteristics of their current workflows. (1) They iteratively overlay hand sketches on grid paper to adjust letterforms, since direct vector editing is cumbersome and disrupts the flow of ideation. (2) They often reuse stylistic features such as stroke angle, curvature, or cap shape across consonants and vowels to maintain visual coherence. Both practices demand substantial manual effort, revealing opportunities to automate repetitive operations while preserving creative intent.",
   },
   {
+    type: "image",
+    src: "/projects/hangulo-2.png",
+    caption: "Structural principles of Hangul",
+  },
+  {
     type: "text",
     content:
-      "Hangulo introduces an AI-assisted design workflow that automates manual vector work while augmenting designers' control and exploration. The system supports two key functions: (1) Sketch-based Editing - the agent interprets sketches overlaid on an existing letter, infers the designer's intent, and executes corresponding vector edits. (2) Smart Propagation - leveraging the compositional logic of Hangul, where basic strokes form consonants and vowels that assemble into syllables, the system adaptively propagates stylistic transformations from one character to others. By combining these capabilities, Hangulo bridges the gap between analog sketching and digital vector workflows and complements designers rather than replacing their original creative process.",
+      "Hangulo introduces an AI-assisted design workflow that automates manual vector work while augmenting designers' control and exploration. The system supports two key functions: (1) Smart Propagation - leveraging the compositional logic of Hangul, where basic strokes form consonants and vowels that assemble into syllables, the system adaptively propagates stylistic transformations from one character to others. (2) Sketch-based Editing - the agent interprets sketches overlaid on an existing letter, infers the designer's intent, and executes corresponding vector edits. By combining these capabilities, Hangulo bridges the gap between analog sketching and digital vector workflows and complements designers rather than replacing their original creative process.",
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-3.png",
+    caption: "Two major AI-assisted features of Hangulo",
   },
   {
     type: "text",
