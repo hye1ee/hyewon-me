@@ -12,7 +12,7 @@ interface ProjectData {
 const projects: ProjectData[] = [
   {
     title: "From Commands to Collaboration",
-    description: "Tacit Agent investigates tacit knowledge capture for creative teams, surfacing AI-driven nudges that support collaborative decision making.",
+    description: "Probe co-design agent system enabling process-level human-AI collaboration in Figma, uncovering new interaction patterns from design action trajectories.",
     img: "/projects/thumb-tacitagent.png",
     year: 2025,
     type: "Research",
@@ -20,19 +20,19 @@ const projects: ProjectData[] = [
     link: window.location.origin + "/project/codesign-agent",
     tags: []
   },
-  // {
-  //   title: "Hangulo",
-  //   description: "Hangulo explores language-learning interfaces that blend playful tangibles with adaptive AI feedback to support Korean script acquisition.",
-  //   img: "/img/helloworld.png",
-  //   year: 2025,
-  //   type: "Research",
-  //   selected: false,
-  //   link: window.location.origin + "/project/hangulo",
-  //   tags: ["Language Learning", "Tangible UI"]
-  // },
+  {
+    title: "Hangulo",
+    description: "Hangulo is an AI-assisted Korean lettering tool that introduces designer-friendly artifacts for collaborative sensemaking in the workflow.",
+    img: "/projects/thumb-hangulo.png",
+    year: 2025,
+    type: "Research",
+    selected: false,
+    link: window.location.origin + "/project/hangulo",
+    tags: []
+  },
   {
     title: "RADI",
-    description: "RADI is a design space for AI disclosure in human–AI collaborative content, highlighting how context-aware and relational approaches shape appropriate transparency. Presented at UIST 2025 Adjunct.",
+    description: "RADI is a design space for AI disclosure in human-AI collaborative content, highlighting how context-aware and relational approaches shape appropriate transparency. Presented at UIST 2025 Adjunct.",
     img: "/projects/thumb-radi.png",
     year: 2025,
     type: "Research",
@@ -102,7 +102,7 @@ const projects: ProjectData[] = [
   },
   {
     title: "VIVID",
-    description: "VIVID is an AI collaborative authoring tool that introduces a human–AI collaboration interaction pipeline for designing and refining pedagogical dialogues, presented at CHI 2024.",
+    description: "VIVID is an AI collaborative authoring tool that introduces a human-AI collaboration interaction pipeline for designing and refining pedagogical dialogues, presented at CHI 2024.",
     img: "/img/vivid.png",
     year: 2023,
     type: "Research",

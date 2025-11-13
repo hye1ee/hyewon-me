@@ -28,10 +28,10 @@ const blocks: ProjectContentBlock[] = [
 const DancingBunnyProject = () => {
   return (
     <ProjectTemplate
-      sectionTitle="Projects"
+      sectionTitle="Project"
       id="dancingbunny"
       title="Dancing Bunny — Motion-Driven Character Choreography"
-      projectPeriod="Jan 2024 – Jun 2024"
+      projectPeriod="Jan 2024 - Jun 2024"
       role="Experience Design · Creative Coding · Installation Lead"
       members={["Hyewon Lee", "Collaborating Performers"]}
       blocks={blocks}

@@ -33,17 +33,17 @@ const blocks: ProjectContentBlock[] = [
   {
     type: "text",
     content:
-      "The system was built with a React-based frontend and Firebase backend, and is deployed at https://tutosupport.vercel.app/. This research project was conducted as part of <CS473 Intro to Social Computing> and was selected for the People’s Choice Award.",
+      "The system was built with a React-based frontend and Firebase backend, and is deployed at https://tutosupport.vercel.app/. This research project was conducted as part of <CS473 Intro to Social Computing> and was selected for the People's Choice Award.",
   },
 ];
 
 const TutoSupportProject = () => {
   return (
     <ProjectTemplate
-      sectionTitle="Projects"
+      sectionTitle="Project"
       id="tutosupport"
       title="TutoSupport — Social Video Tutorial System"
-      projectPeriod="Sep 2024 – Dec 2024"
+      projectPeriod="Sep 2024 - Dec 2024"
       role="Interaction & Interface Design, Frontend Development"
       members={["Hyewon Lee", "Hyun A Kim", "Sheikh Shafayat"]}
       blocks={blocks}

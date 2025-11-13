@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "@components/Header";
 import { Outlet } from "react-router-dom";
 import HeaderMobile from "@components/HeaderMobile";
-
+import { Analytics } from "@vercel/analytics/react";
 const App = () => {
   return (
     <PageWrapper>
@@ -12,6 +12,7 @@ const App = () => {
       <ContentsWrapper>
         <Outlet />
       </ContentsWrapper>
+      <Analytics />
     </PageWrapper>
   );
 };

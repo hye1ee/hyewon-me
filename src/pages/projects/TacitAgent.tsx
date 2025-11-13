@@ -6,7 +6,7 @@ const blocks: ProjectContentBlock[] = [
   {
     type: "text",
     content:
-      "This project investigates how AI agents can collaborate with designers within design tools to support co-creation. Design workflows are inherently tacit, shaped by designers' intuition, experience, and contextual intent. Effective tools should support design cognition and externalization through low-level operations, enabling reflection-in-action with immediate feedback. Maintaining a sense of agency and flow is crucial for creativity, requiring flexibility, incremental construction, and continuous feedback throughout the process. Despite recent advances in generative models, existing systems still (1) lack tool-integrated co-creation, (2) rely on chat-based delegation, and (3) fail to adapt to designers' dynamic workflows. This work addresses these gaps by exploring AI as an in-tool, co-creative collaborator.",
+      "This research investigates how AI agents can collaborate with designers within design tools to support co-creation. Design workflows are inherently tacit, shaped by designers' intuition, experience, and contextual intent. Effective tools should support design cognition and externalization through low-level operations, enabling reflection-in-action with immediate feedback. Maintaining a sense of agency and flow is crucial for creativity, requiring flexibility, incremental construction, and continuous feedback throughout the process. Despite recent advances in generative models, existing systems still (1) lack tool-integrated co-creation, (2) rely on chat-based delegation, and (3) fail to adapt to designers' dynamic workflows. This work addresses these gaps by exploring AI as an in-tool, co-creative collaborator.",
   },
   {
     type: "youtube",
@@ -31,10 +31,10 @@ const blocks: ProjectContentBlock[] = [
 const TacitAgentProject = () => {
   return (
     <ProjectTemplate
-      sectionTitle="Projects"
+      sectionTitle="Project"
       id="tacit-agent-project"
-      title="From Commands to Collaboration: Human–AI Co-Design with Generative Agents on Canvas"
-      projectPeriod="Jul 2025 – Present"
+      title="From Commands to Collaboration: Human-AI Co-Design with Generative Agents on Canvas"
+      projectPeriod="Jul 2025 - Present"
       role="Co-Researcher, System Design & Implementation"
       members={[
         "Kihoon Son",
