@@ -6,7 +6,7 @@ const Underline = ({ text, link }: { text: string; link: string }) => {
 
   return (
     <div
-      onClick={() => window.open(link, "_blank")}
+      onClick={() => window.open(link)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{

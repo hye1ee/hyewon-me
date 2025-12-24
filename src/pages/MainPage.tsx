@@ -281,7 +281,7 @@ const PubItem = ({
       </HorizontalImage>
       <PubInfoContainer>
         <ConferenceBadge>{conference}</ConferenceBadge>
-        <PubTitle onClick={() => titleLink && window.open(titleLink, "_blank")}>
+        <PubTitle onClick={() => titleLink && window.open(titleLink)}>
           {title}
         </PubTitle>
         <div
@@ -339,7 +339,7 @@ const PubItem = ({
               <SmallTag
                 key={idx}
                 icon={iconPath}
-                onClick={() => window.open(link[1], "_blank")}
+                onClick={() => window.open(link[1])}
               >
                 {link[0]}
               </SmallTag>

@@ -103,7 +103,7 @@ const PublicationTemplate = ({
                 <SmallTag
                   key={link.text}
                   icon={link.icon}
-                  onClick={() => window.open(link.href, "_blank")}
+                  onClick={() => window.open(link.href)}
                 >
                   {link.text}
                 </SmallTag>
@@ -298,7 +298,7 @@ const AuthorCard = ({ author }: { author: PublicationAuthor }) => {
 
   const handleClick = () => {
     if (author.link) {
-      window.open(author.link, "_blank");
+      window.open(author.link);
     }
   };
 
