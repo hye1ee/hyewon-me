@@ -9,6 +9,7 @@ import TacitAgent from "./projects/TacitAgent";
 import Hangulo from "./projects/Hangulo";
 import EyesClosed from "./projects/EyesClosed";
 import TutoSupport from "./projects/TutoSupport";
+import Aspire from "./projects/Aspire";
 // import DancingBunny from "./projects/DancingBunny";
 
 const allowedPdfs = [
@@ -27,6 +28,7 @@ const projectComponents: Record<string, ComponentType> = {
   hangulo: Hangulo,
   eyesclosed: EyesClosed,
   tutosupport: TutoSupport,
+  aspire: Aspire,
   // dancingbunny: DancingBunny,
 };
 

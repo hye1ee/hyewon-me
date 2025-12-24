@@ -8,6 +8,7 @@ const blocks: ProjectContentBlock[] = [
     content:
       "Hangulo is an AI-assisted lettering system that helps designers create multiple Hangul characters starting from a single one. In traditional workflows, Korean lettering designers often begin on grid paper, layering sketches to iteratively refine letterforms before transferring them into Illustrator for vector editing. While this analog process enables careful control and nuanced expression, it is also labor-intensive, repetitive, and difficult to scale, especially in Hangul, where its compositional structure requires consistent replication of stylistic features across many characters.",
   },
+
   {
     type: "image",
     src: "/projects/hangulo-1.png",
@@ -34,9 +35,18 @@ const blocks: ProjectContentBlock[] = [
     caption: "Two major AI-assisted features of Hangulo",
   },
   {
+    type: "youtube",
+    url: "https://youtu.be/sW_P90Yxvqw",
+    caption: "Please use English subtitles",
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-4.png",
+  },
+  {
     type: "text",
     content:
-      "Hangulo will be presented at the KAIST Industrial Design Graduation Exhibition in Seoul from December 13 to 20, demonstrating the potential of AI agents in augmenting traditional lettering workflows. Following designer evaluations, a preprint publication is planned to discuss the effects of using workflow-friendly artifacts in AI collaboration compared to traditional text prompts, and how this approach can reshape Korean lettering design workflows.",
+      "Hangulo was presented at the 2025 KAIST Industrial Design Exhibition at Nodeul Gallery in Seoul from December 13 to 20, demonstrating the potential of AI agents to augment traditional lettering workflows. Following evaluations by professional designers, a publication is planned to discuss the effects of using workflow-friendly artifacts in AI collaboration, compared to traditional text-based prompts, and to examine how this approach can reshape Korean lettering design workflows.",
   },
 ];
 

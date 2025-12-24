@@ -51,6 +51,16 @@ const projects: ProjectData[] = [
     tags: ["Augmented Reality", "Creativity Support"]
   },
   {
+    title: "Aspire",
+    description: "Aspire is a family investment mobile application that visualizes shared learning and growth through the family fire, a lantern-inspired metaphor for long-term investing.",
+    img: "/projects/thumb-aspire.png",
+    year: 2024,
+    type: "Design",
+    selected: false,
+    link: window.location.origin + "/project/aspire",
+    tags: []
+  },
+  {
     title: "EyesClosed",
     description: "EyesClosed is a kinetic typography project based on the lyrics of Ed Sheeran's song 'Eyes Closed'.",
     img: "/projects/thumb-eyesclosed.png",

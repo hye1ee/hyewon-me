@@ -25,6 +25,7 @@ type ProjectYoutubeBlock = {
   type: "youtube";
   url: string;
   title?: string;
+  caption?: string;
 };
 
 type ProjectEmbedBlock = {
@@ -146,6 +147,9 @@ const ProjectTemplate = ({
                         style={{ position: "absolute", top: 0, left: 0 }}
                       />
                     </YoutubeContainer>
+                    {block.caption && (
+                      <ImageCaption>{block.caption}</ImageCaption>
+                    )}
                   </MediaBlock>
                 );
               case "embed":

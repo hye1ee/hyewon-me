@@ -19,7 +19,7 @@ const EyesClosedProject = () => {
     <ProjectTemplate
       sectionTitle="Project"
       id="eyesclosed"
-      title="EyesClosed - Kinetic Typography Project"
+      title="EyesClosed — Kinetic Typography Project"
       projectPeriod="Sep 2024 - Oct 2024"
       role="Project Lead"
       members={["Hyewon Lee"]}
