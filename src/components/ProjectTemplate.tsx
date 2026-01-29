@@ -1,5 +1,6 @@
 import PageContainer from "@components/PageContainer";
 import Section from "@components/Section";
+import SmallTag from "@components/SmallTag";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
 import {
@@ -8,6 +9,12 @@ import {
   tagTextStyle,
   titleTextStyle,
 } from "utils/styles";
+
+export type ProjectLink = {
+  text: string;
+  href: string;
+  icon?: string;
+};
 
 type ProjectTextBlock = {
   type: "text";
@@ -45,6 +52,7 @@ interface ProjectTemplateProps {
   sectionTitle?: string;
   id?: string;
   title: string;
+  links?: ProjectLink[];
   projectPeriod: string;
   role: string;
   members: string[];
@@ -55,6 +63,7 @@ const ProjectTemplate = ({
   sectionTitle = "Overview",
   id = "project",
   title,
+  links = [],
   projectPeriod,
   role,
   members,
@@ -69,6 +78,19 @@ const ProjectTemplate = ({
       >
         <ProjectHeader>
           <ProjectTitle>{title}</ProjectTitle>
+          {links.length > 0 && (
+            <LinksRow>
+              {links.map((link) => (
+                <SmallTag
+                  key={link.text}
+                  icon={link.icon}
+                  onClick={() => window.open(link.href)}
+                >
+                  {link.text}
+                </SmallTag>
+              ))}
+            </LinksRow>
+          )}
           <ProjectMeta>
             <MetaColumn>
               <MetaLabel>Members</MetaLabel>
@@ -192,6 +214,13 @@ const ProjectHeader = styled.div`
 const ProjectTitle = styled.div`
   ${titleTextStyle}
   margin-bottom: 12px;
+`;
+
+const LinksRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 `;
 
 const ProjectMeta = styled.div`

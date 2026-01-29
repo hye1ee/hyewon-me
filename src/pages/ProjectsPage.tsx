@@ -162,19 +162,24 @@ const ProjectItemWrapper = styled.div`
 
 const ProjectItemImgWrapper = styled.div`
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1;
   /* border: 1px solid ${colors.gray}; */
   overflow: hidden;
+  background-color: ${colors.lightgray};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ProjectItemImg = styled.img`
-  width: 100%;
+  width: 80%;
   height: auto;
   object-fit: cover;
 `;
 
 const ProjectDescription = styled.div`
   /* line-height: 1.6; */
+  width: 100%;
   font-size: 14px;
   color: ${colors.darkgray};
 `;
