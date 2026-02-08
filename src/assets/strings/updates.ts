@@ -1,5 +1,5 @@
 const updates = {
-  "lastUpdated": "Oct 2025",
+  "lastUpdated": "Feb 2026",
   "updates": "Seeking a PhD position for 2026 🎓",
   "copyright": "© 2025 Hyewon Lee",
   "linkedin": "https://www.linkedin.com/in/hye1ee/",

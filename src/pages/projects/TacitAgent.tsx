@@ -10,7 +10,7 @@ const blocks: ProjectContentBlock[] = [
   },
   {
     type: "youtube",
-    url: "https://youtu.be/FhBf1iB8gnY",
+    url: "https://youtu.be/VmvBGHrLz-M",
   },
   {
     type: "text",
@@ -33,15 +33,15 @@ const TacitAgentProject = () => {
     <ProjectTemplate
       sectionTitle="Project"
       id="tacit-agent-project"
-      title="From Commands to Collaboration: Human-AI Co-Design with Generative Agents on Canvas"
+      title="When to Hand Off, When to Work Together: Expanding Human-Agent Co-creative Collaboration through Concurrent Interaction"
       projectPeriod="Jul 2025 - Present"
       role="Co-Researcher, System Design & Implementation"
       members={[
         "Kihoon Son",
         "Hyewon Lee",
+        "DaEun Choi",
         "Yoonsu Kim",
         "Tae Soo Kim",
-        "DaEun Choi",
         "Yoonjoo Lee",
         "John Joon Young Chung",
         "Hyunjoon Jung",
