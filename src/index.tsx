@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import App from "./App";
 import MainPage from "./pages/MainPage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/pdf/:pdfName",
     element: <DynamicPdfPage />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace />,
   },
 ]);
 
