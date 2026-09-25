@@ -5,7 +5,7 @@ const updates = {
   "linkedin": "https://www.linkedin.com/in/hye1ee/",
   "github": "https://github.com/hye1ee/",
   "googlescholar": "https://scholar.google.co.kr/citations?hl=en&user=xX0joEYAAAAJ",
-  "email": "mailto:hyewon0809@kaist.ac.kr",
+  "email": "mailto:hyewon@purdue.edu",
   "cv": "https://docs.google.com/document/d/1sCBr95yyMY6BvCKqXtX1yVlFNQf9flk0MEYoq07NyCY/edit?usp=sharing",
 }
 export default updates;

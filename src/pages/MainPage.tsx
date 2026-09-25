@@ -162,13 +162,6 @@ const MainPage = () => {
             conference="UIST Adjunct 2026"
           />
           <PubItem
-            title="CORAL: Continually Learning Generative Interfaces from Collective User Interactions"
-            authors={["Daniel Lee", "DaEun Choi", "Hyewon Lee", "Haijun Xia"]}
-            description=""
-            links={{}}
-            conference="UIST Adjunct 2026"
-          />
-          <PubItem
             image="/projects/thumb-tacitagent.png"
             title={`"When to Hand Off, When to Work Together": Understanding Concurrent Human-Agent Interaction in Shared Co-Creative Workspaces`}
             titleLink="https://cleo.kixlab.org/"
@@ -311,7 +304,7 @@ const PubContainer = styled.div`
 `;
 
 interface PubItemProps {
-  image?: string;
+  image: string;
   title: string;
   titleLink?: string;
   authors: string[];
@@ -337,19 +330,15 @@ const PubItem = ({
   return (
     <PubItemContainer>
       <HorizontalImage>
-        {image ? (
-          <img
-            src={image}
-            alt={image}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-        ) : (
-          <ImagePlaceholder>{title.split(":")[0]}</ImagePlaceholder>
-        )}
+        <img
+          src={image}
+          alt={image}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
       </HorizontalImage>
       <PubInfoContainer>
         <ConferenceBadge>{conference}</ConferenceBadge>
@@ -471,18 +460,6 @@ const HorizontalImage = styled.div`
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
-`;
-
-const ImagePlaceholder = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${colors.lightgray};
-  color: ${colors.darkgray};
-  font-size: 20px;
-  font-weight: 500;
 `;
 
 const ConferenceBadge = styled.div`
