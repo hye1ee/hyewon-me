@@ -37,11 +37,19 @@ const MainPage = () => {
             <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
 
             <ContentContainer>
-              I am a senior undergraduate student and{" "}
-              <Highlight>HCI researcher</Highlight> at{" "}
-              <Underline text="KAIST" link="https://kaist.ac.kr/en/" />,
-              double-majoring in computer science and industrial design. I work
-              with{" "}
+              I am a first-year Ph.D. student in{" "}
+              <Highlight>Computer Science</Highlight> at{" "}
+              <Underline
+                text="Purdue University"
+                link="https://www.cs.purdue.edu/"
+              />
+              , advised by{" "}
+              <Underline text="Prof. Jason Wu" link="https://jasonwunix.com/" />
+              . I am honored to be supported by the Ross Fellowship with Herbold
+              Scholarship. I received my B.S. in computer science and industrial
+              design from{" "}
+              <Underline text="KAIST" link="https://kaist.ac.kr/en/" />, where I
+              worked with{" "}
               <img
                 style={{ width: "12px", height: "12px", marginRight: "4px" }}
                 src="/icon/kixlab.png"
@@ -51,7 +59,7 @@ const MainPage = () => {
                 text="Prof. Juho Kim at KIXLAB"
                 link="https://juhokim.com/"
               />{" "}
-              and previously collaborated with{" "}
+              and{" "}
               <img
                 style={{ width: "12px", height: "12px", marginRight: "4px" }}
                 src="/icon/makelab.png"
@@ -87,10 +95,13 @@ const MainPage = () => {
                 <Tag>Generative Interfaces</Tag>
               </div>
               <br />
-              Outside research, I enjoy expressing myself through design and
-              music. I also draw energy from activities like taekwondo and
-              badminton. I love sharing insights through teaching and connecting
-              with others, so please feel free to reach out 😇.
+              Outside research, I love documenting myself in creative ways
+              — find me on Instagram{" "}
+              <Underline
+                text="@hia.some"
+                link="https://www.instagram.com/hia.some/"
+              />
+              .
             </ContentContainer>
           </ContentWrapper>
         </div>
@@ -122,6 +133,63 @@ const MainPage = () => {
         align="left"
       >
         <PubContainer>
+          <PubItem
+            image="/publications/thumb-guide.png"
+            title="GUIDE: Designer-in-the-loop Authoring of Conformant Generative User Interfaces"
+            titleLink="https://arxiv.org/abs/2609.21285"
+            authors={[
+              "Hyewon Lee",
+              "Ziying Wang",
+              "Aiden Moy",
+              "Saran Nagubandi",
+              "Jason Wu",
+            ]}
+            description=""
+            links={{
+              Paper: "https://arxiv.org/abs/2609.21285",
+            }}
+            conference="arXiv 2026"
+          />
+          <PubItem
+            image="/projects/thumb-hangulo.png"
+            title="Hangulo: Demonstrating Workflow-Embedded AI Support for Korean Lettering Implementation"
+            titleLink={getLocalUrl("/project/hangulo")}
+            authors={["Hyewon Lee", "Tak Yeon Lee"]}
+            description=""
+            links={{
+              Webpage: getLocalUrl("/project/hangulo"),
+            }}
+            conference="UIST Adjunct 2026"
+          />
+          <PubItem
+            title="CORAL: Continually Learning Generative Interfaces from Collective User Interactions"
+            authors={["Daniel Lee", "DaEun Choi", "Hyewon Lee", "Haijun Xia"]}
+            description=""
+            links={{}}
+            conference="UIST Adjunct 2026"
+          />
+          <PubItem
+            image="/projects/thumb-tacitagent.png"
+            title={`"When to Hand Off, When to Work Together": Understanding Concurrent Human-Agent Interaction in Shared Co-Creative Workspaces`}
+            titleLink="https://cleo.kixlab.org/"
+            authors={[
+              "Kihoon Son",
+              "Hyewon Lee",
+              "DaEun Choi",
+              "Yoonsu Kim",
+              "Tae Soo Kim",
+              "Yoonjoo Lee",
+              "John Joon Young Chung",
+              "HyunJoon Jung",
+              "Juho Kim",
+            ]}
+            description=""
+            links={{
+              Webpage: "https://cleo.kixlab.org/",
+              Paper: "https://arxiv.org/abs/2603.02050",
+            }}
+            conference="arXiv 2026"
+          />
           <PubItem
             image="/publications/thumb-radi.jpg"
             title="RADI: A Design Framework for Relational and Adaptive Disclosure Interfaces"
@@ -243,7 +311,7 @@ const PubContainer = styled.div`
 `;
 
 interface PubItemProps {
-  image: string;
+  image?: string;
   title: string;
   titleLink?: string;
   authors: string[];
@@ -269,15 +337,19 @@ const PubItem = ({
   return (
     <PubItemContainer>
       <HorizontalImage>
-        <img
-          src={image}
-          alt={image}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
+        {image ? (
+          <img
+            src={image}
+            alt={image}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        ) : (
+          <ImagePlaceholder>{title.split(":")[0]}</ImagePlaceholder>
+        )}
       </HorizontalImage>
       <PubInfoContainer>
         <ConferenceBadge>{conference}</ConferenceBadge>
@@ -399,6 +471,18 @@ const HorizontalImage = styled.div`
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
+`;
+
+const ImagePlaceholder = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${colors.lightgray};
+  color: ${colors.darkgray};
+  font-size: 20px;
+  font-weight: 500;
 `;
 
 const ConferenceBadge = styled.div`

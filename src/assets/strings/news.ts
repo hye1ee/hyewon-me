@@ -7,6 +7,8 @@ export const newsIcons: { [key: string]: string } = {
 }
 
 export const news = [
+  { icon: "school", line: "Started my Ph.D. in Computer Science at Purdue University 🇺🇸", date: "Aug 2026" },
+  { icon: "paper", line: "Two posters have been accepted at UIST Adjunct 2026 📋", date: "Aug 2026" },
   { icon: "school", line: "Graduated from KAIST with a B.S. in School of Computing and Industrial Design (+Summa Cum Laude 🎓)", date: "Feb 2026" },
   { icon: "conference", line: "Heading to UIST 2025 in Korea 🇰🇷 appearing at the workshop and poster!", date: "Sep 2025" },
   { icon: "paper", line: "My third paper has been accepted at UIST Adjunct 2025 📋", date: "Aug 2025" },
