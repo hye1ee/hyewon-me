@@ -95,13 +95,13 @@ const MainPage = () => {
                 <Tag>Generative Interfaces</Tag>
               </div>
               <br />
-              Outside research, I love documenting myself in creative ways
-              — find me on Instagram{" "}
+              Outside research, I love documenting myself in creative ways.
+              Find me on Instagram{" "}
               <Underline
                 text="@hia.some"
                 link="https://www.instagram.com/hia.some/"
               />
-              .
+              !
             </ContentContainer>
           </ContentWrapper>
         </div>
