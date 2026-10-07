@@ -116,8 +116,15 @@ const MainPage = () => {
                 <Tag>Generative Interfaces</Tag>
               </div>
               <br />
-              Outside research, I love documenting myself in creative ways.
-              Find me on Instagram{" "}
+              Outside research, I love documenting myself in creative ways{" "}
+              <InlineLogo src="/icon/womp.png" alt="Womp 3D" title="Womp 3D" />
+              <InlineLogo
+                src="/icon/premiere.svg"
+                alt="Premiere Pro"
+                title="Premiere Pro"
+                style={{ marginRight: 0 }}
+              />
+              . Find me on Instagram{" "}
               <Underline
                 text="@hia.some"
                 link="https://www.instagram.com/hia.some/"
