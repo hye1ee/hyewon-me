@@ -4,12 +4,13 @@ import projects from "@assets/strings/projects";
 import Tag from "@components/Tag";
 import Section from "@components/Section";
 import PageContainer from "@components/PageContainer";
-import DoodleBanner from "@components/DoodleBanner";
+// Banner is on hold; uncomment to bring it back
+// import DoodleBanner from "@components/DoodleBanner";
 import { useState } from "react";
 
 const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState<
-    "All" | "Research" | "Web" | "Design"
+    "All" | "Research" | "Design"
   >("All");
   return (
     <PageContainer>
@@ -18,7 +19,7 @@ const ProjectsPage = () => {
           The projects here mainly focus on interaction design. They come from
           my research, coursework, and personal explorations-for fun!
         </ContentContainer> */}
-        <DoodleBanner />
+        {/* <DoodleBanner /> */}
         <FilterContainer>
           <FilterButton
             active={activeFilter === "All"}
@@ -31,12 +32,6 @@ const ProjectsPage = () => {
             onClick={() => setActiveFilter("Research")}
           >
             Research
-          </FilterButton>
-          <FilterButton
-            active={activeFilter === "Web"}
-            onClick={() => setActiveFilter("Web")}
-          >
-            Web
           </FilterButton>
           <FilterButton
             active={activeFilter === "Design"}
@@ -94,7 +89,7 @@ interface ProjectItemProps {
   title: string;
   src: string;
   year: number;
-  type: "Web" | "Research" | "Design";
+  type: "Research" | "Design";
   tags?: string[];
   link?: string;
   description: string;
@@ -164,7 +159,7 @@ const ProjectItemWrapper = styled.div`
 
 const ProjectItemImgWrapper = styled.div`
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 3;
   /* border: 1px solid ${colors.gray}; */
   overflow: hidden;
   background-color: ${colors.lightgray};
@@ -175,8 +170,9 @@ const ProjectItemImgWrapper = styled.div`
 
 const ProjectItemImg = styled.img`
   width: 80%;
+  max-height: 88%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 const ProjectDescription = styled.div`

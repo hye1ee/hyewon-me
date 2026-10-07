@@ -3,7 +3,7 @@ interface ProjectData {
   description: string;
   img: string;
   year: number;
-  type: "Web" | "Research" | "Design";
+  type: "Research" | "Design";
   selected: boolean;
   link?: string;
   tags?: string[];
@@ -105,7 +105,7 @@ const projects: ProjectData[] = [
     description: "Minionize is a web-based mirror room experience where users can generate their own minion masks and try them on through AR. What does it matter if we all look different, like minions?",
     img: "/img/minionize.png",
     year: 2024,
-    type: "Web",
+    type: "Design",
     selected: false,
     link: "https://github.com/hye1ee/minionize",
     tags: ["AR"]
@@ -135,7 +135,7 @@ const projects: ProjectData[] = [
     description: "MySelfieRoom is a web-based online photobooth service that can take, edit, and share photos. Developed with Typescript and React and managed with Recoil.",
     img: "/projects/thumb-myselfieroom.png",
     year: 2023,
-    type: "Web",
+    type: "Design",
     selected: true,
     link: "https://github.com/hye1ee/My-SelfieRoom",
     tags: ["Social", "AR"]
@@ -176,7 +176,7 @@ const projects: ProjectData[] = [
     description: "RunThroughGravity is a mini arcade game implemented with p5.js. It developed by adapting an observer pattern to organize game objects and utilized Firebase to manage users.",
     img: "/img/runthroughgravity.png",
     year: 2022,
-    type: "Web",
+    type: "Design",
     selected: true,
     link: "https://github.com/hye1ee/run-through-gravity",
     tags: ["P5.js", "Firebase"]
@@ -186,7 +186,7 @@ const projects: ProjectData[] = [
     description: "BlackGhost is a web-based puzzle game developed for the Korean reality show Treasure Hunt, where it was featured on air. Built with React and Electron, it includes automated play and shutdown logic handled through a background shell script.",
     img: "/img/blackghost.png",
     year: 2022,
-    type: "Web",
+    type: "Design",
     selected: false,
     link: "https://github.com/hye1ee/blackghost",
     tags: ["React", "Electron"]
