@@ -11,7 +11,7 @@ interface ProjectData {
 
 const projects: ProjectData[] = [
   {
-    title: "When to Hand Off, When to Work Together",
+    title: "CLEO",
     description: "Probe co-design agent system enabling process-level human-AI collaboration in Figma, uncovering new interaction patterns from design action trajectories.",
     img: "/projects/thumb-tacitagent.png",
     year: 2025,
