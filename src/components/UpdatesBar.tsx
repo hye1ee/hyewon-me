@@ -21,8 +21,10 @@ const UpdatesBar = () => {
         aria-expanded={open}
         disabled={rest.length === 0}
       >
-        <DateText>{latest.date}</DateText>
-        <Line>{latest.line}</Line>
+        <Entry>
+          <DateText>{latest.date}</DateText>
+          <Line>{latest.line}</Line>
+        </Entry>
         {rest.length > 0 && (
           <Toggle $open={open}>
             <ChevronDown size={16} strokeWidth={1.8} />
@@ -33,8 +35,10 @@ const UpdatesBar = () => {
         <List>
           {rest.map((item) => (
             <Item key={`${item.date}-${item.line}`}>
-              <DateText>{item.date}</DateText>
-              <Line>{item.line}</Line>
+              <Entry>
+                <DateText>{item.date}</DateText>
+                <Line>{item.line}</Line>
+              </Entry>
             </Item>
           ))}
         </List>
@@ -67,6 +71,19 @@ const Row = styled.button`
 
   &:disabled {
     cursor: default;
+  }
+`;
+
+// Date and text side by side; stacked on small screens
+const Entry = styled.span`
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+
+  @media (width <= 768px) {
+    flex-direction: column;
+    gap: 2px;
   }
 `;
 
