@@ -305,7 +305,7 @@ const Kaomoji = styled.bdi`
 `;
 
 // Tool icons with a small tooltip on hover
-const TOOLTIP_BG = "#efefef";
+const TOOLTIP_BG = "#f4f4f4";
 const ToolTip = styled.span`
   position: absolute;
   left: 50%;
@@ -314,7 +314,7 @@ const ToolTip = styled.span`
   padding: 4px 8px;
   border-radius: 6px;
   background: ${TOOLTIP_BG};
-  color: ${colors.black};
+  color: #555555;
   font-size: 12px;
   line-height: 1.4;
   white-space: nowrap;
