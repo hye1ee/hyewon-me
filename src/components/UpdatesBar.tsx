@@ -22,7 +22,7 @@ const UpdatesBar = () => {
         disabled={rest.length === 0}
       >
         <Entry>
-          <DateText>{latest.date}</DateText>
+          <UpdateDate date={latest.date} />
           <Line>{latest.line}</Line>
         </Entry>
         {rest.length > 0 && (
@@ -36,7 +36,7 @@ const UpdatesBar = () => {
           {rest.map((item) => (
             <Item key={`${item.date}-${item.line}`}>
               <Entry>
-                <DateText>{item.date}</DateText>
+                <UpdateDate date={item.date} />
                 <Line>{item.line}</Line>
               </Entry>
             </Item>
@@ -44,6 +44,17 @@ const UpdatesBar = () => {
         </List>
       )}
     </Bar>
+  );
+};
+
+// "Aug 2026" on one line; month above year on small screens
+const UpdateDate = ({ date }: { date: string }) => {
+  const [month, year] = date.split(" ");
+  return (
+    <DateText>
+      <span>{month}</span>
+      <span>{year}</span>
+    </DateText>
   );
 };
 
@@ -74,17 +85,11 @@ const Row = styled.button`
   }
 `;
 
-// Date and text side by side; stacked on small screens
 const Entry = styled.span`
   flex: 1;
   display: flex;
   align-items: baseline;
   gap: 12px;
-
-  @media (width <= 768px) {
-    flex-direction: column;
-    gap: 2px;
-  }
 `;
 
 const DateText = styled.span`
@@ -93,6 +98,23 @@ const DateText = styled.span`
   font-size: 13px;
   color: ${colors.darkgray};
   font-variant-numeric: tabular-nums;
+
+  span + span {
+    margin-left: 0.3em;
+  }
+
+  @media (width <= 768px) {
+    width: 32px;
+    line-height: 1.3;
+
+    span {
+      display: block;
+    }
+
+    span + span {
+      margin-left: 0;
+    }
+  }
 `;
 
 const Line = styled.span`

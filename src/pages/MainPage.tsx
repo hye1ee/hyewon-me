@@ -540,10 +540,10 @@ const HorizontalImage = styled.div`
   position: relative;
   overflow: hidden;
 
+  /* Small, flat thumbnail on phones */
   @media (width <= 768px) {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 1;
+    width: 160px;
+    height: 64px;
   }
 `;
 
