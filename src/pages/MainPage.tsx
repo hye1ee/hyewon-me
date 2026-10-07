@@ -117,13 +117,15 @@ const MainPage = () => {
               </div>
               <br />
               Outside research, I love documenting myself in creative ways{" "}
-              <InlineLogo src="/icon/womp.png" alt="Womp 3D" title="Womp 3D" />
-              <InlineLogo
-                src="/icon/premiere.svg"
-                alt="Premiere Pro"
-                title="Premiere Pro"
-                style={{ marginRight: 0 }}
-              />
+              <ToolIcons tabIndex={0}>
+                <InlineLogo src="/icon/womp.png" alt="Womp 3D" />
+                <InlineLogo
+                  src="/icon/premiere.svg"
+                  alt="Premiere Pro"
+                  style={{ marginRight: 0 }}
+                />
+                <ToolTip role="tooltip">favorite tools these days!</ToolTip>
+              </ToolIcons>
               . Find me on Instagram{" "}
               <Underline
                 text="@hia.some"
@@ -299,6 +301,48 @@ const DomainIcon = styled.svg`
 const Kaomoji = styled.bdi`
   white-space: nowrap;
   unicode-bidi: isolate;
+`;
+
+// Tool icons with a small tooltip on hover
+const ToolTip = styled.span`
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translate(-50%, 4px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: ${colors.black};
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: ${colors.black};
+  }
+`;
+
+const ToolIcons = styled.span`
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  outline: none;
+
+  &:hover ${ToolTip}, &:focus-visible ${ToolTip} {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 `;
 
 // Small logo placed before a name in the intro text
