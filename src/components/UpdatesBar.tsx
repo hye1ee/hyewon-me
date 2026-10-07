@@ -109,5 +109,5 @@ const Item = styled.div`
   align-items: baseline;
   gap: 12px;
   padding: 8px 0;
-  border-top: 1px solid ${RULE};
+  border-top: 1px dotted ${colors.gray};
 `;

@@ -403,7 +403,7 @@ const PubItemContainer = styled.div`
   align-items: flex-start;
   gap: 28px;
   padding: 24px 0;
-  border-top: 1px solid ${colors.gray};
+  border-top: 1px dotted ${colors.gray};
   box-sizing: border-box;
 
   &:first-child {

@@ -83,15 +83,6 @@ const ProfilePhoto = ({ className }: { className?: string }) => {
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.drawImage(base, 0, 0);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.fillStyle = palette.accent;
-      for (const i of accents) {
-        ctx.fillRect(
-          (i % cols) * CELL,
-          Math.floor(i / cols) * CELL,
-          CELL,
-          CELL,
-        );
-      }
       if (split < 1) {
         const width = canvas.width / dpr;
         const height = canvas.height / dpr;
@@ -104,6 +95,16 @@ const ProfilePhoto = ({ className }: { className?: string }) => {
         ctx.fillRect(0, top, width, height - top);
         ctx.drawImage(img, 0, 0, width, height);
         ctx.restore();
+      }
+      // Accent dots sit on top of both the mosaic and the photo
+      ctx.fillStyle = palette.accent;
+      for (const i of accents) {
+        ctx.fillRect(
+          (i % cols) * CELL,
+          Math.floor(i / cols) * CELL,
+          CELL,
+          CELL,
+        );
       }
     };
 
