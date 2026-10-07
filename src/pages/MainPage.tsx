@@ -284,15 +284,16 @@ const ExpandButton = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   display: none;
 
   @media (width <= 1024px) {
     display: block;
     align-self: center;
-    max-width: 350px;
+    max-height: 50vh;
     margin-bottom: 24px;
   }
 `;

@@ -20,7 +20,7 @@ const links: PublicationLink[] = [
 
 const authors: PublicationAuthor[] = [
   {
-    img: "/img/profile.png",
+    img: "/img/profile-avatar.png",
     name: "Hyewon Lee",
     link: "https://www.hyewon.me/",
     affiliation: "KAIST",

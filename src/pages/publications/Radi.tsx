@@ -23,7 +23,7 @@ const authors: PublicationAuthor[] = [
     name: "Hyewon Lee*",
     affiliation: "KAIST",
     link: "https://hyewon.me",
-    img: "/img/profile.png",
+    img: "/img/profile-avatar.png",
   },
   {
     name: "Ihchae Ryu*",

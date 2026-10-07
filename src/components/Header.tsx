@@ -195,9 +195,12 @@ const HeaderNameWrapper = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 100%;
+  align-self: center;
+  max-width: 100%;
+  max-height: 40vh;
+  width: auto;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 const SpeechBubble = styled.div`
