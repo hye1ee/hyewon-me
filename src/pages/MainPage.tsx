@@ -118,6 +118,7 @@ const MainPage = () => {
               <br />
               Outside research, I love documenting myself in creative ways{" "}
               <ToolIcons tabIndex={0}>
+                <InlineLogo src="/icon/figma.svg" alt="Figma" />
                 <InlineLogo src="/icon/womp.png" alt="Womp 3D" />
                 <InlineLogo
                   src="/icon/premiere.svg"
