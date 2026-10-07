@@ -61,6 +61,11 @@ const HanguloProject = () => {
       role="Research Lead"
       links={[
         {
+          icon: "/icon/paper.svg",
+          href: getLocalUrl("/pdf/hangulo-full.pdf"),
+          text: "Paper",
+        },
+        {
           icon: "/icon/pdf.svg",
           href: getLocalUrl("/pdf/hangulo.pdf"),
           text: "Preprint",

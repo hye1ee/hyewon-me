@@ -158,6 +158,7 @@ const MainPage = () => {
             description=""
             links={{
               Webpage: getLocalUrl("/project/hangulo"),
+              Paper: getLocalUrl("/pdf/hangulo-full.pdf"),
             }}
             conference="UIST Adjunct 2026"
           />
