@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { news } from "@assets/strings/news";
 import { colors } from "utils/styles";
 
-const TINT = "#f5f5f5"; // neutral light gray
+const TINT = "#f9f9f9"; // neutral light gray
 const RULE = "rgba(17, 17, 17, 0.08)";
 
 // Toolbar-style strip with the latest update; the toggle reveals the rest

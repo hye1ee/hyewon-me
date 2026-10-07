@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const PHOTO_SRC = "/img/profile.png";
 const CELL = 8; // mosaic block size in CSS px
+const PHOTO_ACCENT_ALPHA = 0.6; // accent dots over the original photo
 const INITIAL_SPLIT = 0.9; // divider starts a little above the bottom
 
 type Palette = {
@@ -96,16 +97,30 @@ const ProfilePhoto = ({ className }: { className?: string }) => {
         ctx.drawImage(img, 0, 0, width, height);
         ctx.restore();
       }
-      // Accent dots sit on top of both the mosaic and the photo
-      ctx.fillStyle = palette.accent;
-      for (const i of accents) {
-        ctx.fillRect(
-          (i % cols) * CELL,
-          Math.floor(i / cols) * CELL,
-          CELL,
-          CELL,
-        );
-      }
+      // Accent dots sit on top of both the mosaic and the photo, softer on
+      // the photo side
+      const width = canvas.width / dpr;
+      const height = canvas.height / dpr;
+      const top = split * height;
+      const drawAccents = (y: number, h: number, alpha: number) => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(0, y, width, h);
+        ctx.clip();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = palette.accent;
+        for (const i of accents) {
+          ctx.fillRect(
+            (i % cols) * CELL,
+            Math.floor(i / cols) * CELL,
+            CELL,
+            CELL,
+          );
+        }
+        ctx.restore();
+      };
+      drawAccents(0, top, 1);
+      drawAccents(top, height - top, PHOTO_ACCENT_ALPHA);
     };
 
     const setSplit = (value: number) => {
