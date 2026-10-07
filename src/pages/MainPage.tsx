@@ -8,6 +8,7 @@ import Section from "@components/Section";
 import PageContainer from "@components/PageContainer";
 import UpdatesBar from "@components/UpdatesBar";
 import PixelFace from "@components/PixelFace";
+import { AppWindow, Clapperboard, Orbit, Shapes } from "lucide-react";
 import ProfilePhoto from "@components/ProfilePhoto";
 import { getLocalUrl } from "utils";
 
@@ -86,7 +87,11 @@ const MainPage = () => {
               I combine my background as a designer with computational methods
               to tackle problems in <Highlight>designer–AI interaction</Highlight>
               . My work has centered on agentic systems, user modeling, and
-              sensemaking for creative work across video, UI, graphics, and
+              sensemaking for creative work across{" "}
+              <DomainIcon as={Clapperboard} aria-hidden="true" />
+              video, <DomainIcon as={AppWindow} aria-hidden="true" />
+              UI, <DomainIcon as={Shapes} aria-hidden="true" />
+              graphics, and <DomainIcon as={Orbit} aria-hidden="true" />
               motion. Recently, I&apos;ve been bringing machine learning
               techniques into this work. My vision is to make the creative
               process <Highlight>more fun</Highlight> through AI-augmented
@@ -272,6 +277,16 @@ const Headline = styled.h1`
 `;
 
 const HeadlineMuted = styled.span`
+  color: ${colors.darkgray};
+`;
+
+// Small line icon placed before a creative domain in the intro text
+const DomainIcon = styled.svg`
+  width: 14px;
+  height: 14px;
+  margin-right: 3px;
+  vertical-align: -2px;
+  stroke-width: 1.5;
   color: ${colors.darkgray};
 `;
 
