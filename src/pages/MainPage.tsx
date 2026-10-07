@@ -117,11 +117,7 @@ const MainPage = () => {
               </div>
               <br />
               Outside research, I love documenting myself in creative ways.
-              These days, my favorite tools are{" "}
-              <InlineLogo src="/icon/womp.png" alt="Womp" />
-              Womp 3D and{" "}
-              <InlineLogo src="/icon/premiere.svg" alt="Premiere Pro" />
-              Premiere Pro. Find me on Instagram{" "}
+              Find me on Instagram{" "}
               <Underline
                 text="@hia.some"
                 link="https://www.instagram.com/hia.some/"
