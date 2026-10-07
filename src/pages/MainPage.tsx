@@ -304,15 +304,16 @@ const Kaomoji = styled.bdi`
 `;
 
 // Tool icons with a small tooltip on hover
+const TOOLTIP_BG = "#efefef";
 const ToolTip = styled.span`
   position: absolute;
   left: 50%;
-  bottom: calc(100% + 8px);
+  bottom: calc(100% + 3px);
   transform: translate(-50%, 4px);
   padding: 4px 8px;
   border-radius: 6px;
-  background: ${colors.black};
-  color: #ffffff;
+  background: ${TOOLTIP_BG};
+  color: ${colors.black};
   font-size: 12px;
   line-height: 1.4;
   white-space: nowrap;
@@ -329,7 +330,7 @@ const ToolTip = styled.span`
     left: 50%;
     transform: translateX(-50%);
     border: 4px solid transparent;
-    border-top-color: ${colors.black};
+    border-top-color: ${TOOLTIP_BG};
   }
 `;
 
