@@ -133,7 +133,6 @@ const MainPage = () => {
           <PubItem
             image="/publications/thumb-guide.png"
             title="GUIDE: Designer-in-the-loop Authoring of Conformant Generative User Interfaces"
-            titleLink="https://arxiv.org/abs/2609.21285"
             authors={[
               "Hyewon Lee",
               "Ziying Wang",
@@ -150,7 +149,6 @@ const MainPage = () => {
           <PubItem
             image="/projects/thumb-hangulo.png"
             title="Hangulo: Demonstrating Workflow-Embedded AI Support for Korean Lettering Implementation"
-            titleLink={getLocalUrl("/project/hangulo")}
             authors={["Hyewon Lee", "Tak Yeon Lee"]}
             description=""
             links={{
@@ -162,7 +160,6 @@ const MainPage = () => {
           <PubItem
             image="/projects/thumb-tacitagent.png"
             title={`"When to Hand Off, When to Work Together": Understanding Concurrent Human-Agent Interaction in Shared Co-Creative Workspaces`}
-            titleLink="https://cleo.kixlab.org/"
             authors={[
               "Kihoon Son",
               "Hyewon Lee",
@@ -184,7 +181,6 @@ const MainPage = () => {
           <PubItem
             image="/publications/thumb-radi.jpg"
             title="RADI: A Design Framework for Relational and Adaptive Disclosure Interfaces"
-            // titleLink="https://hyewon.me/pub/camara/"
             authors={[
               "Hyewon Lee*",
               "Ihchae Ryu*",
@@ -203,7 +199,6 @@ const MainPage = () => {
           <PubItem
             image="/publications/thumb-camara.jpg"
             title="CamARa: Exploring and Creating Camera Movements with Spatial Reference in Augmented Reality"
-            titleLink={getLocalUrl("/publication/camara")}
             authors={["Hyewon Lee", "Christopher Bannon", "Andrea Bianchi"]}
             description=""
             links={{
@@ -216,7 +211,6 @@ const MainPage = () => {
           <PubItem
             image="/publications/thumb-vivid.jpg"
             title="VIVID: Human-AI Collaborative Authoring of Vicarious Dialogues from Lecture Videos"
-            titleLink="https://vivid.kixlab.org/"
             authors={["Seulgi Choi", "Hyewon Lee", "Yoonjoo Lee", "Juho Kim"]}
             description=""
             links={{
@@ -309,7 +303,6 @@ const PubContainer = styled.div`
 interface PubItemProps {
   image: string;
   title: string;
-  titleLink?: string;
   authors: string[];
   description: string;
   links: {
@@ -324,7 +317,6 @@ interface PubItemProps {
 const PubItem = ({
   image,
   title,
-  titleLink,
   authors,
   description,
   links,
@@ -347,8 +339,8 @@ const PubItem = ({
       <PubInfoContainer>
         <ConferenceBadge>{conference}</ConferenceBadge>
         <PubTitle
-          $clickable={Boolean(titleLink)}
-          onClick={() => titleLink && window.open(titleLink)}
+          $clickable={Boolean(links.Webpage)}
+          onClick={() => links.Webpage && window.open(links.Webpage)}
         >
           {title}
         </PubTitle>
