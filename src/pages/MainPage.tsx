@@ -93,7 +93,7 @@ const MainPage = () => {
               UI, <DomainIcon as={Shapes} aria-hidden="true" />
               graphics, and <DomainIcon as={Orbit} aria-hidden="true" />
               motion. Recently, I&apos;ve been bringing machine learning
-              techniques into this work. My vision is to make the creative
+              techniques into this loop. My vision is to make the creative
               process <Highlight>more fun</Highlight> through AI-augmented
               interaction.
               <div
