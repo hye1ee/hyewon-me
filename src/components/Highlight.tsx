@@ -48,9 +48,4 @@ const HighlightWrapper = styled.span<{ variant: string; weight: string }>`
     }
   }};
 
-  transition: all 0.2s ease;
-
-  &:hover {
-    text-shadow: 0 0 8px ${colors.primary}40;
-  }
 `;

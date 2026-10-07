@@ -49,10 +49,15 @@ const HeaderMobile = () => {
             scrollToSection("main");
           }}
         >
-          <HeaderElWrapper
-            style={{ fontSize: "20px" }}
-            bold={true}
-          ></HeaderElWrapper>
+          <div
+            style={{
+              fontSize: "20px",
+              fontWeight: 500,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Hyewon Lee
+          </div>
           {/* <ProfileImage src="/img/profile.png" alt="Hyewon Lee" /> */}
           {/* <EmailText>hyewon0809[at]kaist.ac.kr</EmailText> */}
         </HeaderNameWrapper>
@@ -85,7 +90,7 @@ const HeaderMobile = () => {
             Publications
           </HeaderElWrapper>
           <HeaderElWrapper
-            bold={location.pathname === "/projects"}
+            bold={location.pathname.startsWith("/project")}
             onClick={() => {
               setMenu(false);
               navigate("/projects");
@@ -145,7 +150,7 @@ const HeaderMobile = () => {
               color: colors.darkgray,
               textAlign: "left",
             }}
-          >{`${updates.copyright}\nLast Updated at ${updates.lastUpdated}`}</div>
+          >{updates.copyright}</div>
         </HeaderColWrapper>
       )}
     </HeaderContainer>
@@ -208,15 +213,17 @@ const HeaderNameWrapper = styled.div`
 `;
 
 const HeaderElWrapper = styled.div<{ bold?: boolean }>`
-  color: ${(props) => (props.bold ? colors.primary : colors.black)};
+  color: ${colors.black};
 
-  font-size: ${(props) => (props.bold ? "16px" : "14px")};
-  font-weight: ${(props) => (props.bold ? 450 : 400)};
-
-  transition: all 0.2s;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: ${(props) => (props.bold ? "underline" : "none")};
+  text-underline-offset: 4px;
 
   &:hover {
-    text-decoration: underline;
+    color: ${colors.darkgray};
   }
 
   cursor: pointer;

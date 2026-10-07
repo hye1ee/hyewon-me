@@ -1,24 +1,23 @@
 import styled from "styled-components";
 import { colors } from "utils/styles";
-import NewsItem from "@components/NewsItem";
-import { news } from "@assets/strings/news";
 import Tag from "@components/Tag";
 import Underline from "@components/Underline";
 import Highlight from "@components/Highlight";
 import SmallTag from "@components/SmallTag";
 import Section from "@components/Section";
 import PageContainer from "@components/PageContainer";
-import { useState } from "react";
+import UpdatesBar from "@components/UpdatesBar";
+import PixelFace from "@components/PixelFace";
+import ProfilePhoto from "@components/ProfilePhoto";
 import { getLocalUrl } from "utils";
 
 // Helper to construct local domain links
 
 const MainPage = () => {
-  const [newsExpanded, setNewsExpanded] = useState(false);
   return (
     <PageContainer>
       {/* Main Section */}
-      <Section sectionTitle="Hi, I'm Hyewon! 혜원" id="about" titleSize="20px">
+      <Section sectionTitle="" id="about">
         <div
           style={{
             width: "100%",
@@ -34,11 +33,22 @@ const MainPage = () => {
           }}
         >
           <ContentWrapper>
-            <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
+            <HeadlineRow>
+              <Headline>
+                Hi, I&apos;m Hyewon 혜원.{" "}
+                <HeadlineMuted>
+                  An HCI researcher designing how people and AI create
+                  together.
+                </HeadlineMuted>
+              </Headline>
+              <PixelFace />
+            </HeadlineRow>
+            <MobileProfilePhoto />
 
             <ContentContainer>
               I am a first-year Ph.D. student in{" "}
               <Highlight>Computer Science</Highlight> at{" "}
+              <InlineLogo src="/icon/purdue.png" alt="Purdue" />
               <Underline
                 text="Purdue University"
                 link="https://www.cs.purdue.edu/"
@@ -48,6 +58,7 @@ const MainPage = () => {
               . I am honored to be supported by the Ross Fellowship with Herbold
               Scholarship. I received my B.S. in computer science and industrial
               design from{" "}
+              <InlineLogo src="/icon/kaist.png" alt="KAIST" />
               <Underline text="KAIST" link="https://kaist.ac.kr/en/" />, where I
               worked with{" "}
               <img
@@ -107,25 +118,11 @@ const MainPage = () => {
         </div>
       </Section>
 
-      <Section sectionTitle="Updates" id="updates" gap={0} align="left">
-        <NewsContainer>
-          {(newsExpanded ? news : news.slice(0, 2)).map((el, index) => (
-            <NewsItem
-              key={`news-${index}`}
-              icon={el.icon}
-              line={el.line}
-              date={el.date}
-            />
-          ))}
-          {news.length > 2 && (
-            <ExpandButton onClick={() => setNewsExpanded(!newsExpanded)}>
-              {newsExpanded ? "See Less −" : "See All +"}
-            </ExpandButton>
-          )}
-        </NewsContainer>
+
+      <Section sectionTitle="" id="updates-section">
+        <UpdatesBar />
       </Section>
 
-      {/* Publications and Updates Side by Side */}
       <Section
         sectionTitle="Publications"
         id="publications"
@@ -249,6 +246,42 @@ const ContentWrapper = styled.div`
   justify-content: flex-start;
 `;
 
+// Two-tone intro line, Figma-style
+const HeadlineRow = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 28px;
+`;
+
+const Headline = styled.h1`
+  max-width: 640px;
+  margin: 0;
+  word-break: keep-all;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: ${colors.black};
+
+  @media (width <= 1024px) {
+    font-size: 26px;
+  }
+`;
+
+const HeadlineMuted = styled.span`
+  color: ${colors.darkgray};
+`;
+
+// Small logo placed before a name in the intro text
+const InlineLogo = styled.img`
+  height: 12px;
+  width: auto;
+  margin-right: 4px;
+  vertical-align: -1px;
+`;
+
 const ContentContainer = styled.div`
   line-height: 1.6;
   width: 100%;
@@ -256,43 +289,11 @@ const ContentContainer = styled.div`
   /* font-size: 14px; */
 `;
 
-const NewsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-`;
-
-const ExpandButton = styled.div`
-  width: fit-content;
-  padding: 8px 0;
-  /* margin-top: 8px; */
-  background-color: transparent;
-  border: none;
-  font-size: 13px;
-  /* font-weight: 400; */
-  color: ${colors.darkgray};
-  cursor: pointer;
-  transition: all 0.3s ease;
-  align-self: flex-end;
-
-  &:hover {
-    color: ${colors.black};
-    font-weight: 500;
-    /* text-decoration: underline; */
-  }
-`;
-
-const ProfileImage = styled.img`
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+const MobileProfilePhoto = styled(ProfilePhoto)`
   display: none;
 
   @media (width <= 1024px) {
     display: block;
-    align-self: center;
     max-height: 50vh;
     margin-bottom: 24px;
   }
@@ -336,6 +337,7 @@ const PubItem = ({
           src={image}
           alt={image}
           style={{
+            display: "block",
             width: "100%",
             height: "100%",
             objectFit: "cover",
@@ -344,17 +346,13 @@ const PubItem = ({
       </HorizontalImage>
       <PubInfoContainer>
         <ConferenceBadge>{conference}</ConferenceBadge>
-        <PubTitle onClick={() => titleLink && window.open(titleLink)}>
+        <PubTitle
+          $clickable={Boolean(titleLink)}
+          onClick={() => titleLink && window.open(titleLink)}
+        >
           {title}
         </PubTitle>
-        <div
-          style={{
-            color: colors.darkgray,
-            fontSize: "14px",
-            lineHeight: "1.4",
-            textAlign: "right",
-          }}
-        >
+        <PubAuthors>
           {authors.map((author, index) => (
             <span key={index}>
               {author.includes("Hyewon Lee") ? (
@@ -373,16 +371,8 @@ const PubItem = ({
               {index < authors.length - 1 && ", "}
             </span>
           ))}
-        </div>
-        <div
-          style={{
-            gap: "16px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            marginTop: "0px",
-          }}
-        >
+        </PubAuthors>
+        <PubLinks>
           {Object.entries(links).map((link, idx) => {
             const linkType = link[0].toLowerCase();
             let iconPath = "";
@@ -408,7 +398,7 @@ const PubItem = ({
               </SmallTag>
             );
           })}
-        </div>
+        </PubLinks>
       </PubInfoContainer>
     </PubItemContainer>
   );
@@ -418,60 +408,78 @@ const PubItemContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  /* padding: 12px 0; */
-  /* border-bottom: 1px solid ${colors.gray}; */
+  align-items: flex-start;
+  gap: 28px;
+  padding: 24px 0;
+  border-top: 1px solid ${colors.gray};
   box-sizing: border-box;
-  margin-bottom: 16px;
 
-  &:last-child {
-    margin-bottom: 0;
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  @media (width <= 768px) {
+    flex-direction: column;
+    gap: 14px;
   }
 `;
 
 const PubInfoContainer = styled.div`
-  padding: 0;
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   align-items: flex-start;
-  text-align: right;
+  text-align: left;
 `;
 
-const PubTitle = styled.div`
-  font-weight: 400;
-  /* font-size: 14px; */
-  cursor: pointer;
-  color: black;
-  /* line-height: 1.6; */
-  transition: all 0.3s ease;
-  text-align: left;
+const PubTitle = styled.div<{ $clickable: boolean }>`
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: ${colors.black};
+  cursor: ${(props) => (props.$clickable ? "pointer" : "default")};
 
   &:hover {
-    font-weight: 500;
-    /* text-decoration: underline;
-    text-decoration-style: solid; */
-    text-shadow: 2px 2px 8px rgba(0, 169, 234, 0.3);
+    text-decoration: ${(props) => (props.$clickable ? "underline" : "none")};
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 `;
 
+const PubAuthors = styled.div`
+  font-size: 14px;
+  line-height: 1.5;
+  color: ${colors.darkgray};
+`;
+
+const PubLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 2px;
+`;
+
 const HorizontalImage = styled.div`
-  width: 300px;
-  height: 150px;
+  width: 260px;
+  height: 146px;
   flex-shrink: 0;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+
+  @media (width <= 768px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
 `;
 
 const ConferenceBadge = styled.div`
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  padding: 4px 8px;
-  color: ${colors.primary};
-  background-color: ${colors.lightgray};
-  width: fit-content;
-
-  position: relative;
-  right: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: ${colors.darkgray};
 `;

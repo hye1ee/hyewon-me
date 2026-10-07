@@ -1,7 +1,6 @@
 const updates = {
-  "lastUpdated": "Sep 2026",
   "updates": "Heading to UIST 2026 in Detroit 🛫 See you there!",
-  "copyright": "© 2023-2026 Hyewon Lee",
+  "copyright": "© 2026 Hyewon Lee",
   "linkedin": "https://www.linkedin.com/in/hye1ee/",
   "github": "https://github.com/hye1ee/",
   "googlescholar": "https://scholar.google.co.kr/citations?hl=en&user=xX0joEYAAAAJ",

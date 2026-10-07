@@ -35,6 +35,10 @@ const TitleWrapper = styled.div<{
   align-self: flex-start;
   ${subtitleTextStyle}
   font-size: ${(props) => props.titleSize};
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
   text-align: ${(props) => props.align};
   margin-bottom: ${(props) => props.marginBottom};
   color: black;

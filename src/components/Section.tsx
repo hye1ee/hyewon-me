@@ -24,13 +24,15 @@ const Section = ({
 }: SectionProps) => {
   return (
     <SectionWrapper id={id} gap={gap} style={style}>
-      <SectionTitle
-        align={align}
-        marginBottom={marginBottom}
-        titleSize={titleSize}
-      >
-        {sectionTitle}
-      </SectionTitle>
+      {sectionTitle && (
+        <SectionTitle
+          align={align}
+          marginBottom={marginBottom}
+          titleSize={titleSize}
+        >
+          {sectionTitle}
+        </SectionTitle>
+      )}
       {children}
     </SectionWrapper>
   );
