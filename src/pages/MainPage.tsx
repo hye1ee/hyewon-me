@@ -86,14 +86,19 @@ const MainPage = () => {
               <br />
               I combine my background as a designer with computational methods
               to tackle problems in <Highlight>designer–AI interaction</Highlight>
-              . My work has centered on agentic systems, user modeling, and
-              sensemaking for creative work across{" "}
+              . My work has centered on{" "}
+              <Highlight>
+                agentic systems, user modeling, and sensemaking for creative
+                work
+              </Highlight>{" "}
+              across{" "}
               <DomainIcon as={Clapperboard} aria-hidden="true" />
               video, <DomainIcon as={AppWindow} aria-hidden="true" />
               UI, <DomainIcon as={Shapes} aria-hidden="true" />
               graphics, and <DomainIcon as={Orbit} aria-hidden="true" />
-              motion. Recently, I&apos;ve been bringing machine learning
-              techniques into this loop. My vision is to make the creative
+              motion. Recently, I&apos;ve been bringing{" "}
+              <Highlight>machine learning techniques</Highlight> into the
+              interaction loop. My vision is to make the creative
               process <Highlight>more fun</Highlight>{" "}
               <Kaomoji dir="ltr">٩( ᐛ )و</Kaomoji> through AI-augmented
               interaction.
@@ -114,13 +119,9 @@ const MainPage = () => {
               Outside research, I love documenting myself in creative ways.
               These days, my favorite tools are{" "}
               <InlineLogo src="/icon/womp.png" alt="Womp" />
-              <Underline text="Womp 3D" link="https://womp.com/" /> and{" "}
+              Womp 3D and{" "}
               <InlineLogo src="/icon/premiere.svg" alt="Premiere Pro" />
-              <Underline
-                text="Premiere Pro"
-                link="https://www.adobe.com/products/premiere.html"
-              />
-              . Find me on Instagram{" "}
+              Premiere Pro. Find me on Instagram{" "}
               <Underline
                 text="@hia.some"
                 link="https://www.instagram.com/hia.some/"
