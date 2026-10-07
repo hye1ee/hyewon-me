@@ -37,7 +37,7 @@ const ProjectsPage = () => {
             active={activeFilter === "Design"}
             onClick={() => setActiveFilter("Design")}
           >
-            Interactive Design
+            Design
           </FilterButton>
         </FilterContainer>
         <ProjectsContainer>
