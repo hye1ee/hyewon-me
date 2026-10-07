@@ -92,6 +92,7 @@ const PublicationTemplate = ({
     <PageContainer>
       <Section
         sectionTitle={sectionTitle}
+        mutedTitle
         id={id}
         style={{ alignItems: "center", gap: "28px", marginBottom: "180px" }}
       >

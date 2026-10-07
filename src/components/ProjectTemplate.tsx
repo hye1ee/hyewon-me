@@ -73,6 +73,7 @@ const ProjectTemplate = ({
     <PageContainer>
       <Section
         sectionTitle={sectionTitle}
+        mutedTitle
         id={id}
         style={{ gap: "28px", marginBottom: "180px" }}
       >

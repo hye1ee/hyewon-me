@@ -9,6 +9,7 @@ interface SectionProps {
   align?: "left" | "center" | "right";
   marginBottom?: string;
   titleSize?: string;
+  mutedTitle?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -20,6 +21,7 @@ const Section = ({
   align = "center",
   marginBottom = "16px",
   titleSize = "16px",
+  mutedTitle = false,
   style,
 }: SectionProps) => {
   return (
@@ -29,6 +31,7 @@ const Section = ({
           align={align}
           marginBottom={marginBottom}
           titleSize={titleSize}
+          muted={mutedTitle}
         >
           {sectionTitle}
         </SectionTitle>
