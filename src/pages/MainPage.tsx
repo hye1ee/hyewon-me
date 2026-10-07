@@ -94,7 +94,8 @@ const MainPage = () => {
               graphics, and <DomainIcon as={Orbit} aria-hidden="true" />
               motion. Recently, I&apos;ve been bringing machine learning
               techniques into this loop. My vision is to make the creative
-              process <Highlight>more fun</Highlight> through AI-augmented
+              process <Highlight>more fun</Highlight>{" "}
+              <Kaomoji dir="ltr">٩( ᐛ )و</Kaomoji> through AI-augmented
               interaction.
               <div
                 style={{
@@ -288,6 +289,12 @@ const DomainIcon = styled.svg`
   vertical-align: -2px;
   stroke-width: 1.5;
   color: ${colors.darkgray};
+`;
+
+// Keeps the mixed-script face in left-to-right order on one line
+const Kaomoji = styled.bdi`
+  white-space: nowrap;
+  unicode-bidi: isolate;
 `;
 
 // Small logo placed before a name in the intro text
