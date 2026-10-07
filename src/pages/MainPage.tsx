@@ -83,15 +83,14 @@ const MainPage = () => {
               .
               <br />
               <br />
-              My research motivation lies in{" "}
-              <Highlight variant="secondary">
-                making the creative process fun!
-              </Highlight>{" "}
-              I build AI-augmented tools that make design workflows both
-              engaging and enjoyable, which I see as one of the most noble human
-              pursuits. I also explore new forms of human–AI interactions and
-              interfaces that support designer-centered collaborative
-              sensemaking.
+              I combine my background as a designer with computational methods
+              to tackle problems in <Highlight>designer–AI interaction</Highlight>
+              . My work has centered on agentic systems, user modeling, and
+              sensemaking for creative work across video, UI, graphics, and
+              motion. Recently, I&apos;ve been bringing machine learning
+              techniques into this work. My vision is to make the creative
+              process <Highlight>more fun</Highlight> through AI-augmented
+              interaction.
               <div
                 style={{
                   display: "flex",
@@ -107,7 +106,15 @@ const MainPage = () => {
               </div>
               <br />
               Outside research, I love documenting myself in creative ways.
-              Find me on Instagram{" "}
+              These days, my favorite tools are{" "}
+              <InlineLogo src="/icon/womp.png" alt="Womp" />
+              <Underline text="Womp 3D" link="https://womp.com/" /> and{" "}
+              <InlineLogo src="/icon/premiere.svg" alt="Premiere Pro" />
+              <Underline
+                text="Premiere Pro"
+                link="https://www.adobe.com/products/premiere.html"
+              />
+              . Find me on Instagram{" "}
               <Underline
                 text="@hia.some"
                 link="https://www.instagram.com/hia.some/"
