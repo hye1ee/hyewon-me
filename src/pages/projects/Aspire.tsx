@@ -51,7 +51,7 @@ const blocks: ProjectContentBlock[] = [
   {
     type: "text",
     content:
-      "This project was submitted to the iF Design Award 2026 and selected as a finalist. The UX design was a collaborative team effort, and I led the UI design, including 2D/3D asset design and motion graphics.",
+      "Aspire won the iF Design Award 2026 in Service Design (Service, System & Process Design), developed with NH Investment & Securities. The UX design was a collaborative team effort, and I led the UI design, including 2D/3D asset design and motion graphics.",
   },
 ];
 
@@ -62,6 +62,13 @@ const AspireProject = () => {
       id="aspire"
       title="Aspire — Family Investment Mobile Application"
       projectPeriod="Sep 2024 - Dec 2024"
+      links={[
+        {
+          icon: "/icon/home.svg",
+          href: "https://ifdesign.com/en/winner-ranking/project/aspire/741994",
+          text: "iF Design Award 2026",
+        },
+      ]}
       role="2D & 3D Asset Design, Motion Graphics, UI/UX Design"
       members={[
         "Hyewon Lee",

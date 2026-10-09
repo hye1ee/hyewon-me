@@ -52,7 +52,7 @@ const projects: ProjectData[] = [
   },
   {
     title: "Aspire",
-    description: "Aspire is a family investment mobile application that visualizes shared learning and growth through the family fire, a lantern-inspired metaphor for long-term investing.",
+    description: "Aspire is a family investment mobile application that visualizes shared learning and growth through the family fire, a lantern-inspired metaphor for long-term investing. Winner of the iF Design Award 2026.",
     img: "/projects/thumb-aspire.png",
     year: 2024,
     type: "Design",
