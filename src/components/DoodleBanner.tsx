@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const CELL = 22; // grid size in CSS px
+const CELL = 12; // grid size in CSS px
 const BG = "#2a2a2a"; // charcoal
 const COLORS = [
   "#ffe14d",
@@ -66,7 +66,7 @@ const DoodleBanner = () => {
     let lastSpawn = 0;
 
     // Chance a cell is filled, rising toward the bottom
-    const density = (y: number) => 0.08 + 0.8 * Math.pow(y / rows, 1.6);
+    const density = (y: number) => 0.03 + 0.42 * Math.pow(y / rows, 1.8);
 
     const spawn = (now: number, age = 0, palette = COLORS): Cell => {
       const color = pick(palette);
