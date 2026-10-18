@@ -218,7 +218,7 @@ const DoodleBanner = () => {
         for (let x = cx - 1; x <= cx + 1; x++) {
           if (x < 0 || y < 0 || x >= cols || y >= rows) continue;
           const isCenter = x === cx && y === cy;
-          if (!isCenter && Math.random() < 0.5) continue;
+          if (!isCenter && Math.random() < 0.85) continue;
           const i = y * cols + x;
           const cell = cells[i];
           if (cell) {
