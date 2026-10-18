@@ -2,13 +2,14 @@ import { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { colors } from "utils/styles";
 
-const WORDS = ["design", "hci", "ai", "human", "gen-ui"];
+const WORDS = ["boo!", "trick", "treat", "pumpkin", "ghost", "spooky"];
 // Background / text pairs
+// Halloween palette
 const STYLES: [string, string][] = [
-  ["#1f2db8", "#ffffff"],
-  ["#6d7cf0", "#ffffff"],
-  ["#b0109a", "#ffffff"],
-  ["#e2f53a", "#111111"],
+  ["#ff7a00", "#111111"],
+  ["#111111", "#ff7a00"],
+  ["#6b2fa0", "#ffffff"],
+  ["#9be22d", "#111111"],
 ];
 const SPACING = 26; // px the cursor travels between tags
 const LIFE_MS = 1400; // how long a tag stays before it's gone
@@ -59,9 +60,7 @@ const TagTrailBanner = () => {
   }, []);
 
   return (
-    <Field ref={fieldRef} aria-hidden="true">
-      <Hint>hover around</Hint>
-    </Field>
+    <Field ref={fieldRef} aria-hidden="true" />
   );
 };
 
@@ -95,15 +94,4 @@ const Field = styled.div`
     pointer-events: none;
     animation: ${popAndFade} ${LIFE_MS}ms ease-out forwards;
   }
-`;
-
-const Hint = styled.span`
-  position: absolute;
-  left: 12px;
-  bottom: 10px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: ${colors.gray};
-  pointer-events: none;
 `;
