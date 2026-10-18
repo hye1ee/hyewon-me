@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "utils/styles";
+import DotWordmark from "@components/DotWordmark";
 
 const HeaderMobile = () => {
   const [menu, setMenu] = useState<boolean>(false);
@@ -49,10 +50,7 @@ const HeaderMobile = () => {
             scrollToSection("main");
           }}
         >
-          <HeaderElWrapper
-            style={{ fontSize: "20px" }}
-            bold={true}
-          ></HeaderElWrapper>
+          <DotWordmark text="HYEWON LEE" fontSize={20} />
           {/* <ProfileImage src="/img/profile.png" alt="Hyewon Lee" /> */}
           {/* <EmailText>hyewon0809[at]kaist.ac.kr</EmailText> */}
         </HeaderNameWrapper>
@@ -208,15 +206,17 @@ const HeaderNameWrapper = styled.div`
 `;
 
 const HeaderElWrapper = styled.div<{ bold?: boolean }>`
-  color: ${(props) => (props.bold ? colors.primary : colors.black)};
+  color: ${colors.black};
 
-  font-size: ${(props) => (props.bold ? "16px" : "14px")};
-  font-weight: ${(props) => (props.bold ? 450 : 400)};
-
-  transition: all 0.2s;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: ${(props) => (props.bold ? "underline" : "none")};
+  text-underline-offset: 4px;
 
   &:hover {
-    text-decoration: underline;
+    color: ${colors.darkgray};
   }
 
   cursor: pointer;

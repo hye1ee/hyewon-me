@@ -1,5 +1,5 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap"); */
-@import url("https://fonts.googleapis.com/css2?family=Varta:wght@300..700&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..700&family=Varta:wght@300..700&family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap");
 
 html,
 body {
@@ -10,8 +10,9 @@ body {
 }
 
 #root {
-  font-family: "Varta", sans-serif;
-  font-weight: 350;
+  font-family: "Inter Tight", "Varta", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
   color: #222222;
   margin: 0;
   padding: 0;

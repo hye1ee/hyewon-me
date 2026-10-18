@@ -2,6 +2,10 @@ import updates from "@assets/strings/updates";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "utils/styles";
+import ProfilePhoto from "@components/ProfilePhoto";
+import DotWordmark from "@components/DotWordmark";
+import NewsItem from "@components/NewsItem";
+import { news } from "@assets/strings/news";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -29,16 +33,25 @@ const Header = () => {
   return (
     <HeaderContainer>
       <HeaderNameWrapper onClick={() => scrollToSection("main")}>
-        <HeaderElWrapper style={{ fontSize: "20px" }} bold={true}>
-          Hyewon Lee
-        </HeaderElWrapper>
-        {isHome && (
-          <>
-            <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
-            <SpeechBubble>{updates.updates}</SpeechBubble>
-          </>
-        )}
+        <HeaderWordmark text="HYEWON LEE" fontSize={34} />
+        {isHome && <HeaderProfilePhoto />}
       </HeaderNameWrapper>
+      {isHome && (
+        <SidebarUpdates>
+          <SidebarUpdatesTitle>Updates</SidebarUpdatesTitle>
+          <SidebarUpdatesList>
+            {news.map((el, index) => (
+              <NewsItem
+                key={`sidebar-news-${index}`}
+                icon={el.icon}
+                line={el.line}
+                date={el.date}
+                compact
+              />
+            ))}
+          </SidebarUpdatesList>
+        </SidebarUpdates>
+      )}
       <HeaderColWrapper>
         <HeaderElWrapper
           bold={location.pathname === "/" && location.hash === "#about"}
@@ -117,16 +130,19 @@ const Header = () => {
 export default Header;
 
 const HeaderContainer = styled.div`
+  /* Center header + content (960px) as one block on wide screens */
   width: 320px;
-  margin-left: 60px;
+  margin-left: max(60px, calc((100vw - 1280px) / 2));
 
   @media (width <= 1280px) {
     width: 280px;
     margin-right: 30px;
+    margin-left: max(60px, calc((100vw - 1150px) / 2));
   }
   @media (width >= 1440px) {
     width: 320px;
     margin-right: 80px;
+    margin-left: max(60px, calc((100vw - 1360px) / 2));
   }
   height: 100%;
 
@@ -153,7 +169,8 @@ const HeaderContainer = styled.div`
 
 const HeaderColWrapper = styled.div`
   width: fit-content;
-  height: 300px;
+  height: fit-content;
+  margin: 24px 0;
 
   display: flex;
   flex-direction: column;
@@ -194,69 +211,59 @@ const HeaderNameWrapper = styled.div`
   cursor: pointer;
 `;
 
-const ProfileImage = styled.img`
-  align-self: center;
-  max-width: 100%;
-  max-height: 40vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+// Sits behind the name; it bleeds into the side padding
+const HeaderProfilePhoto = styled(ProfilePhoto)`
+  max-height: min(44vh, calc(100vh - 515px));
+  max-width: calc(100% + 24px);
+  margin: -16px -12px 0;
 `;
 
-const SpeechBubble = styled.div`
+const HeaderWordmark = styled(DotWordmark)`
   position: relative;
-  align-self: center;
-  background-color: white;
-  border: 1px solid black;
-  padding: 8px 12px;
-  margin-top: 4px;
-  font-size: 12px;
-  font-weight: 400;
-  color: black;
-  text-align: center;
-  max-width: 200px;
-  word-wrap: break-word;
+  z-index: 1;
+`;
 
-  /* Triangle pointer */
-  &::before {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid black;
-  }
+const SidebarUpdates = styled.div`
+  width: 100%;
+  flex: 0 0 auto;
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+`;
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid white;
-  }
+const SidebarUpdatesTitle = styled.div`
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 6px;
+  border-bottom: 1px solid ${colors.black};
+`;
+
+// Shows about two updates; the rest scroll
+const SidebarUpdatesList = styled.div`
+  max-height: 164px;
+  overflow-y: auto;
+  padding-right: 4px;
 `;
 
 const HeaderElWrapper = styled.div<{ bold?: boolean }>`
   flex: 0 0 auto;
   align-self: flex-start;
-  color: ${(props) => (props.bold ? colors.primary : colors.black)};
+  color: ${colors.black};
 
-  font-size: ${(props) => (props.bold ? "16px" : "14px")};
-  font-weight: ${(props) => (props.bold ? 550 : 400)};
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: ${(props) => (props.bold ? "underline" : "none")};
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
 
-  transition: all 0.2s;
+  transition: color 0.2s;
 
   &:hover {
-    /* text-decoration: underline; */
+    color: ${colors.darkgray};
   }
 
   cursor: pointer;

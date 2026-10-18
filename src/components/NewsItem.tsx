@@ -5,6 +5,7 @@ interface NewsItemProps {
   icon: string;
   line: string;
   date: string;
+  compact?: boolean;
 }
 
 const NewsItem = (props: NewsItemProps) => {
@@ -18,7 +19,7 @@ const NewsItem = (props: NewsItemProps) => {
   // const lineWithoutFlag = props.line.replace(emojiRegex, "").trim();
 
   return (
-    <NewsItemWrapper>
+    <NewsItemWrapper $compact={props.compact}>
       <DateColumn>{props.date}</DateColumn>
       <EventColumn>{props.line}</EventColumn>
     </NewsItemWrapper>
@@ -27,12 +28,14 @@ const NewsItem = (props: NewsItemProps) => {
 
 export default NewsItem;
 
-const NewsItemWrapper = styled.div`
+const NewsItemWrapper = styled.div<{ $compact?: boolean }>`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: ${(props) => (props.$compact ? "column" : "row")};
+  align-items: ${(props) => (props.$compact ? "flex-start" : "center")};
+  gap: ${(props) => (props.$compact ? "2px" : "0")};
   padding: 9px 0;
+  box-sizing: border-box;
   border-bottom: 1px solid ${colors.gray};
 
   &:last-child {
@@ -41,7 +44,7 @@ const NewsItemWrapper = styled.div`
 `;
 
 const DateColumn = styled.div`
-  font-size: 14px;
+  font-size: 13px;
   flex-shrink: 0;
   width: 70px;
   color: ${colors.darkgray};

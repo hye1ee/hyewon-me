@@ -8,6 +8,7 @@ import Highlight from "@components/Highlight";
 import SmallTag from "@components/SmallTag";
 import Section from "@components/Section";
 import PageContainer from "@components/PageContainer";
+import ProfilePhoto from "@components/ProfilePhoto";
 import { useState } from "react";
 import { getLocalUrl } from "utils";
 
@@ -34,7 +35,7 @@ const MainPage = () => {
           }}
         >
           <ContentWrapper>
-            <ProfileImage src="/img/profile.png" alt="Hyewon Lee" />
+            <MobileProfilePhoto />
 
             <ContentContainer>
               I am a first-year Ph.D. student in{" "}
@@ -95,8 +96,8 @@ const MainPage = () => {
                 <Tag>Generative Interfaces</Tag>
               </div>
               <br />
-              Outside research, I love documenting myself in creative ways.
-              Find me on Instagram{" "}
+              Outside research, I love documenting myself in creative ways. Find
+              me on Instagram{" "}
               <Underline
                 text="@hia.some"
                 link="https://www.instagram.com/hia.some/"
@@ -107,23 +108,25 @@ const MainPage = () => {
         </div>
       </Section>
 
-      <Section sectionTitle="Updates" id="updates" gap={0} align="left">
-        <NewsContainer>
-          {(newsExpanded ? news : news.slice(0, 2)).map((el, index) => (
-            <NewsItem
-              key={`news-${index}`}
-              icon={el.icon}
-              line={el.line}
-              date={el.date}
-            />
-          ))}
-          {news.length > 2 && (
-            <ExpandButton onClick={() => setNewsExpanded(!newsExpanded)}>
-              {newsExpanded ? "See Less −" : "See All +"}
-            </ExpandButton>
-          )}
-        </NewsContainer>
-      </Section>
+      <MobileOnly>
+        <Section sectionTitle="Updates" id="updates" gap={0} align="left">
+          <NewsContainer>
+            {(newsExpanded ? news : news.slice(0, 2)).map((el, index) => (
+              <NewsItem
+                key={`news-${index}`}
+                icon={el.icon}
+                line={el.line}
+                date={el.date}
+              />
+            ))}
+            {news.length > 2 && (
+              <ExpandButton onClick={() => setNewsExpanded(!newsExpanded)}>
+                {newsExpanded ? "See Less −" : "See All +"}
+              </ExpandButton>
+            )}
+          </NewsContainer>
+        </Section>
+      </MobileOnly>
 
       {/* Publications and Updates Side by Side */}
       <Section
@@ -256,6 +259,16 @@ const ContentContainer = styled.div`
   /* font-size: 14px; */
 `;
 
+// Updates live in the sidebar on desktop
+const MobileOnly = styled.div`
+  display: none;
+  width: 100%;
+
+  @media (width <= 1024px) {
+    display: block;
+  }
+`;
+
 const NewsContainer = styled.div`
   width: 100%;
   display: flex;
@@ -283,16 +296,11 @@ const ExpandButton = styled.div`
   }
 `;
 
-const ProfileImage = styled.img`
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+const MobileProfilePhoto = styled(ProfilePhoto)`
   display: none;
 
   @media (width <= 1024px) {
     display: block;
-    align-self: center;
     max-height: 50vh;
     margin-bottom: 24px;
   }
@@ -427,6 +435,11 @@ const PubItemContainer = styled.div`
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media (width <= 768px) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const PubInfoContainer = styled.div`
@@ -449,10 +462,9 @@ const PubTitle = styled.div`
   text-align: left;
 
   &:hover {
-    font-weight: 500;
-    /* text-decoration: underline;
-    text-decoration-style: solid; */
-    text-shadow: 2px 2px 8px rgba(0, 169, 234, 0.3);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 `;
 
@@ -462,6 +474,12 @@ const HorizontalImage = styled.div`
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
+
+  @media (width <= 768px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
 `;
 
 const ConferenceBadge = styled.div`
