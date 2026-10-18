@@ -4,8 +4,7 @@ import projects from "@assets/strings/projects";
 import Tag from "@components/Tag";
 import Section from "@components/Section";
 import PageContainer from "@components/PageContainer";
-// Banner is on hold; uncomment to bring it back
-// import DoodleBanner from "@components/DoodleBanner";
+import DoodleBanner from "@components/DoodleBanner";
 import { useState } from "react";
 
 const ProjectsPage = () => {
@@ -19,7 +18,7 @@ const ProjectsPage = () => {
           The projects here mainly focus on interaction design. They come from
           my research, coursework, and personal explorations-for fun!
         </ContentContainer> */}
-        {/* <DoodleBanner /> */}
+        <DoodleBanner />
         <FilterContainer>
           <FilterButton
             active={activeFilter === "All"}
