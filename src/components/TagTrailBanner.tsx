@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
-import { colors } from "utils/styles";
 
 const WORDS = ["design", "hci", "ai", "human", "gen-ui"];
 // Background / text pairs
@@ -85,9 +84,7 @@ const Field = styled.div`
   width: 100%;
   height: 150px;
   overflow: hidden;
-  background: #ffffff;
-  border: 1px dotted ${colors.gray};
-  box-sizing: border-box;
+  background: #f9f9f9;
   touch-action: pan-y;
 
   .trail-tag {
