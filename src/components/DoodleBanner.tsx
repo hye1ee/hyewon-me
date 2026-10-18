@@ -3,28 +3,19 @@ import styled from "styled-components";
 
 const CELL = 12; // grid size in CSS px
 const BG = "#2a2a2a"; // charcoal
-const COLORS = [
-  "#ffe14d",
-  "#ffc21a",
-  "#ff9a1f",
-  "#ff6a1f",
-  "#4caf50",
-  "#b8e04a",
-  "#fbf6e6",
-];
-// Cool theme that cells switch to when the cursor touches them
+const COLORS = ["#ffe14d", "#ff9a1f", "#4caf50", "#fbf6e6"];
+// Grays that cells switch to when the cursor touches them
 const TOUCH_COLORS = [
-  "#3d6bff",
-  "#7aa2ff",
-  "#9b6bff",
-  "#c9a8ff",
-  "#ff5fa2",
-  "#5fd3ff",
+  "#ffffff",
+  "#e6e6e6",
+  "#cccccc",
+  "#b3b3b3",
+  "#999999",
+  "#808080",
 ];
 const SHAPES = [
   "circle",
   "square",
-  "plus",
   "ring",
   "vstripes",
   "hstripes",
@@ -40,7 +31,7 @@ type Cell = {
   life: number;
 };
 
-const GROW_MS = 350;
+const GROW_MS = 600;
 const pick = <T,>(list: readonly T[]) =>
   list[Math.floor(Math.random() * list.length)];
 
@@ -77,7 +68,7 @@ const DoodleBanner = () => {
         color,
         accent,
         born: now - age,
-        life: 2500 + Math.random() * 5000,
+        life: 6000 + Math.random() * 6000,
       };
     };
 
@@ -113,12 +104,6 @@ const DoodleBanner = () => {
         case "square":
           ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
           break;
-        case "plus": {
-          const w = r * 0.5;
-          ctx.fillRect(cx - w / 2, cy - r, w, r * 2);
-          ctx.fillRect(cx - r, cy - w / 2, r * 2, w);
-          break;
-        }
         case "ring":
           ctx.beginPath();
           ctx.arc(cx, cy, r * 0.95, 0, Math.PI * 2);
@@ -187,7 +172,7 @@ const DoodleBanner = () => {
         // Scale attempts with elapsed time so slow frames still refill
         const attempts = Math.min(
           400,
-          Math.round(((now - lastSpawn) / 40) * 6),
+          Math.round(((now - lastSpawn) / 40) * 3),
         );
         lastSpawn = now;
         for (let k = 0; k < attempts; k++) {
@@ -204,7 +189,7 @@ const DoodleBanner = () => {
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(canvas);
 
-    // Cells near the cursor switch to the cool theme (empty ones sprout a shape)
+    // Cells near the cursor turn gray (empty ones sprout a shape)
     let lastCell = -1;
     const onMove = (e: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
