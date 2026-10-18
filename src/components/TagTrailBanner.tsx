@@ -74,11 +74,10 @@ const TagTrailBanner = () => {
 
 export default TagTrailBanner;
 
-const popAndFade = keyframes`
+// Pops in, then simply vanishes when the tag is removed
+const popIn = keyframes`
   0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
-  12% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  70% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 `;
 
 const Field = styled.div`
@@ -100,6 +99,7 @@ const Field = styled.div`
     line-height: 1.3;
     white-space: nowrap;
     pointer-events: none;
-    animation: ${popAndFade} ${LIFE_MS}ms ease-out forwards;
+    transform: translate(-50%, -50%);
+    animation: ${popIn} 160ms ease-out;
   }
 `;
