@@ -2,15 +2,16 @@ import { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { colors } from "utils/styles";
 
-const WORDS = ["boo!", "trick", "treat", "pumpkin", "ghost", "spooky"];
+const WORDS = ["design", "hci", "ai", "human", "gen-ui"];
 // Background / text pairs
-// Halloween palette
+// Halloween palette, white text
 const STYLES: [string, string][] = [
-  ["#ff7a00", "#111111"],
-  ["#111111", "#ff7a00"],
+  ["#ff7a00", "#ffffff"],
   ["#6b2fa0", "#ffffff"],
-  ["#9be22d", "#111111"],
+  ["#3f8f2a", "#ffffff"],
 ];
+// Every so often a "boo!" sneaks into the trail
+const BOO_CHANCE = 0.06;
 const SPACING = 26; // px the cursor travels between tags
 const LIFE_MS = 1400; // how long a tag stays before it's gone
 
@@ -25,11 +26,18 @@ const TagTrailBanner = () => {
     let word = 0;
 
     const drop = (x: number, y: number) => {
-      const [bg, fg] = STYLES[Math.floor(Math.random() * STYLES.length)];
+      const boo = Math.random() < BOO_CHANCE;
+      const [bg, fg] = boo
+        ? ["#111111", "#ff7a00"]
+        : STYLES[Math.floor(Math.random() * STYLES.length)];
       const tag = document.createElement("span");
       tag.className = "trail-tag";
-      tag.textContent = WORDS[word];
-      word = (word + 1) % WORDS.length;
+      if (boo) {
+        tag.textContent = "boo!";
+      } else {
+        tag.textContent = WORDS[word];
+        word = (word + 1) % WORDS.length;
+      }
       tag.style.left = `${x}px`;
       tag.style.top = `${y}px`;
       tag.style.background = bg;
