@@ -5,8 +5,8 @@ const WORDS = ["design", "hci", "ai", "human", "gen-ui"];
 // Winter palette: background / text pairs
 const STYLES: [string, string][] = [
   ["#e3e6ea", "#3a3f45"], // pale gray
-  ["#d6ff3a", "#1b1f24"], // neon
-  ["#7cc6ff", "#ffffff"], // sky blue
+  ["#e8ff8a", "#1b1f24"], // soft neon
+  ["#a6e3ec", "#1b1f24"], // minty sky blue
 ];
 const SPACING = 26; // px the cursor travels between tags
 const LIFE_MS = 1400; // how long a tag stays before it's gone
