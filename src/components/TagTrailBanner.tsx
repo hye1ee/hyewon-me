@@ -2,19 +2,16 @@ import { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 
 const WORDS = ["design", "hci", "ai", "human", "gen-ui"];
-// Background / text pairs
-// Halloween palette, white text
+// Winter palette: background / text pairs
 const STYLES: [string, string][] = [
-  ["#ff7a00", "#ffffff"],
-  ["#6b2fa0", "#ffffff"],
-  ["#3f8f2a", "#ffffff"],
+  ["#e3e6ea", "#3a3f45"], // pale gray
+  ["#d6ff3a", "#1b1f24"], // neon
+  ["#7cc6ff", "#ffffff"], // sky blue
 ];
-// Every so often a "boo!" sneaks into the trail
-const BOO_CHANCE = 0.06;
 const SPACING = 26; // px the cursor travels between tags
 const LIFE_MS = 1400; // how long a tag stays before it's gone
 
-// White field where the cursor leaves a trail of keyword tags that fade away
+// Light field where the cursor leaves a trail of keyword tags
 const TagTrailBanner = () => {
   const fieldRef = useRef<HTMLDivElement>(null);
 
@@ -25,18 +22,11 @@ const TagTrailBanner = () => {
     let word = 0;
 
     const drop = (x: number, y: number) => {
-      const boo = Math.random() < BOO_CHANCE;
-      const [bg, fg] = boo
-        ? ["#111111", "#ff7a00"]
-        : STYLES[Math.floor(Math.random() * STYLES.length)];
+      const [bg, fg] = STYLES[Math.floor(Math.random() * STYLES.length)];
       const tag = document.createElement("span");
       tag.className = "trail-tag";
-      if (boo) {
-        tag.textContent = "boo!";
-      } else {
-        tag.textContent = WORDS[word];
-        word = (word + 1) % WORDS.length;
-      }
+      tag.textContent = WORDS[word];
+      word = (word + 1) % WORDS.length;
       tag.style.left = `${x}px`;
       tag.style.top = `${y}px`;
       tag.style.background = bg;

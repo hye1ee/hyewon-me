@@ -7,6 +7,7 @@ export const newsIcons: { [key: string]: string } = {
 }
 
 export const news = [
+  { icon: "conference", line: "Heading to UIST 2026 in Detroit, appearing at the workshop and poster!", date: "Nov 2026" },
   { icon: "school", line: "Started my Ph.D. in Computer Science at Purdue University 🇺🇸", date: "Aug 2026" },
   { icon: "paper", line: "Two posters have been accepted at UIST Adjunct 2026 📋", date: "Aug 2026" },
   { icon: "school", line: "Selected for the Korean Government Scholarship Program for Study Overseas (KGSPSO) 🇰🇷", date: "Aug 2026" },
