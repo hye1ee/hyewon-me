@@ -7,33 +7,88 @@ const blocks: ProjectContentBlock[] = [
   {
     type: "text",
     content:
-      "The design process is commonly understood as an iterative cycle of ideation, implementation, and evaluation. While prior research in AI-supported design has extensively explored AI assistance during ideation and evaluation, support for the implementation stage, where designers refine and develop their ideas into meaningful outcomes, remains underexplored. Recent MCP-based tool-calling agents enable task delegation through textual prompts but burden designers with deciding when and how to invoke the agent, and tend to automate implementation in a single step, overlooking the ongoing reflection during this stage. In this work, we present Hangulo, an AI-supported Korean lettering tool, to demonstrate that effective AI support for implementation need not require designers to explicitly control every action nor automate the entire process at once. Instead, such support can be designed to gradually augment designers' evolving inspirations within their existing workflows, preserving opportunities for micro-level reflection throughout implementation.",
+      "Design typically unfolds as an iterative cycle of ideation, implementation, and evaluation. Prior work has extensively explored AI support for ideation and evaluation, leaving implementation, where designers turn raw ideas into outcomes, comparatively underexplored. Many design agents today generate outcomes in a single pass from a text prompt, yet implementation rarely happens in one step. It unfolds through many micro-actions, each involving its own reflection-in-action, and collapsing it into a single upfront specification leaves little room for this reflection. With Hangulo, a Korean lettering tool featuring workflow-embedded agents, we explore how AI can augment designers' in-progress edits at the level of micro-actions, so that designers retain moment-to-moment reflection while still benefiting from automation.",
   },
-
   {
     type: "image",
-    src: "/projects/hangulo-1.png",
-    caption: "Hangulo's interface: (A) Vector canvas displaying the Korean word '말달리자', (B) Vector operation panel with six standard tools and (B*) two sketching tools, (C) Syllable layers of the target lettering word where the letter '말' is active, (D) Phoneme layers showing all vowels and consonants of the active syllable layer: 'ㅁ', 'ㅏ', 'ㄹ', (E) Style Spread agent, (F) Sketch Apply agent.",
+    src: "/projects/hangulo-interface.png",
+    caption:
+      "Interface of Hangulo: a vector canvas with standard and sketching tools, syllable and phoneme layers of the target word, and the Style Spread and Sketch Apply agents invoked from the characters at the bottom of the canvas.",
   },
   {
     type: "text",
     content:
-      "Through research with Korean lettering practitioners (N=8), We identified two key challenges: designers struggle to extend stylistic ideas across structurally different letters while maintaining visual coherence, and modifying vectorized letterforms is tedious, discouraging experimentation. These insights informed the design of a system that optimizes cumbersome vector manipulation while preserving opportunities for creative exploration through gradual augmentation rather than full automation.",
+      "We ground this exploration in Korean lettering, a domain with strong structural constraints and rich expressive possibilities. Hangul's 19 consonants and 21 vowels all derive from 5 basic consonant forms and 3 basic vowel forms, assembling into 6 compositional block structures. This shared, decomposable structure breaks lettering work into smaller, organically related units: a single stroke, a phoneme, a syllable. Through reviewing lettering communities and tutorials, a survey with practitioners (N=8), and validation with a professional designer, we identified two pain points: extending a stylistic idea to structurally different phonemes while balancing consistency and variation (e.g., a style for 'ㅅ' extends easily to 'ㅈ', sharing its triangular form, but not to 'ㅁ'), and cumbersome editing of vectorized letterforms that discourages exploring small variations. These shaped two design goals: reduce tedious vector manipulation, and preserve micro-level reflection by augmenting emerging ideas rather than replacing designers' decision-making.",
   },
   {
     type: "image",
-    src: "/projects/hangulo-2.png",
-    caption: "Overview of the compositional structure of Hangul. Five basic consonant forms and three basic vowel forms act as visual primitives. These primitives expand into 21 consonants and 19 vowels. The resulting consonant and vowel elements are then arranged within six compositional layouts to form complete Hangul syllable blocks.",
+    src: "/projects/hangulo-loop.png",
+    caption:
+      "Each design move, such as editing a letter or sketching over it, is read by the agent, which infers its intent and augments the idea; the designer then reviews and adjusts, and the next move starts the loop again.",
   },
   {
     type: "text",
     content:
-      "Hangulo integrates AI assistance into Korean lettering workflows through two core features. Style Spread analyzes stylistic changes made to a single letter and intelligently propagates them across other letters with similar structural forms, generating a reviewable plan that explains how each letter will adapt. Sketch Apply interprets designers' rough sketches—whether outline shapes or stroke skeleton deformations—and generates multiple vector adaptations, enabling quick exploration of stylistic ideas. Together, these features support gradual idea development during implementation, allowing designers to maintain creative control while reducing tedious manual work.",
+      "Hangulo is a web-based vector editing application built with Paper.js, featuring six standard vector operations and two sketching operations. Once a designer inputs the target word, the system constructs a layer for each syllable and phoneme, starting from an empty canvas or an imported base font or SVG file. The two agent features use Claude Haiku for interpretation and planning and Claude Sonnet for execution.",
+  },
+  {
+    type: "text",
+    content: (
+      <>
+        <strong>Style Spread</strong> propagates a style edit to structurally
+        related letters rather than treating each letter in isolation. When a
+        designer modifies a consonant or vowel, the pre- and post-edit path
+        data enter the agent pipeline. The edit interpretation module infers
+        the designer's intention, and the form similarity computation module
+        measures how close each candidate jamo is to the edited one, using an
+        annotated Hangul jamo dataset that groups all consonants and vowels
+        into nine form groups and encodes 18 form-level features. Designers
+        select the propagation range from these similarity scores, review the
+        plan the agent drafts for each letter, and selectively import the
+        generated results into the canvas.
+      </>
+    ),
   },
   {
     type: "image",
-    src: "/projects/hangulo-3.png",
-    caption: "Two core AI features of Hangulo: (A) Style Spread, (B) Sketch Apply with skeleton sketch using Marker tool, (C) Sketch Apply with outline sketch using Pencil tool.",
+    src: "/projects/hangulo-spread-pipeline.webp",
+    caption: "Agent pipeline of Style Spread.",
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-spread-steps.png",
+    caption:
+      "Style Spread in four steps: review the style change, select the propagation scope, review the propagation plan, and apply it to new letters.",
+  },
+  {
+    type: "text",
+    content: (
+      <>
+        <strong>Sketch Apply</strong> lets designers communicate raw stylistic
+        intentions through informal sketches. Our formative interviews
+        identified two recurring sketch types in letter design: skeleton
+        sketches, expressing how a stroke's axis should change (e.g., bend,
+        wave, tilt), and outline sketches, expressing how a stroke's form
+        should be shaped (e.g., adding decoration or an expressive cap).
+        Designers draw them directly over a letter with the Marker and Pencil
+        tools. The sketch interpretation module infers the intended
+        transformation, and the execution module generates candidate vectors
+        reflecting distinct readings of the sketch, from which designers
+        select one to import.
+      </>
+    ),
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-sketch-pipeline.png",
+    caption:
+      "Agent pipeline of Sketch Apply with (A) skeleton and (B) outline sketches.",
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-sketch-steps.png",
+    caption:
+      "Sketch Apply with a skeleton sketch (left) and an outline sketch (right): review the guide sketch, then pick an edited result to import.",
   },
   {
     type: "youtube",
@@ -56,7 +111,7 @@ const HanguloProject = () => {
     <ProjectTemplate
       sectionTitle="Project"
       id="hangulo"
-      title="Hangulo: An AI-Assisted Vector Editing Tool for Korean Lettering"
+      title="Hangulo: Demonstrating Workflow-Embedded AI Support for Korean Lettering Implementation"
       projectPeriod="Mar 2025 - Dec 2025"
       role="Research Lead"
       links={[
