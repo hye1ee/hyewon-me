@@ -115,6 +115,11 @@ const blocks: ProjectContentBlock[] = [
   },
   {
     type: "youtube",
+    url: "https://youtu.be/7XE7InohJxI",
+    caption: "Demo of Hangulo",
+  },
+  {
+    type: "youtube",
     url: "https://youtu.be/sW_P90Yxvqw",
     caption: "Please use English subtitles",
   },
@@ -125,7 +130,7 @@ const blocks: ProjectContentBlock[] = [
   {
     type: "text",
     content:
-      "Hangulo was presented at the 2025 KAIST Industrial Design Exhibition at Nodeul Gallery in Seoul from December 13 to 20, demonstrating the potential of AI agents to augment traditional lettering workflows. Following evaluations by professional designers, a publication is planned to discuss the effects of using workflow-friendly artifacts in AI collaboration, compared to traditional text-based prompts, and to examine how this approach can reshape Korean lettering design workflows.",
+      "Hangulo was presented at the 2025 KAIST Industrial Design Exhibition at Nodeul Gallery in Seoul from December 13 to 20, demonstrating the potential of AI agents to augment traditional lettering workflows. Hangulo will also appear at the UIST 2026 poster session in Detroit.",
   },
 ];
 
