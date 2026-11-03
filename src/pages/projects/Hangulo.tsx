@@ -62,6 +62,26 @@ const blocks: ProjectContentBlock[] = [
   },
   {
     type: "text",
+    content:
+      "To let the agent reason about shared geometric characteristics across letters, each jamo in the annotated Hangul jamo dataset is described with a set of primitive form features (e.g., double-corner, diagonal-line, upper-tick) and assigned to one of nine form groups (e.g., square-group, circular-group, vertical-line-group). The structural similarity between the edited jamo t and a candidate jamo c is scored by adding 2 when they belong to the same form group, subtracting 1 when one is a consonant and the other a vowel, and adding 1 for every form feature they share. Higher scores rank candidates as stronger propagation targets.",
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-similarity-score.png",
+    caption: "Structural similarity score between a target jamo t and a candidate jamo c.",
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-form-features.png",
+    caption: "Primitive form features used to describe Hangul jamo shapes.",
+  },
+  {
+    type: "image",
+    src: "/projects/hangulo-form-groups.png",
+    caption: "Grouping of Hangul jamo based on shared form characteristics.",
+  },
+  {
+    type: "text",
     content: (
       <>
         <strong>Sketch Apply</strong> lets designers communicate raw stylistic
@@ -124,6 +144,11 @@ const HanguloProject = () => {
           icon: "/icon/pdf.svg",
           href: getLocalUrl("/pdf/hangulo.pdf"),
           text: "Preprint",
+        },
+        {
+          icon: "/icon/pdf.svg",
+          href: getLocalUrl("/pdf/hangulo-appendix.pdf"),
+          text: "Appendix",
         },
       ]}
       members={["Hyewon Lee", "Tak Yeon Lee"]}
