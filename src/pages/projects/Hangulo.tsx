@@ -23,6 +23,7 @@ const blocks: ProjectContentBlock[] = [
   {
     type: "image",
     src: "/projects/hangulo-loop.png",
+    scale: 0.8,
     caption:
       "Each design move, such as editing a letter or sketching over it, is read by the agent, which infers its intent and augments the idea; the designer then reviews and adjusts, and the next move starts the loop again.",
   },
@@ -73,11 +74,13 @@ const blocks: ProjectContentBlock[] = [
   {
     type: "image",
     src: "/projects/hangulo-form-features.png",
+    scale: 0.8,
     caption: "Primitive form features used to describe Hangul jamo shapes.",
   },
   {
     type: "image",
     src: "/projects/hangulo-form-groups.png",
+    scale: 0.8,
     caption: "Grouping of Hangul jamo based on shared form characteristics.",
   },
   {

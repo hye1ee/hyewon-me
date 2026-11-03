@@ -26,6 +26,7 @@ type ProjectImageBlock = {
   src: string;
   alt?: string;
   caption?: string;
+  scale?: number; // fraction of the content width, centered
 };
 
 type ProjectYoutubeBlock = {
@@ -152,7 +153,15 @@ const ProjectTemplate = ({
               case "image":
                 return (
                   <MediaBlock key={`image-${index}`}>
-                    <ProjectImage src={block.src} alt={block.alt ?? title} />
+                    <ProjectImage
+                      src={block.src}
+                      alt={block.alt ?? title}
+                      style={
+                        block.scale
+                          ? { width: `${block.scale * 100}%`, alignSelf: "center" }
+                          : undefined
+                      }
+                    />
                     {block.caption && (
                       <ImageCaption>{block.caption}</ImageCaption>
                     )}
