@@ -156,11 +156,7 @@ const ProjectTemplate = ({
                     <ProjectImage
                       src={block.src}
                       alt={block.alt ?? title}
-                      style={
-                        block.scale
-                          ? { width: `${block.scale * 100}%`, alignSelf: "center" }
-                          : undefined
-                      }
+                      $scale={block.scale}
                     />
                     {block.caption && (
                       <ImageCaption>{block.caption}</ImageCaption>
@@ -277,11 +273,17 @@ const MediaBlock = styled.div`
   gap: 12px;
 `;
 
-const ProjectImage = styled.img`
-  width: 100%;
+const ProjectImage = styled.img<{ $scale?: number }>`
+  width: ${(props) => (props.$scale ?? 1) * 100}%;
+  align-self: center;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
+
+  // Scaled-down figures go back to full width on small screens
+  @media (width <= 768px) {
+    width: 100%;
+  }
 `;
 
 const ImageCaption = styled.div`
